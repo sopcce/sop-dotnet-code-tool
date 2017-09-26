@@ -19,7 +19,7 @@ namespace CodeTool.App_Code
             return objCache[CacheKey];
         }
         /// <summary>
-        /// 设置数据缓存
+        /// 设置数据缓存 
         /// </summary>
         public static void SetCache(string CacheKey, object objObject)
         {

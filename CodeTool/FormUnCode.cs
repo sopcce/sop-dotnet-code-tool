@@ -18,9 +18,6 @@ namespace CodeTool
         {
             InitializeComponent();
         }
-
-
-
         private void btnStringBuilder1_Click(object sender, EventArgs e)
         {
             try

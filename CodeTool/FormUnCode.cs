@@ -36,11 +36,19 @@ namespace CodeTool
 
         private void btnCleanRN_Click(object sender, EventArgs e)
         {
-            string text = richTextBoxBefore.Text;
-            text = text.Replace(Environment.NewLine, "");
-            text = text.Replace("\n", "");
-            text = text.Replace("\r", "");
-            richTextBoxAfter.Text = text.Trim();
+            try
+            {
+                string text = richTextBoxBefore.Text;
+                text = text.Replace(Environment.NewLine, "");
+                text = text.Replace("\n", "");
+                text = text.Replace("\r", "");
+                richTextBoxAfter.Text = text.Trim();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("错误信息：" + ex.Message);
+            }
+           
         }
 
         private void btnClearSpChar_Click(object sender, EventArgs e)

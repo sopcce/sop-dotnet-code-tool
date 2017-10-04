@@ -23,15 +23,23 @@ namespace CodeTool
 
         private void btnStringBuilder1_Click(object sender, EventArgs e)
         {
-            string result = string.Empty;
-            string[] lines = richTextBoxBefore.Lines;
-            for (int i = 0; i < lines.Length; i++)
+            try
             {
+                string result = string.Empty;
+                string[] lines = richTextBoxBefore.Lines;
+                for (int i = 0; i < lines.Length; i++)
+                {
 
-                string line = lines[i];
-                result = result + "sb.AppendLine(\" " + line.Replace("\"", string.Format("\\{0}", "\"")) + "\"); \n";
+                    string line = lines[i];
+                    result = result + "sb.AppendLine(\" " + line.Replace("\"", string.Format("\\{0}", "\"")) + "\"); \n";
+                }
+                richTextBoxAfter.Text = result;
             }
-            richTextBoxAfter.Text = result;
+            catch (Exception ex)
+            {
+                MessageBox.Show("错误信息："+ ex.Message);
+            }
+           
         }
 
         private void btnCleanRN_Click(object sender, EventArgs e)

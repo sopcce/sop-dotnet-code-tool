@@ -22,6 +22,14 @@ namespace CodeTool
         }
         private void btnOpen_Load(object sender, EventArgs e)
         {
+            comboBox_Connstring.Items.Add(ConnectionString);
+            comboBox_Connstring.Items.AddRange(new object[] {
+                "Data Source=.;Initial Catalog=test_528;User ID=sa;Password=sa123.",
+                "server=.;uid=Sa;pwd=sa123.;database=Sop;",
+                "server=qds144267549.my3w.com;database=qds144267549_db;uid=qds144267549;pwd=123456" +
+                "78"});
+           
+
             OpenDbDao(ConnectionString, "");
         }
         /// <summary>
@@ -34,7 +42,7 @@ namespace CodeTool
             ConnectionString = comboBox_Connstring.Text.Trim();
             OpenDbDao(ConnectionString, "");
         }
-     
+
         /// <summary>
         /// 
         /// </summary>
@@ -51,7 +59,7 @@ namespace CodeTool
             richTextBox_code.Text = CommonHelper.CreateSelectProc(tableName);
 
         }
-   
+
 
 
         public bool OpenDbDao(string connectionString, string providerName = "", string dbType = "U")
@@ -71,7 +79,7 @@ namespace CodeTool
                 comboBox_dbType.Items.Clear();
                 comboBox_dbType.Items.Add("请选择表");
                 comboBox_dbType.SelectedIndex = 0;
-                
+
                 if (dbInfo.Any())
                 {
                     foreach (var item in dbInfo)

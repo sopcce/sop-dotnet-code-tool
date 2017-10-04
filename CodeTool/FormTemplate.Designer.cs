@@ -50,19 +50,21 @@
             "System.Data.SqlLite",
             "System.Data.OracleClient",
             "MySql.Data.MySqlClien"});
-            this.comboBox_providerName.Location = new System.Drawing.Point(183, 38);
+            this.comboBox_providerName.Location = new System.Drawing.Point(366, 76);
+            this.comboBox_providerName.Margin = new System.Windows.Forms.Padding(6);
             this.comboBox_providerName.Name = "comboBox_providerName";
-            this.comboBox_providerName.Size = new System.Drawing.Size(149, 20);
+            this.comboBox_providerName.Size = new System.Drawing.Size(294, 32);
             this.comboBox_providerName.TabIndex = 0;
             this.comboBox_providerName.Text = "System.Data.SqlClient";
             // 
             // btnOpenDB
             // 
-            this.btnOpenDB.Location = new System.Drawing.Point(15, 57);
+            this.btnOpenDB.Location = new System.Drawing.Point(30, 114);
+            this.btnOpenDB.Margin = new System.Windows.Forms.Padding(6);
             this.btnOpenDB.Name = "btnOpenDB";
-            this.btnOpenDB.Size = new System.Drawing.Size(145, 35);
+            this.btnOpenDB.Size = new System.Drawing.Size(290, 70);
             this.btnOpenDB.TabIndex = 1;
-            this.btnOpenDB.Text = "链接数据库";
+            this.btnOpenDB.Text = "连接数据库";
             this.btnOpenDB.UseVisualStyleBackColor = true;
             this.btnOpenDB.Click += new System.EventHandler(this.btnOpenDB_Click);
             // 
@@ -70,9 +72,10 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Bold);
-            this.label1.Location = new System.Drawing.Point(0, 12);
+            this.label1.Location = new System.Drawing.Point(0, 24);
+            this.label1.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(178, 16);
+            this.label1.Size = new System.Drawing.Size(337, 33);
             this.label1.TabIndex = 2;
             this.label1.Text = "ConnectionStrings：";
             // 
@@ -80,9 +83,10 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Bold);
-            this.label2.Location = new System.Drawing.Point(45, 36);
+            this.label2.Location = new System.Drawing.Point(90, 72);
+            this.label2.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(133, 16);
+            this.label2.Size = new System.Drawing.Size(252, 33);
             this.label2.TabIndex = 2;
             this.label2.Text = "ProviderName：";
             // 
@@ -91,18 +95,20 @@
             this.comboBox_dbType.FormattingEnabled = true;
             this.comboBox_dbType.Items.AddRange(new object[] {
             "System.Data.SqlClient"});
-            this.comboBox_dbType.Location = new System.Drawing.Point(443, 36);
+            this.comboBox_dbType.Location = new System.Drawing.Point(868, 73);
+            this.comboBox_dbType.Margin = new System.Windows.Forms.Padding(6);
             this.comboBox_dbType.Name = "comboBox_dbType";
-            this.comboBox_dbType.Size = new System.Drawing.Size(149, 20);
+            this.comboBox_dbType.Size = new System.Drawing.Size(294, 32);
             this.comboBox_dbType.TabIndex = 0;
             // 
             // label5
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Bold);
-            this.label5.Location = new System.Drawing.Point(12, 441);
+            this.label5.Location = new System.Drawing.Point(24, 882);
+            this.label5.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(61, 16);
+            this.label5.Size = new System.Drawing.Size(116, 33);
             this.label5.TabIndex = 2;
             this.label5.Text = "Path：";
             // 
@@ -110,17 +116,19 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Bold);
-            this.label7.Location = new System.Drawing.Point(361, 37);
+            this.label7.Location = new System.Drawing.Point(672, 76);
+            this.label7.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(76, 16);
+            this.label7.Size = new System.Drawing.Size(147, 33);
             this.label7.TabIndex = 2;
             this.label7.Text = "数据库：";
             // 
             // btnSelect
             // 
-            this.btnSelect.Location = new System.Drawing.Point(15, 103);
+            this.btnSelect.Location = new System.Drawing.Point(30, 206);
+            this.btnSelect.Margin = new System.Windows.Forms.Padding(6);
             this.btnSelect.Name = "btnSelect";
-            this.btnSelect.Size = new System.Drawing.Size(145, 35);
+            this.btnSelect.Size = new System.Drawing.Size(290, 70);
             this.btnSelect.TabIndex = 1;
             this.btnSelect.Text = "存储过程生成";
             this.btnSelect.UseVisualStyleBackColor = true;
@@ -129,17 +137,19 @@
             // richTextBox_code
             // 
             this.richTextBox_code.AccessibleRole = System.Windows.Forms.AccessibleRole.Sound;
-            this.richTextBox_code.Location = new System.Drawing.Point(183, 65);
+            this.richTextBox_code.Location = new System.Drawing.Point(366, 130);
+            this.richTextBox_code.Margin = new System.Windows.Forms.Padding(6);
             this.richTextBox_code.Name = "richTextBox_code";
-            this.richTextBox_code.Size = new System.Drawing.Size(409, 392);
+            this.richTextBox_code.Size = new System.Drawing.Size(796, 780);
             this.richTextBox_code.TabIndex = 4;
             this.richTextBox_code.Text = "";
             // 
             // btn_model
             // 
-            this.btn_model.Location = new System.Drawing.Point(15, 144);
+            this.btn_model.Location = new System.Drawing.Point(30, 288);
+            this.btn_model.Margin = new System.Windows.Forms.Padding(6);
             this.btn_model.Name = "btn_model";
-            this.btn_model.Size = new System.Drawing.Size(145, 35);
+            this.btn_model.Size = new System.Drawing.Size(290, 70);
             this.btn_model.TabIndex = 1;
             this.btn_model.Text = "Model生成";
             this.btn_model.UseVisualStyleBackColor = true;
@@ -148,20 +158,17 @@
             // comboBox_Connstring
             // 
             this.comboBox_Connstring.FormattingEnabled = true;
-            this.comboBox_Connstring.Items.AddRange(new object[] {
-            "Data Source=.;Initial Catalog=test_528;User ID=sa;Password=sa123.",
-            "server=.;uid=Sa;pwd=sa123.;database=Sop;",
-            "server=.;uid=Sa;pwd=sa123.;database=Sop1;"});
-            this.comboBox_Connstring.Location = new System.Drawing.Point(183, 8);
+            this.comboBox_Connstring.Location = new System.Drawing.Point(366, 16);
+            this.comboBox_Connstring.Margin = new System.Windows.Forms.Padding(6);
             this.comboBox_Connstring.Name = "comboBox_Connstring";
-            this.comboBox_Connstring.Size = new System.Drawing.Size(400, 20);
+            this.comboBox_Connstring.Size = new System.Drawing.Size(796, 32);
             this.comboBox_Connstring.TabIndex = 0;
             // 
             // FormTemplate
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 24F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(603, 478);
+            this.ClientSize = new System.Drawing.Size(1178, 928);
             this.Controls.Add(this.richTextBox_code);
             this.Controls.Add(this.btn_model);
             this.Controls.Add(this.btnSelect);
@@ -174,8 +181,9 @@
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(6);
             this.MinimizeBox = false;
-            this.MinimumSize = new System.Drawing.Size(611, 505);
+            this.MinimumSize = new System.Drawing.Size(1196, 939);
             this.Name = "FormTemplate";
             this.Text = "模板生成工具v0.2";
             this.Load += new System.EventHandler(this.btnOpen_Load);

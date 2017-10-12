@@ -23,12 +23,9 @@ namespace CodeTool
         private void btnOpen_Load(object sender, EventArgs e)
         {
             comboBox_Connstring.Items.Add(ConnectionString);
-            comboBox_Connstring.Items.AddRange(new object[] {
-                "Data Source=.;Initial Catalog=test_528;User ID=sa;Password=sa123.",
-                "server=.;uid=Sa;pwd=sa123.;database=Sop;",
-                "server=qds144267549.my3w.com;database=qds144267549_db;uid=qds144267549;pwd=123456" +
-                "78"});
+            comboBox_Connstring.Items.Add("Data Source=.;Initial Catalog=test_528;User ID=sa;Password=sa123.");
            
+       
 
             OpenDbDao(ConnectionString, "");
         }

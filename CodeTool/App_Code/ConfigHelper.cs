@@ -64,13 +64,15 @@ namespace CodeTool.App_Code
             switch (dbType)
             {
                 case DbType.MySql:
-                    rusult = "show databases ";
+                    rusult = @"select table_name as TableName,TABLE_COMMENT as  TableExplain from information_schema.tables 
+                    where table_schema='test' and table_type='base table';
+ ";
                     break;
                 case DbType.Oracle:
-                    rusult = "select name from v$tablespace";
+                    rusult = "select   name as TableName,id as TableExplain  from user_tables;";
                     break;
                 case DbType.SqlServer:
-                    rusult = "select name from sysdatabases";
+                    rusult = "select name as TableName,id as TableExplain from sysobjects where xtype='U'";
                     break;
             }
             return rusult;

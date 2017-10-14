@@ -131,29 +131,36 @@ namespace CodeTool
                     #endregion
                     break;
                 case Step.SelectDataBase:
+
+                    #region SelectDataBase
                     if (LbDataBases.SelectedItem == null)
                     {
                         MessageBox.Show(@"请选择一个数据库！", "", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                         return;
                     }
-                    _connectionString = _connectionString + "Initial Catalog=" + LbDataBases.SelectedItem + ";";
-                    PlSelectDataBase.Visible = false;
-                    PlSelectDataItem.Visible = true;
+                    _connectionString = _connectionString + "; database=" + LbDataBases.SelectedItem + ";";
+
                     if (_changeDataBase)
                     {
                         ChklSelectDataBaseItems.Items.Clear();
                         _changeDataBase = false;
-                        List<TableInfo> tables;
-                        BindTables(out tables);
-                        if (tables.Any())
+                        List<TableInfo> tableInfos;
+                        if (BindTables(out tableInfos))
                         {
-                            tables.Sort();
-                            ChklSelectDataBaseItems.Items.AddRange(tables.ToArray());
+                            if (tableInfos.Any())
+                            {
+                                foreach (var info in tableInfos)
+                                {
+                                    if (!string.IsNullOrWhiteSpace(info.TableName))
+                                        ChklSelectDataBaseItems.Items.Add(info.TableName + " Explain：" + info.TableExplain);
+                                }
+                            }
+                            PlSelectDataBase.Visible = false;
+                            PlSelectDataItem.Visible = true;
+                            step = Step.SelectTables;
                         }
-
-
-                    }
-                    step = Step.SelectTables;
+                    } 
+                    #endregion
                     break;
                 case Step.SelectTables:
                     if (ChklSelectDataBaseItems.CheckedItems.Count == 0)
@@ -185,13 +192,13 @@ namespace CodeTool
                     }
                     else if (RBtnExportMySql.Checked)
                     {
-                        if (RbtnMsSqlToMySql.Checked)
-                            MsSqlToMySql();
-                        else if (RBtnMySqlToMsSql.Checked)
-                        {
-                            //MySqlToMsSql();
+                        //if (RbtnMsSqlToMySql.Checked)
+                        //    //MsSqlToMySql();
+                        //else if (RBtnMySqlToMsSql.Checked)
+                        //{
+                        //    //MySqlToMsSql();
 
-                        }
+                        //}
                     }
                     break;
                 case Step.Execute:
@@ -269,10 +276,36 @@ namespace CodeTool
         #endregion
 
         #region Method
+        /// <summary>
+        /// 判断链接是否可用
+        /// </summary>
+        /// <param name="errorMessage"></param>
+        /// <returns></returns>
+        public bool CheckConnection(out string errorMessage)
+        {
+            try
+            {
+                errorMessage = string.Empty;
+                PetaPoco.Database db = new PetaPoco.Database(_connectionString, "");
+                db.OpenSharedConnection();
+                if (db.Connection.State != ConnectionState.Open)
+                {
+                    errorMessage = @"数据库未连接,请尝试链接";
+                    return false;
+                }
+                db.CloseSharedConnection();
+                return true;
+            }
+            catch (Exception ex)
+            {
+                errorMessage = ex.Message;
+                return false;
+            }
 
-        #region 验证连接字符串
 
-        #endregion
+
+        }
+        
         /// <summary>
         /// 更新连接设置的启用状态
         /// </summary>
@@ -381,33 +414,7 @@ namespace CodeTool
                 return false;
             }
         }
-        /// <summary>
-        /// 获取数据库中所有表
-        /// </summary>
-        public List<string> GetTables()
-        {
 
-
-            string selectTables = "select name from sysobjects where xtype='u';";
-            using (SqlConnection conn = new SqlConnection(_connectionString))
-            {
-
-                SqlCommand comm = new SqlCommand(selectTables, conn);
-
-                conn.Open();
-                List<string> tables = new List<string>();
-                using (SqlDataReader dr = comm.ExecuteReader(CommandBehavior.CloseConnection))
-                {
-                    while (dr.Read())
-                    {
-                        tables.Add(dr["name"].ToString());
-                    }
-                }
-                conn.Close();
-
-                return tables;
-            }
-        }
 
         private void SetChecked(bool isChecked)
         {
@@ -417,24 +424,8 @@ namespace CodeTool
             }
         }
 
-        //private bool CreatePath()
-        //{
-        //    if (!File.Exists(TxtPath.Text))
-        //    {
-        //        try
-        //        {
-        //            File.Create(TxtPath.Text);
-        //        }
-        //        catch (Exception ex)
-        //        {
-        //            MessageBox.Show(ex.Message, "", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-        //            return false;
-        //        }
-        //    }
-
-        //    return true;
-        //}
-
+        
+         
         #endregion
 
 
@@ -442,35 +433,7 @@ namespace CodeTool
 
 
         #region SqlDataHelper
-        /// <summary>
-        /// 判断链接是否可用
-        /// </summary>
-        /// <param name="errorMessage"></param>
-        /// <returns></returns>
-        public bool CheckConnection(out string errorMessage)
-        {
-            try
-            {
-                errorMessage = string.Empty;
-                PetaPoco.Database db = new PetaPoco.Database(_connectionString, "");
-                db.OpenSharedConnection();
-                if (db.Connection.State != ConnectionState.Open)
-                {
-                    errorMessage = @"数据库未连接,请尝试链接";
-                    return false;
-                }
-                db.CloseSharedConnection();
-                return true;
-            }
-            catch (Exception ex)
-            {
-                errorMessage = ex.Message;
-                return false;
-            }
-
-
-
-        }
+       
 
         /// <summary>
         /// 生成MySql脚本
@@ -668,71 +631,7 @@ namespace CodeTool
             //logWriter.Close();
         }
 
-        /// <summary>
-        /// 将MySql中的数据导入MsSql
-        /// </summary>
-        //private void MySqlToMsSql()
-        //{
-
-        //    if (tables == null)
-        //        return;
-
-        //    BtnPrevious.Visible = false;
-        //    BtnSchemaNext.Text = "完成";
-        //    BtnSchemaNext.Enabled = false;
-
-        //    bool error = false;
-
-        //    if (!File.Exists(logPath))
-        //    {
-        //        File.Create(logPath).Close();
-        //    }
-
-        //    StreamWriter logWriter = new StreamWriter(logPath, false, Encoding.UTF8);
-
-
-        //    //创建一个MySqlConnection对象
-        //    using (SqlConnection conn = new SqlConnection(_connectionString))
-        //    {
-        //        SqlCommand cmd = new SqlCommand();
-        //        cmd.Connection = conn;
-        //        DataTable dt = null;
-
-        //        conn.Open();
-
-        //        Server server = new Server(new ServerConnection(conn));
-        //        Database db = server.Databases[conn.Database];
-
-        //        foreach (var tableName in tables)
-        //        {
-        //            try
-        //            {
-        //                dt = GetDataTable(tableName);
-        //                if (dt == null || dt.Rows.Count == 0)
-        //                    continue;
-
-
-        //                cmd.CommandText = GenerateMsSqlScript(dt, tableName, db.Tables[tableName]);
-
-        //                cmd.ExecuteNonQuery();
-        //            }
-        //            catch (Exception e)
-        //            {
-        //                error = true;
-        //                logWriter.WriteLine(DateTime.Now + " error:" + e.Message + "\r\n");
-        //            }
-
-
-        //            TxtExecMessage.SelectedText = tableName + "\t ok\r\n";
-        //        }
-        //        conn.Close();
-        //    }
-
-        //    TxtExecMessage.SelectedText = error ? "操作完成但有异常产生，请到程序根目录的log.txt文件中查看异常" : "操作完成。";
-        //    BtnPrevious.Visible = true;
-        //    BtnSchemaNext.Enabled = true;
-        //    logWriter.Close();
-        //}
+ 
 
         /// <summary>
         /// 组装Insert语句
@@ -774,74 +673,7 @@ namespace CodeTool
             return sbInsert.ToString();
         }
 
-        /// <summary>
-        /// 组装Insert语句
-        /// </summary>
-        /// <param name="dt"></param>
-        /// <returns></returns>
-        //public string GenerateMsSqlScript(DataTable dt, string tableName, Table table)
-        //{
-        //    string columnNames = string.Empty;
-
-        //    StringBuilder sbInsert = new StringBuilder();
-        //    sbInsert.Append("DELETE FROM " + tableName + ";");
-
-        //    StringBuilder sbColumns = new StringBuilder();
-        //    bool isIdentity = false;
-
-        //    foreach (DataColumn column in dt.Columns)
-        //    {
-        //        if (table.Columns[column.ColumnName].Identity && !isIdentity)
-        //        {
-        //            sbInsert.Append("SET IDENTITY_INSERT " + tableName + " ON;\n\r");
-        //            isIdentity = true;
-        //        }
-        //        sbColumns.Append(column.ColumnName + ",");
-        //    }
-
-        //    sbColumns.Remove(sbColumns.Length - 1, 1);
-        //    string insertModel = "INSERT INTO " + tableName + " (" + sbColumns.ToString() + ") VALUES ({0});\n";
-
-        //    StringBuilder columnValue = new StringBuilder();
-        //    foreach (DataRow row in dt.Rows)
-        //    {
-        //        foreach (var item in row.ItemArray)
-        //        {
-        //            columnValue.Append("'" + item + "',");
-        //        }
-        //        sbInsert.AppendFormat(insertModel, columnValue.ToString().TrimEnd(','));
-        //        columnValue.Clear();
-        //    }
-        //    if (isIdentity)
-        //        sbInsert.Append("SET IDENTITY_INSERT " + tableName + " OFF;\n\r");
-
-        //    return sbInsert.ToString();
-        //}
-
-        /// <summary>
-        /// 从MsSql中获取数据表
-        /// </summary>
-        /// <param name="tableName"></param>
-        /// <returns></returns>
-        public DataTable GetDataTable(string tableName)
-        {
-            //string strSQL = "SELECT * FROM " + tableName;
-
-            //DataSet ds = new DataSet();
-            //if (RbtnMsSqlToMySql.Checked)
-            //{
-            //    SqlDataAdapter da = new SqlDataAdapter(strSQL, _connectionString);
-            //    da.Fill(ds, "TempTable");
-            //    return ds.Tables["TempTable"];
-            //}
-            //else
-            //{
-            //    MySqlDataAdapter da = new MySqlDataAdapter(strSQL, TxtMySqlConnectionString.Text.Trim());
-            //    da.Fill(ds, "TempTable");
-            //    return ds.Tables["TempTable"];
-            //}
-            return null;
-        }
+  
 
         #endregion
 

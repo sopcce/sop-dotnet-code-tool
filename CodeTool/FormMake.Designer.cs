@@ -618,11 +618,11 @@
             this.Controls.Add(this.BtnPrevious);
             this.Controls.Add(this.BtnSchemaNext);
             this.Controls.Add(this.BtnComplete);
-            this.Controls.Add(this.PlSelectDataBase);
             this.Controls.Add(this.PlSelectDataItem);
             this.Controls.Add(this.PlSetOption);
             this.Controls.Add(this.PlExecMessage);
             this.Controls.Add(this.PanelConect);
+            this.Controls.Add(this.PlSelectDataBase);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(6);
             this.Name = "FormMake";

@@ -98,20 +98,20 @@ namespace CodeTool.App_Code
 
             sb.AppendLine("     public class " + tableName);
             sb.AppendLine("     {");
-            foreach (var info in tableInfo)
-            {
-                sb.AppendLine("         /// <summary>");
+            //foreach (var info in tableInfo)
+            //{
+            //    sb.AppendLine("         /// <summary>");
 
-                string text = string.IsNullOrWhiteSpace(info.ColumnExplain) ? info.ColumnName : info.ColumnExplain; 
-                text += string.IsNullOrWhiteSpace(info.ColumnDefaultValue) ? "" : "默认：" + info.ColumnDefaultValue;
+            //    string text = string.IsNullOrWhiteSpace(info.ColumnExplain) ? info.ColumnName : info.ColumnExplain; 
+            //    text += string.IsNullOrWhiteSpace(info.ColumnDefaultValue) ? "" : "默认：" + info.ColumnDefaultValue;
 
-                sb.AppendLine("         /// " + text);
-                sb.AppendLine("         /// </summary>");
-                sb.AppendLine("         public " + SqlTypeToCSharpType(info.ColumnType, info.ColumnIsEmpty) + " " + info.ColumnName + "  {  get ;set; }");
-                sb.AppendLine(" "); 
-            }
-            sb.AppendLine("     }");
-            sb.AppendLine(" }");
+            //    sb.AppendLine("         /// " + text);
+            //    sb.AppendLine("         /// </summary>");
+            //    sb.AppendLine("         public " + SqlTypeToCSharpType(info.ColumnType, info.ColumnIsEmpty) + " " + info.ColumnName + "  {  get ;set; }");
+            //    sb.AppendLine(" "); 
+            //}
+            //sb.AppendLine("     }");
+            //sb.AppendLine(" }");
             return sb.ToString();
         }
          

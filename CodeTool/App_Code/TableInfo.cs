@@ -6,22 +6,10 @@ using System.Text;
 namespace CodeTool.App_Code
 {
     /// <summary>
-    /// 表信息
+    /// 
     /// </summary>
-    public class TableInfo
+    public class ColumnInfo
     {
-        /// <summary>
-        /// 字段序号
-        /// </summary>        
-        public string ID { get; set; }
-        /// <summary>
-        /// 表名
-        /// </summary>
-        public string TableName { get; set; }
-        /// <summary>
-        /// 表说明
-        /// </summary>
-        public string TableExplain { get; set; }
         /// <summary>
         /// 主键
         /// </summary>
@@ -64,8 +52,21 @@ namespace CodeTool.App_Code
         /// 字段小数位数
         /// </summary>
         public string ColumnDecimal { get; set; }
+    }
 
-
+    /// <summary>
+    /// 表信息
+    /// </summary>
+    public class TableInfo
+    {
+        /// <summary>
+        /// 表名
+        /// </summary>
+        public string TableName { get; set; }
+        /// <summary>
+        /// 表说明
+        /// </summary>
+        public string TableExplain { get; set; }
     }
     /// <summary>
     ///数据库的信息
@@ -73,27 +74,16 @@ namespace CodeTool.App_Code
     public class DatabaseInfo
     {
         /// <summary>
-        /// 主键
-        /// </summary>
-        public int ID { get; set; }
-        /// <summary>
         /// 名称
         /// </summary>
         public string Name { get; set; }
-        /// <summary>
-        /// 对象类型。可以是下列值之一
-        /// </summary>
-        public string Type { get; set; }
-
-    
-      
 
     }
 
     /// <summary>
     /// 对象类型。可以是下列值之一
     /// </summary>
-    public class DBType
+    public class DbType123123
     {
         /// <summary>
         ///  C = CHECK 约束 
@@ -136,7 +126,7 @@ namespace CodeTool.App_Code
         /// <summary>
         /// RF = 复制筛选存储过程 
         /// </summary>
-        public string RF = "RF"; 
+        public string RF = "RF";
         /// <summary>
         /// R = 规则  
         /// </summary>
@@ -162,7 +152,7 @@ namespace CodeTool.App_Code
         ///  K = PRIMARY KEY 或 UNIQUE 约束 
         /// </summary>
         public string K = "IF";
-         
+
 
     }
 

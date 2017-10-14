@@ -30,7 +30,9 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormMake));
             this.PanelConect = new System.Windows.Forms.Panel();
+            this.listBox_dbType = new System.Windows.Forms.ListBox();
             this.TxtConnectionString = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.LblConnectionString = new System.Windows.Forms.Label();
             this.GbAuthentication = new System.Windows.Forms.GroupBox();
             this.TxtPassword = new System.Windows.Forms.TextBox();
@@ -71,8 +73,6 @@
             this.FbdSetPath = new System.Windows.Forms.FolderBrowserDialog();
             this.PlExecMessage = new System.Windows.Forms.Panel();
             this.TxtExecMessage = new System.Windows.Forms.TextBox();
-            this.comboBox_dbType = new System.Windows.Forms.ComboBox();
-            this.label1 = new System.Windows.Forms.Label();
             this.PanelConect.SuspendLayout();
             this.GbAuthentication.SuspendLayout();
             this.PlSelectDataBase.SuspendLayout();
@@ -85,7 +85,7 @@
             // PanelConect
             // 
             this.PanelConect.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.PanelConect.Controls.Add(this.comboBox_dbType);
+            this.PanelConect.Controls.Add(this.listBox_dbType);
             this.PanelConect.Controls.Add(this.TxtConnectionString);
             this.PanelConect.Controls.Add(this.label1);
             this.PanelConect.Controls.Add(this.LblConnectionString);
@@ -102,6 +102,19 @@
             this.PanelConect.TabIndex = 0;
             this.PanelConect.TabStop = true;
             // 
+            // listBox_dbType
+            // 
+            this.listBox_dbType.FormattingEnabled = true;
+            this.listBox_dbType.ItemHeight = 33;
+            this.listBox_dbType.Items.AddRange(new object[] {
+            "SqlServer",
+            "MySql",
+            "Oracle"});
+            this.listBox_dbType.Location = new System.Drawing.Point(699, 566);
+            this.listBox_dbType.Name = "listBox_dbType";
+            this.listBox_dbType.Size = new System.Drawing.Size(210, 37);
+            this.listBox_dbType.TabIndex = 7;
+            // 
             // TxtConnectionString
             // 
             this.TxtConnectionString.Enabled = false;
@@ -111,6 +124,17 @@
             this.TxtConnectionString.Name = "TxtConnectionString";
             this.TxtConnectionString.Size = new System.Drawing.Size(947, 118);
             this.TxtConnectionString.TabIndex = 5;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("宋体", 12F);
+            this.label1.Location = new System.Drawing.Point(515, 570);
+            this.label1.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(175, 33);
+            this.label1.TabIndex = 4;
+            this.label1.Text = "数据库类型";
             // 
             // LblConnectionString
             // 
@@ -195,7 +219,7 @@
             this.RBtnSqlAuthentication.Size = new System.Drawing.Size(398, 37);
             this.RBtnSqlAuthentication.TabIndex = 0;
             this.RBtnSqlAuthentication.Tag = "Authentication";
-            this.RBtnSqlAuthentication.Text = "使用Sql Server身份认证";
+            this.RBtnSqlAuthentication.Text = "使用SQL Server身份认证";
             this.RBtnSqlAuthentication.UseVisualStyleBackColor = true;
             this.RBtnSqlAuthentication.CheckedChanged += new System.EventHandler(this.RBtnSqlAuthentication_CheckedChanged);
             // 
@@ -211,7 +235,7 @@
             this.RBtnWinAuthentication.TabIndex = 0;
             this.RBtnWinAuthentication.TabStop = true;
             this.RBtnWinAuthentication.Tag = "Authentication";
-            this.RBtnWinAuthentication.Text = "使用windows身份认证";
+            this.RBtnWinAuthentication.Text = "使用Windows身份认证";
             this.RBtnWinAuthentication.UseVisualStyleBackColor = true;
             this.RBtnWinAuthentication.CheckedChanged += new System.EventHandler(this.RBtnWinAuthentication_CheckedChanged);
             // 
@@ -395,7 +419,7 @@
             this.ChklSelectDataBaseItems.Location = new System.Drawing.Point(76, 82);
             this.ChklSelectDataBaseItems.Margin = new System.Windows.Forms.Padding(6);
             this.ChklSelectDataBaseItems.Name = "ChklSelectDataBaseItems";
-            this.ChklSelectDataBaseItems.Size = new System.Drawing.Size(1012, 574);
+            this.ChklSelectDataBaseItems.Size = new System.Drawing.Size(1012, 550);
             this.ChklSelectDataBaseItems.TabIndex = 0;
             // 
             // BtnSchemaNext
@@ -586,29 +610,6 @@
             this.TxtExecMessage.Size = new System.Drawing.Size(1066, 700);
             this.TxtExecMessage.TabIndex = 0;
             // 
-            // comboBox_dbType
-            // 
-            this.comboBox_dbType.Font = new System.Drawing.Font("宋体", 12F);
-            this.comboBox_dbType.FormattingEnabled = true;
-            this.comboBox_dbType.Items.AddRange(new object[] {
-            "System.Data.SqlClient"});
-            this.comboBox_dbType.Location = new System.Drawing.Point(547, 562);
-            this.comboBox_dbType.Margin = new System.Windows.Forms.Padding(6);
-            this.comboBox_dbType.Name = "comboBox_dbType";
-            this.comboBox_dbType.Size = new System.Drawing.Size(492, 41);
-            this.comboBox_dbType.TabIndex = 6;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("宋体", 12F);
-            this.label1.Location = new System.Drawing.Point(362, 570);
-            this.label1.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(175, 33);
-            this.label1.TabIndex = 4;
-            this.label1.Text = "数据库类型";
-            // 
             // FormMake
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 24F);
@@ -617,11 +618,11 @@
             this.Controls.Add(this.BtnPrevious);
             this.Controls.Add(this.BtnSchemaNext);
             this.Controls.Add(this.BtnComplete);
-            this.Controls.Add(this.PanelConect);
             this.Controls.Add(this.PlSelectDataBase);
             this.Controls.Add(this.PlSelectDataItem);
             this.Controls.Add(this.PlSetOption);
             this.Controls.Add(this.PlExecMessage);
+            this.Controls.Add(this.PanelConect);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(6);
             this.Name = "FormMake";
@@ -689,8 +690,8 @@
         private System.Windows.Forms.RadioButton RBtnMySqlToMsSql;
         private System.Windows.Forms.RadioButton RbtnMsSqlToMySql;
         private System.Windows.Forms.GroupBox GbSetTargetDatBase;
-        private System.Windows.Forms.ComboBox comboBox_dbType;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.ListBox listBox_dbType;
     }
 }
 

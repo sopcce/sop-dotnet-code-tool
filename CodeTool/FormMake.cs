@@ -15,7 +15,11 @@ namespace CodeTool
         /// <summary>
         /// 
         /// </summary>
-        private static string _connectionString= "Data Source=192.168.1.36;Initial Catalog=test_528;User ID=sa;Password=sa123."; //192.168.1.36;
+        private static string _connectionString = "Data Source=192.168.1.36;Initial Catalog=test_528;User ID=sa;Password=sa123.";
+
+        private static string providerName = "";
+
+
         /// <summary>
         /// 设置连接信息
         /// </summary>
@@ -97,6 +101,7 @@ namespace CodeTool
             switch (step)
             {
                 case Step.SetConnection:
+                    #region SetConnection
                     if (!ValidateConnectionString())
                         return;
                     string errorMessage = string.Empty;
@@ -105,18 +110,30 @@ namespace CodeTool
                         MessageBox.Show(errorMessage, "", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                         return;
                     }
-                    step = Step.SelectDataBase;
-                    PanelConect.Visible = false;
-                    PlSelectDataBase.Visible = true;
-                    BtnPrevious.Visible = true;
+                    List<DatabaseInfo> dbInfos;
+                    //清空
                     LbDataBases.Items.Clear();
-
-                    BindDataBase();
+                    if (BindDataBase(out dbInfos))
+                    {
+                        if (dbInfos.Any())
+                        {
+                            foreach (var info in dbInfos)
+                            {
+                                if (!string.IsNullOrWhiteSpace(info.Name))
+                                    LbDataBases.Items.Add(info.Name);
+                            }
+                        }
+                        step = Step.SelectDataBase;
+                        PanelConect.Visible = false;
+                        PlSelectDataBase.Visible = true;
+                        BtnPrevious.Visible = true;
+                    }
+                    #endregion
                     break;
                 case Step.SelectDataBase:
                     if (LbDataBases.SelectedItem == null)
                     {
-                        MessageBox.Show("请选择一个数据库！", "", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                        MessageBox.Show(@"请选择一个数据库！", "", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                         return;
                     }
                     _connectionString = _connectionString + "Initial Catalog=" + LbDataBases.SelectedItem + ";";
@@ -126,7 +143,15 @@ namespace CodeTool
                     {
                         ChklSelectDataBaseItems.Items.Clear();
                         _changeDataBase = false;
-                        BindTables();
+                        List<TableInfo> tables;
+                        BindTables(out tables);
+                        if (tables.Any())
+                        {
+                            tables.Sort();
+                            ChklSelectDataBaseItems.Items.AddRange(tables.ToArray());
+                        }
+
+
                     }
                     step = Step.SelectTables;
                     break;
@@ -246,47 +271,7 @@ namespace CodeTool
         #region Method
 
         #region 验证连接字符串
-        /// <summary>
-        /// 验证连接字符串
-        /// </summary>
-        public bool ValidateConnectionString()
-        {
-            if (TxtServer.Enabled)
-            {
-                if (RBtnWinAuthentication.Checked)
-                {
-                    if (string.IsNullOrEmpty(TxtServer.Text))
-                    {
-                        MessageBox.Show("给定服务器名称无效", "", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                        return false;
-                    }
 
-                    _connectionString = string.Format("Data Source={0};Integrated Security=True;Pooling=true;", TxtServer.Text.Trim());
-                    return true;
-                }
-
-                if (string.IsNullOrEmpty(TxtUserName.Text) || string.IsNullOrEmpty(TxtPassword.Text))
-                {
-                    MessageBox.Show("用户名和密码是必需的", "", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                    return false;
-                }
-
-                _connectionString = string.Format("Data Source={0};User ID={1};Password={2};Trusted_Connection=no; Pooling=true;", TxtServer.Text.Trim(), TxtUserName.Text.Trim(), TxtPassword.Text.Trim());
-
-            }
-            else if (TxtConnectionString.Enabled)
-            {
-                if (string.IsNullOrEmpty(TxtConnectionString.Text))
-                {
-                    MessageBox.Show("给定的连接字符串无效", "", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                    return false;
-                }
-
-                _connectionString = TxtConnectionString.Text.Trim();
-            }
-
-            return true;
-        }
         #endregion
         /// <summary>
         /// 更新连接设置的启用状态
@@ -300,60 +285,127 @@ namespace CodeTool
             this.RBtnWinAuthentication.Enabled = enable;
             this.RBtnSqlAuthentication.Enabled = enable;
             this.TxtConnectionString.Enabled = !enable;
+            this.listBox_dbType.Enabled = !enable;
+
         }
+        /// <summary>
+        /// 验证连接字符串
+        /// </summary>
+        public bool ValidateConnectionString()
+        {
+            if (TxtServer.Enabled)
+            {
+                if (RBtnWinAuthentication.Checked)
+                {
+                    if (string.IsNullOrEmpty(TxtServer.Text))
+                    {
+                        MessageBox.Show(@"给定服务器名称无效", "", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                        return false;
+                    }
 
-        
+                    _connectionString = string.Format(@"Data Source={0};Integrated Security=True;Pooling=true;", TxtServer.Text.Trim());
+                    return true;
+                }
 
+                if (string.IsNullOrEmpty(TxtUserName.Text) || string.IsNullOrEmpty(TxtPassword.Text))
+                {
+                    MessageBox.Show(@"用户名和密码是必需的", "", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    return false;
+                }
+
+                _connectionString = string.Format(@"Data Source={0};User ID={1};Password={2};Trusted_Connection=no; Pooling=true;", TxtServer.Text.Trim(), TxtUserName.Text.Trim(), TxtPassword.Text.Trim());
+
+            }
+            else if (TxtConnectionString.Enabled)
+            {
+                if (string.IsNullOrEmpty(TxtConnectionString.Text))
+                {
+                    MessageBox.Show(@"给定的连接字符串无效", "", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    return false;
+                }
+
+                _connectionString = TxtConnectionString.Text.Trim();
+            }
+
+            return true;
+        }
         /// <summary>
         /// 绑定数据库
         /// </summary>
-        private bool BindDataBase()
+        private bool BindDataBase(out List<DatabaseInfo> dbInfos)
         {
             try
             {
-                PetaPoco.Database db = new PetaPoco.Database(_connectionString, "");
+                providerName = listBox_dbType.Text;
+                PetaPoco.Database db = new PetaPoco.Database(_connectionString, providerName);
                 db.OpenSharedConnection();
                 if (db.Connection.State != ConnectionState.Open)
                 {
+                    dbInfos = null;
                     MessageBox.Show(@"数据库为未连接,请尝试链接");
                     return false;
                 }
-                string sql = "Select id, name, type From SysObjects Where XType = 'U' order by name asc";
-                var dbInfo = db.Query<DatabaseInfo>(sql).ToList();
-                //清空
-                LbDataBases.Items.Clear();
-               
-
-                if (dbInfo.Any())
-                {
-                    foreach (var item in dbInfo)
-                    {
-                        if (!string.IsNullOrWhiteSpace(item.Name))
-                            LbDataBases.Items.Add(item.Name);
-                    }
-                }
                 db.CloseSharedConnection();
+                string sql = ConfigHelper.GetDataBaseInfo(ConfigHelper.GetDbType(providerName));
+                dbInfos = db.Query<DatabaseInfo>(sql).ToList();
                 return true;
 
             }
             catch (Exception ex)
             {
                 MessageBox.Show(@"错误信息：" + ex.Message);
+                dbInfos = null;
                 return false;
             }
-             
+
         }
 
         /// <summary>
         /// 绑定数据表
         /// </summary>
-        private void BindTables()
+        private bool BindTables(out List<TableInfo> tables)
         {
-            List<string> tables = GetTables();
-            if (tables != null)
+            try
             {
-                tables.Sort();
-                ChklSelectDataBaseItems.Items.AddRange(tables.ToArray());
+                PetaPoco.Database db = new PetaPoco.Database(_connectionString, providerName);
+
+                string sql = ConfigHelper.GetTableInfo(ConfigHelper.GetDbType(providerName));
+                tables = db.Query<TableInfo>(sql).ToList();
+                return true;
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(@"错误信息：" + ex.Message);
+                tables = null;
+                return false;
+            }
+        }
+        /// <summary>
+        /// 获取数据库中所有表
+        /// </summary>
+        public List<string> GetTables()
+        {
+
+
+            string selectTables = "select name from sysobjects where xtype='u';";
+            using (SqlConnection conn = new SqlConnection(_connectionString))
+            {
+
+                SqlCommand comm = new SqlCommand(selectTables, conn);
+
+                conn.Open();
+                List<string> tables = new List<string>();
+                using (SqlDataReader dr = comm.ExecuteReader(CommandBehavior.CloseConnection))
+                {
+                    while (dr.Read())
+                    {
+                        tables.Add(dr["name"].ToString());
+                    }
+                }
+                conn.Close();
+
+                return tables;
             }
         }
 
@@ -385,6 +437,10 @@ namespace CodeTool
 
         #endregion
 
+
+
+
+
         #region SqlDataHelper
         /// <summary>
         /// 判断链接是否可用
@@ -413,34 +469,7 @@ namespace CodeTool
             }
 
 
- 
-        }
- 
 
-        /// <summary>
-        /// 获取数据库中所有表
-        /// </summary>
-        public List<string> GetTables()
-        {
-            string selectTables = "select name from sysobjects where xtype='u';";
-            using (SqlConnection conn = new SqlConnection(_connectionString))
-            {
-
-                SqlCommand comm = new SqlCommand(selectTables, conn);
-
-                conn.Open();
-                List<string> tables = new List<string>();
-                using (SqlDataReader dr = comm.ExecuteReader(CommandBehavior.CloseConnection))
-                {
-                    while (dr.Read())
-                    {
-                        tables.Add(dr["name"].ToString());
-                    }
-                }
-                conn.Close();
-
-                return tables;
-            }
         }
 
         /// <summary>
@@ -865,7 +894,12 @@ namespace CodeTool
 
         private void GenerationForm_Load(object sender, EventArgs e)
         {
+            _connectionString = "server=47.93.18.104;uid=sa;pwd=sa123.";
             TxtConnectionString.Text = _connectionString;
+
+
+            listBox_dbType.SelectedIndex = 0;
+
         }
     }
 

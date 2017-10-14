@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using PetaPoco;
@@ -8,6 +9,7 @@ using System.Text.RegularExpressions;
 
 using System.Xml;
 using System.Data;
+using System.Drawing.Drawing2D;
 using System.Windows.Forms;
 
 namespace CodeTool.App_Code
@@ -15,6 +17,64 @@ namespace CodeTool.App_Code
     public class ConfigHelper
     {
         public static readonly string ConnectionString = "connectionString";
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
+        public static DbType GetDbType(string dbType)
+        {
+            DbType rusult = DbType.SqlServer;
+            switch (dbType)
+            {
+                case "MySql":
+                    rusult = DbType.MySql;
+                    break;
+                case "Oracle":
+                    rusult = DbType.Oracle;
+                    break;
+                case "SqlServer":
+                    rusult = DbType.SqlServer;
+                    break; 
+            }
+            return rusult; 
+        }
+
+        public static string GetDataBaseInfo(DbType dbType)
+        {
+            string rusult = "";
+            switch (dbType)
+            {
+                case DbType.MySql:
+                    rusult = "show databases ";
+                    break;
+                case DbType.Oracle:
+                    rusult = "select name from v$tablespace";
+                    break;
+                case DbType.SqlServer:
+                    rusult = "select name from sysdatabases";
+                    break;
+            }
+            return rusult;
+        }
+
+        public static string GetTableInfo(DbType dbType)
+        {
+            string rusult = "";
+            switch (dbType)
+            {
+                case DbType.MySql:
+                    rusult = "show databases ";
+                    break;
+                case DbType.Oracle:
+                    rusult = "select name from v$tablespace";
+                    break;
+                case DbType.SqlServer:
+                    rusult = "select name from sysdatabases";
+                    break;
+            }
+            return rusult;
+        }
 
         #region 语句
         public static readonly string TableName = "^TableName^";
@@ -141,12 +201,20 @@ end
 
 end", TableName);
         #endregion
-      
+
 
         #endregion
-
-
        
-         
+       
+        public enum DbType
+        {
+            [Description("MySql")]
+            MySql,
+            [Description("Oracle")]
+            Oracle,
+            [Description("SqlServer")]
+            SqlServer,
+        }
+
     }
 }

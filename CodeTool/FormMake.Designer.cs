@@ -52,33 +52,19 @@
             this.LblSelectDataBase = new System.Windows.Forms.Label();
             this.LbDataBases = new System.Windows.Forms.ListBox();
             this.PlSelectDataItem = new System.Windows.Forms.Panel();
-            this.BtnClear = new System.Windows.Forms.Button();
-            this.BtnSelectAll = new System.Windows.Forms.Button();
-            this.LblSelectDataBaseItems = new System.Windows.Forms.Label();
-            this.ChklSelectDataBaseItems = new System.Windows.Forms.CheckedListBox();
+            this.button1 = new System.Windows.Forms.Button();
+            this.listBoxSelectDataBaseItems = new System.Windows.Forms.ListBox();
+            this.label2 = new System.Windows.Forms.Label();
             this.BtnSchemaNext = new System.Windows.Forms.Button();
             this.BtnComplete = new System.Windows.Forms.Button();
             this.BtnPrevious = new System.Windows.Forms.Button();
             this.PlSetOption = new System.Windows.Forms.Panel();
-            this.GbSetTargetDatBase = new System.Windows.Forms.GroupBox();
-            this.RbtnMsSqlToMySql = new System.Windows.Forms.RadioButton();
-            this.LblMySqlConnectionString = new System.Windows.Forms.Label();
-            this.TxtMySqlConnectionString = new System.Windows.Forms.TextBox();
-            this.RBtnMySqlToMsSql = new System.Windows.Forms.RadioButton();
-            this.LblPath = new System.Windows.Forms.Label();
-            this.RBtnExportMySql = new System.Windows.Forms.RadioButton();
-            this.BtnSelectPath = new System.Windows.Forms.Button();
-            this.RBtnSelectPath = new System.Windows.Forms.RadioButton();
-            this.TxtPath = new System.Windows.Forms.TextBox();
-            this.FbdSetPath = new System.Windows.Forms.FolderBrowserDialog();
             this.PlExecMessage = new System.Windows.Forms.Panel();
             this.TxtExecMessage = new System.Windows.Forms.TextBox();
             this.PanelConect.SuspendLayout();
             this.GbAuthentication.SuspendLayout();
             this.PlSelectDataBase.SuspendLayout();
             this.PlSelectDataItem.SuspendLayout();
-            this.PlSetOption.SuspendLayout();
-            this.GbSetTargetDatBase.SuspendLayout();
             this.PlExecMessage.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -361,17 +347,16 @@
             this.LbDataBases.Location = new System.Drawing.Point(70, 78);
             this.LbDataBases.Margin = new System.Windows.Forms.Padding(6);
             this.LbDataBases.Name = "LbDataBases";
-            this.LbDataBases.Size = new System.Drawing.Size(889, 598);
+            this.LbDataBases.Size = new System.Drawing.Size(534, 598);
             this.LbDataBases.TabIndex = 1;
             this.LbDataBases.Click += new System.EventHandler(this.LbDataBases_Click);
             this.LbDataBases.SelectedValueChanged += new System.EventHandler(this.LbDataBases_SelectedValueChanged);
             // 
             // PlSelectDataItem
             // 
-            this.PlSelectDataItem.Controls.Add(this.BtnClear);
-            this.PlSelectDataItem.Controls.Add(this.BtnSelectAll);
-            this.PlSelectDataItem.Controls.Add(this.LblSelectDataBaseItems);
-            this.PlSelectDataItem.Controls.Add(this.ChklSelectDataBaseItems);
+            this.PlSelectDataItem.Controls.Add(this.button1);
+            this.PlSelectDataItem.Controls.Add(this.listBoxSelectDataBaseItems);
+            this.PlSelectDataItem.Controls.Add(this.label2);
             this.PlSelectDataItem.Font = new System.Drawing.Font("宋体", 12F);
             this.PlSelectDataItem.Location = new System.Drawing.Point(30, 40);
             this.PlSelectDataItem.Margin = new System.Windows.Forms.Padding(6);
@@ -380,47 +365,33 @@
             this.PlSelectDataItem.TabIndex = 3;
             this.PlSelectDataItem.Visible = false;
             // 
-            // BtnClear
+            // button1
             // 
-            this.BtnClear.Location = new System.Drawing.Point(332, 700);
-            this.BtnClear.Margin = new System.Windows.Forms.Padding(6);
-            this.BtnClear.Name = "BtnClear";
-            this.BtnClear.Size = new System.Drawing.Size(150, 46);
-            this.BtnClear.TabIndex = 3;
-            this.BtnClear.Text = "清除";
-            this.BtnClear.UseVisualStyleBackColor = true;
-            this.BtnClear.Click += new System.EventHandler(this.BtnClear_Click);
+            this.button1.Location = new System.Drawing.Point(978, 75);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(162, 44);
+            this.button1.TabIndex = 5;
+            this.button1.Text = "实体类生成";
+            this.button1.UseVisualStyleBackColor = true;
             // 
-            // BtnSelectAll
+            // listBoxSelectDataBaseItems
             // 
-            this.BtnSelectAll.Location = new System.Drawing.Point(108, 700);
-            this.BtnSelectAll.Margin = new System.Windows.Forms.Padding(6);
-            this.BtnSelectAll.Name = "BtnSelectAll";
-            this.BtnSelectAll.Size = new System.Drawing.Size(150, 46);
-            this.BtnSelectAll.TabIndex = 2;
-            this.BtnSelectAll.Text = "全选";
-            this.BtnSelectAll.UseVisualStyleBackColor = true;
-            this.BtnSelectAll.Click += new System.EventHandler(this.BtnSelectAll_Click);
+            this.listBoxSelectDataBaseItems.FormattingEnabled = true;
+            this.listBoxSelectDataBaseItems.ItemHeight = 33;
+            this.listBoxSelectDataBaseItems.Location = new System.Drawing.Point(73, 67);
+            this.listBoxSelectDataBaseItems.Name = "listBoxSelectDataBaseItems";
+            this.listBoxSelectDataBaseItems.Size = new System.Drawing.Size(821, 598);
+            this.listBoxSelectDataBaseItems.TabIndex = 4;
             // 
-            // LblSelectDataBaseItems
+            // label2
             // 
-            this.LblSelectDataBaseItems.AutoSize = true;
-            this.LblSelectDataBaseItems.Location = new System.Drawing.Point(76, 44);
-            this.LblSelectDataBaseItems.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
-            this.LblSelectDataBaseItems.Name = "LblSelectDataBaseItems";
-            this.LblSelectDataBaseItems.Size = new System.Drawing.Size(175, 33);
-            this.LblSelectDataBaseItems.TabIndex = 1;
-            this.LblSelectDataBaseItems.Text = "选择数据表";
-            // 
-            // ChklSelectDataBaseItems
-            // 
-            this.ChklSelectDataBaseItems.CheckOnClick = true;
-            this.ChklSelectDataBaseItems.FormattingEnabled = true;
-            this.ChklSelectDataBaseItems.Location = new System.Drawing.Point(76, 82);
-            this.ChklSelectDataBaseItems.Margin = new System.Windows.Forms.Padding(6);
-            this.ChklSelectDataBaseItems.Name = "ChklSelectDataBaseItems";
-            this.ChklSelectDataBaseItems.Size = new System.Drawing.Size(1012, 550);
-            this.ChklSelectDataBaseItems.TabIndex = 0;
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(74, 23);
+            this.label2.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(175, 33);
+            this.label2.TabIndex = 1;
+            this.label2.Text = "选择数据表";
             // 
             // BtnSchemaNext
             // 
@@ -458,137 +429,12 @@
             // 
             // PlSetOption
             // 
-            this.PlSetOption.Controls.Add(this.GbSetTargetDatBase);
-            this.PlSetOption.Controls.Add(this.LblPath);
-            this.PlSetOption.Controls.Add(this.RBtnExportMySql);
-            this.PlSetOption.Controls.Add(this.BtnSelectPath);
-            this.PlSetOption.Controls.Add(this.RBtnSelectPath);
-            this.PlSetOption.Controls.Add(this.TxtPath);
             this.PlSetOption.Location = new System.Drawing.Point(30, 40);
             this.PlSetOption.Margin = new System.Windows.Forms.Padding(6);
             this.PlSetOption.Name = "PlSetOption";
             this.PlSetOption.Size = new System.Drawing.Size(1166, 777);
             this.PlSetOption.TabIndex = 9;
             this.PlSetOption.Visible = false;
-            // 
-            // GbSetTargetDatBase
-            // 
-            this.GbSetTargetDatBase.Controls.Add(this.RbtnMsSqlToMySql);
-            this.GbSetTargetDatBase.Controls.Add(this.LblMySqlConnectionString);
-            this.GbSetTargetDatBase.Controls.Add(this.TxtMySqlConnectionString);
-            this.GbSetTargetDatBase.Controls.Add(this.RBtnMySqlToMsSql);
-            this.GbSetTargetDatBase.Location = new System.Drawing.Point(72, 512);
-            this.GbSetTargetDatBase.Margin = new System.Windows.Forms.Padding(6);
-            this.GbSetTargetDatBase.Name = "GbSetTargetDatBase";
-            this.GbSetTargetDatBase.Padding = new System.Windows.Forms.Padding(6);
-            this.GbSetTargetDatBase.Size = new System.Drawing.Size(968, 198);
-            this.GbSetTargetDatBase.TabIndex = 9;
-            this.GbSetTargetDatBase.TabStop = false;
-            // 
-            // RbtnMsSqlToMySql
-            // 
-            this.RbtnMsSqlToMySql.AutoSize = true;
-            this.RbtnMsSqlToMySql.Checked = true;
-            this.RbtnMsSqlToMySql.Enabled = false;
-            this.RbtnMsSqlToMySql.Location = new System.Drawing.Point(182, 122);
-            this.RbtnMsSqlToMySql.Margin = new System.Windows.Forms.Padding(6);
-            this.RbtnMsSqlToMySql.Name = "RbtnMsSqlToMySql";
-            this.RbtnMsSqlToMySql.Size = new System.Drawing.Size(209, 28);
-            this.RbtnMsSqlToMySql.TabIndex = 7;
-            this.RbtnMsSqlToMySql.TabStop = true;
-            this.RbtnMsSqlToMySql.Tag = "SetTarget";
-            this.RbtnMsSqlToMySql.Text = "MsSql导入MySql";
-            this.RbtnMsSqlToMySql.UseVisualStyleBackColor = true;
-            // 
-            // LblMySqlConnectionString
-            // 
-            this.LblMySqlConnectionString.AutoSize = true;
-            this.LblMySqlConnectionString.Location = new System.Drawing.Point(24, 56);
-            this.LblMySqlConnectionString.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
-            this.LblMySqlConnectionString.Name = "LblMySqlConnectionString";
-            this.LblMySqlConnectionString.Size = new System.Drawing.Size(130, 24);
-            this.LblMySqlConnectionString.TabIndex = 6;
-            this.LblMySqlConnectionString.Text = "连接字符串";
-            // 
-            // TxtMySqlConnectionString
-            // 
-            this.TxtMySqlConnectionString.Enabled = false;
-            this.TxtMySqlConnectionString.Location = new System.Drawing.Point(182, 46);
-            this.TxtMySqlConnectionString.Margin = new System.Windows.Forms.Padding(6);
-            this.TxtMySqlConnectionString.Name = "TxtMySqlConnectionString";
-            this.TxtMySqlConnectionString.Size = new System.Drawing.Size(682, 35);
-            this.TxtMySqlConnectionString.TabIndex = 4;
-            this.TxtMySqlConnectionString.Text = "Database=\'数据库名\';Data Source=\'数据库服务器地址\';User Id=\'数据库用户名\';Password=\'密码\';";
-            // 
-            // RBtnMySqlToMsSql
-            // 
-            this.RBtnMySqlToMsSql.AutoSize = true;
-            this.RBtnMySqlToMsSql.Enabled = false;
-            this.RBtnMySqlToMsSql.Location = new System.Drawing.Point(490, 122);
-            this.RBtnMySqlToMsSql.Margin = new System.Windows.Forms.Padding(6);
-            this.RBtnMySqlToMsSql.Name = "RBtnMySqlToMsSql";
-            this.RBtnMySqlToMsSql.Size = new System.Drawing.Size(209, 28);
-            this.RBtnMySqlToMsSql.TabIndex = 8;
-            this.RBtnMySqlToMsSql.Tag = "SetTarget";
-            this.RBtnMySqlToMsSql.Text = "MySql导入MsSql";
-            this.RBtnMySqlToMsSql.UseVisualStyleBackColor = true;
-            // 
-            // LblPath
-            // 
-            this.LblPath.AutoSize = true;
-            this.LblPath.Location = new System.Drawing.Point(112, 124);
-            this.LblPath.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
-            this.LblPath.Name = "LblPath";
-            this.LblPath.Size = new System.Drawing.Size(58, 24);
-            this.LblPath.TabIndex = 5;
-            this.LblPath.Text = "路径";
-            // 
-            // RBtnExportMySql
-            // 
-            this.RBtnExportMySql.AutoSize = true;
-            this.RBtnExportMySql.Location = new System.Drawing.Point(80, 468);
-            this.RBtnExportMySql.Margin = new System.Windows.Forms.Padding(6);
-            this.RBtnExportMySql.Name = "RBtnExportMySql";
-            this.RBtnExportMySql.Size = new System.Drawing.Size(221, 28);
-            this.RBtnExportMySql.TabIndex = 3;
-            this.RBtnExportMySql.Tag = "SetOption";
-            this.RBtnExportMySql.Text = "与MySql数据互导";
-            this.RBtnExportMySql.UseVisualStyleBackColor = true;
-            this.RBtnExportMySql.CheckedChanged += new System.EventHandler(this.RBtnExportMySql_CheckedChanged);
-            // 
-            // BtnSelectPath
-            // 
-            this.BtnSelectPath.Location = new System.Drawing.Point(790, 114);
-            this.BtnSelectPath.Margin = new System.Windows.Forms.Padding(6);
-            this.BtnSelectPath.Name = "BtnSelectPath";
-            this.BtnSelectPath.Size = new System.Drawing.Size(80, 46);
-            this.BtnSelectPath.TabIndex = 2;
-            this.BtnSelectPath.Text = "...";
-            this.BtnSelectPath.UseVisualStyleBackColor = true;
-            this.BtnSelectPath.Click += new System.EventHandler(this.BtnSelectPath_Click);
-            // 
-            // RBtnSelectPath
-            // 
-            this.RBtnSelectPath.AutoSize = true;
-            this.RBtnSelectPath.Checked = true;
-            this.RBtnSelectPath.Location = new System.Drawing.Point(80, 62);
-            this.RBtnSelectPath.Margin = new System.Windows.Forms.Padding(6);
-            this.RBtnSelectPath.Name = "RBtnSelectPath";
-            this.RBtnSelectPath.Size = new System.Drawing.Size(233, 28);
-            this.RBtnSelectPath.TabIndex = 1;
-            this.RBtnSelectPath.TabStop = true;
-            this.RBtnSelectPath.Tag = "SetOption";
-            this.RBtnSelectPath.Text = "选择脚本生成路径";
-            this.RBtnSelectPath.UseVisualStyleBackColor = true;
-            this.RBtnSelectPath.CheckedChanged += new System.EventHandler(this.RBtnSelectPath_CheckedChanged);
-            // 
-            // TxtPath
-            // 
-            this.TxtPath.Location = new System.Drawing.Point(236, 118);
-            this.TxtPath.Margin = new System.Windows.Forms.Padding(6);
-            this.TxtPath.Name = "TxtPath";
-            this.TxtPath.Size = new System.Drawing.Size(536, 35);
-            this.TxtPath.TabIndex = 0;
             // 
             // PlExecMessage
             // 
@@ -618,16 +464,17 @@
             this.Controls.Add(this.BtnPrevious);
             this.Controls.Add(this.BtnSchemaNext);
             this.Controls.Add(this.BtnComplete);
-            this.Controls.Add(this.PlSelectDataItem);
             this.Controls.Add(this.PlSetOption);
             this.Controls.Add(this.PlExecMessage);
             this.Controls.Add(this.PanelConect);
             this.Controls.Add(this.PlSelectDataBase);
+            this.Controls.Add(this.PlSelectDataItem);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(6);
             this.Name = "FormMake";
-            this.Text = "Sop数据库迁移V1.0";
-            this.Load += new System.EventHandler(this.GenerationForm_Load);
+            this.Text = "Sop数据库 V1.0";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FormMake_FormClosing);
+            this.Load += new System.EventHandler(this.FormMake_Load);
             this.PanelConect.ResumeLayout(false);
             this.PanelConect.PerformLayout();
             this.GbAuthentication.ResumeLayout(false);
@@ -636,10 +483,6 @@
             this.PlSelectDataBase.PerformLayout();
             this.PlSelectDataItem.ResumeLayout(false);
             this.PlSelectDataItem.PerformLayout();
-            this.PlSetOption.ResumeLayout(false);
-            this.PlSetOption.PerformLayout();
-            this.GbSetTargetDatBase.ResumeLayout(false);
-            this.GbSetTargetDatBase.PerformLayout();
             this.PlExecMessage.ResumeLayout(false);
             this.PlExecMessage.PerformLayout();
             this.ResumeLayout(false);
@@ -669,29 +512,17 @@
         private System.Windows.Forms.ListBox LbDataBases;
         private System.Windows.Forms.Label LblSelectDataBase;
         private System.Windows.Forms.Panel PlSelectDataItem;
-        private System.Windows.Forms.Label LblSelectDataBaseItems;
-        private System.Windows.Forms.CheckedListBox ChklSelectDataBaseItems;
-        private System.Windows.Forms.Button BtnClear;
-        private System.Windows.Forms.Button BtnSelectAll;
         private System.Windows.Forms.Label LblOperateTarget;
         private System.Windows.Forms.CheckBox ChkOperateTable;
         private System.Windows.Forms.CheckBox ChkOperateView;
         private System.Windows.Forms.Panel PlSetOption;
-        private System.Windows.Forms.Label LblPath;
-        private System.Windows.Forms.TextBox TxtMySqlConnectionString;
-        private System.Windows.Forms.RadioButton RBtnExportMySql;
-        private System.Windows.Forms.Button BtnSelectPath;
-        private System.Windows.Forms.RadioButton RBtnSelectPath;
-        private System.Windows.Forms.TextBox TxtPath;
-        private System.Windows.Forms.Label LblMySqlConnectionString;
-        private System.Windows.Forms.FolderBrowserDialog FbdSetPath;
         private System.Windows.Forms.Panel PlExecMessage;
         private System.Windows.Forms.TextBox TxtExecMessage;
-        private System.Windows.Forms.RadioButton RBtnMySqlToMsSql;
-        private System.Windows.Forms.RadioButton RbtnMsSqlToMySql;
-        private System.Windows.Forms.GroupBox GbSetTargetDatBase;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ListBox listBox_dbType;
+        private System.Windows.Forms.ListBox listBoxSelectDataBaseItems;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Button button1;
     }
 }
 

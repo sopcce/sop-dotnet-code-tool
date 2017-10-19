@@ -2,11 +2,15 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
+using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Windows.Forms;
 using CodeTool.App_Code;
+using ICSharpCode.TextEditor;
+using ICSharpCode.TextEditor.Document;
 
 namespace CodeTool
 {
@@ -18,13 +22,16 @@ namespace CodeTool
         private static string _connectionString = "Data Source=192.168.1.36;Initial Catalog=test_528;User ID=sa;Password=sa123.";
 
         private static string providerName = "";
-
+        /// <summary>
+        /// 
+        /// </summary>
+        private TextEditorControl textEditor = null;
 
         /// <summary>
         /// 设置连接信息
         /// </summary>
         private static Step step = Step.SetConnection;
-        private static IEnumerable<string> tables;
+        private static string table;
         /// <summary>
         /// 
         /// </summary>
@@ -37,7 +44,161 @@ namespace CodeTool
         public FormMake()
         {
             InitializeComponent();
+
+            textEditor = new TextEditorControl();
+            textEditor.Dock = DockStyle.Fill;
+            this.PlSetOption.Controls.Add(textEditor);
+
+            textEditor.TextChanged += TextEditor_TextChanged;
         }
+
+        private void TextEditor_TextChanged(object sender, EventArgs e)
+        {
+            //更新，以便进行代码折叠
+            textEditor.Document.FoldingManager.UpdateFoldings(null, null);
+        }
+
+        private void FormMake_Load(object sender, EventArgs e)
+        {
+            _connectionString = "server=47.93.18.104;uid=sa;pwd=sa123.";
+            TxtConnectionString.Text = _connectionString;
+            listBox_dbType.SelectedIndex = 0;
+            #region 文本编辑器
+
+
+            string sampleCode = @"using ICSharpCode.TextEditor;
+using System;
+using System.Collections.Generic;
+         using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+namespace ICSharpCodeTextEditor
+{
+    public partial class Form1 : Form
+    {
+        private TextEditorControl textEditor = null;
+        public Form1()
+        {
+            InitializeComponent();
+                     textEditor = new TextEditorControl();
+            textEditor.Dock = DockStyle.Fill;
+   this.pContainer.Controls.Add(textEditor);
+            textEditor.TextChanged += TextEditor_TextChanged;
+        }
+        private void TextEditor_TextChanged(object sender, EventArgs e)
+        {
+            //更新，以便进行代码折叠
+            textEditor.Document.FoldingManager.UpdateFoldings(null, null);
+        }
+        private void btnFormatCSharp_Click(object sender, EventArgs e)
+        {
+            textEditor.Text = 
+            JackWangCUMT.WinForm.CSharpFormatHelper.FormatCSharpCode(textEditor.Text);
+        }
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            if(textEditor!=null)
+                   {
+     textEditor.SetHighlighting(""C#"");
+
+                textEditor.Encoding = System.Text.Encoding.UTF8;
+            textEditor.Document.FoldingManager.FoldingStrategy = new JackWangCUMT.WinForm.MingFolding();
+        }
+    }
+}
+}
+";
+
+            textEditor.SetHighlighting("C#");
+            textEditor.Document.HighlightingStrategy = HighlightingStrategyFactory.CreateHighlightingStrategy("C#");
+            textEditor.Encoding = System.Text.Encoding.UTF8;
+            textEditor.Font = new Font("Hack", 12);
+            textEditor.Document.FoldingManager.FoldingStrategy = new JackWangCUMT.WinForm.MingFolding();
+            textEditor.Text = sampleCode;
+
+            //自定义代码高亮
+            string path = Application.StartupPath + "\\HighLighting";
+            FileSyntaxModeProvider fsmp;
+            if (Directory.Exists(path))
+            {
+                fsmp = new FileSyntaxModeProvider(path);
+                HighlightingManager.Manager.AddSyntaxModeFileProvider(fsmp);
+                textEditor.SetHighlighting("JackC#");
+
+
+            } 
+            #endregion
+
+
+        }
+
+        private void FormMake_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            var result = MessageBox.Show(@"你确定要退出本程序吗？", @"关闭窗口",
+                MessageBoxButtons.OKCancel,
+                MessageBoxIcon.Question);
+            if (result == DialogResult.OK)
+            {
+                this.Dispose();
+                this.Close();
+            }
+        }
+      
+        //返回搜索字符
+        public static string GetLastWord(string str, int i)
+        {
+            string x = str;
+            Regex reg = new Regex(@"\s+[a-z]+\s*", RegexOptions.RightToLeft);
+            x = reg.Match(x).Value;
+
+            Regex reg2 = new Regex(@"\s");
+            x = reg2.Replace(x, "");
+            return x;
+        }
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
+        public static List<string> AllClass()
+        {
+            List<string> list = new List<string>();
+            list.Add("function");
+            list.Add("return");
+            list.Add("class");
+            list.Add("new");
+            list.Add("extends");
+            list.Add("var");
+            return list;
+        }
+        //设定颜色
+        public static void MySelect(System.Windows.Forms.RichTextBox tb, int i, string s, Color c, bool font)
+        {
+            tb.Select(i - s.Length, s.Length);
+            tb.SelectionColor = c;
+            //是否改变字体
+            if (font)
+                tb.SelectionFont = new Font("宋体", 12, (FontStyle.Bold));
+            else
+                tb.SelectionFont = new Font("宋体", 12, (FontStyle.Regular));
+            //以下是把光标放到原来位置，并把光标后输入的文字重置
+            tb.Select(i, 0);
+            tb.SelectionFont = new Font("宋体", 12, (FontStyle.Regular));
+            tb.SelectionColor = Color.Black;
+        }
+
+
+
+
+
+
+
+
+
+
         /// <summary>
         /// 关闭窗口
         /// </summary>
@@ -131,7 +292,6 @@ namespace CodeTool
                     #endregion
                     break;
                 case Step.SelectDataBase:
-
                     #region SelectDataBase
                     if (LbDataBases.SelectedItem == null)
                     {
@@ -142,7 +302,7 @@ namespace CodeTool
 
                     if (_changeDataBase)
                     {
-                        ChklSelectDataBaseItems.Items.Clear();
+                        listBoxSelectDataBaseItems.Items.Clear();
                         _changeDataBase = false;
                         List<TableInfo> tableInfos;
                         if (BindTables(out tableInfos))
@@ -152,30 +312,32 @@ namespace CodeTool
                                 foreach (var info in tableInfos)
                                 {
                                     if (!string.IsNullOrWhiteSpace(info.TableName))
-                                        ChklSelectDataBaseItems.Items.Add(info.TableName + " Explain：" + info.TableExplain);
+                                        listBoxSelectDataBaseItems.Items.Add(info.TableName + "^Explain：" + info.TableExplain);
                                 }
                             }
                             PlSelectDataBase.Visible = false;
                             PlSelectDataItem.Visible = true;
                             step = Step.SelectTables;
                         }
-                    } 
+                    }
                     #endregion
                     break;
                 case Step.SelectTables:
-                    if (ChklSelectDataBaseItems.CheckedItems.Count == 0)
+                    #region SelectTables
+                    table = listBoxSelectDataBaseItems.SelectedItem.ToString();
+                    if (table == null)
                     {
                         MessageBox.Show(@"请选择一个数据表！", "", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                         return;
                     }
-                    tables = ChklSelectDataBaseItems.CheckedItems.Cast<string>();
-                    //views = ChklSelectDataBaseItems.CheckedItems.Cast<string>();
-                    if (tables == null)
-                        return;
+                    table = table.Split('^')[0];
+
+
                     PlSelectDataItem.Visible = false;
                     PlSetOption.Visible = true;
                     step = Step.SetOption;
                     string message = string.Empty;
+                    #endregion
                     break;
                 case Step.SelectViews:
                     break;
@@ -184,22 +346,7 @@ namespace CodeTool
                     PlSetOption.Visible = false;
                     PlExecMessage.Visible = true;
                     TxtExecMessage.Text = "";
-                    if (RBtnSelectPath.Checked)
-                    {
-                        //if (!CreatePath())
-                        // return;
-                        CreateScript();
-                    }
-                    else if (RBtnExportMySql.Checked)
-                    {
-                        //if (RbtnMsSqlToMySql.Checked)
-                        //    //MsSqlToMySql();
-                        //else if (RBtnMySqlToMsSql.Checked)
-                        //{
-                        //    //MySqlToMsSql();
 
-                        //}
-                    }
                     break;
                 case Step.Execute:
                     this.Close();
@@ -251,29 +398,8 @@ namespace CodeTool
 
         #endregion
 
-        #region SelectDataBaseItem
 
-        private void BtnSelectAll_Click(object sender, EventArgs e)
-        {
-            SetChecked(true);
-        }
 
-        private void BtnClear_Click(object sender, EventArgs e)
-        {
-            SetChecked(false);
-        }
-
-        #endregion
-
-        #region SetOption
-
-        private void BtnSelectPath_Click(object sender, EventArgs e)
-        {
-            if (FbdSetPath.ShowDialog() == DialogResult.OK)
-                TxtPath.Text = FbdSetPath.SelectedPath;
-        }
-
-        #endregion
 
         #region Method
         /// <summary>
@@ -305,7 +431,7 @@ namespace CodeTool
 
 
         }
-        
+
         /// <summary>
         /// 更新连接设置的启用状态
         /// </summary>
@@ -415,300 +541,8 @@ namespace CodeTool
             }
         }
 
-
-        private void SetChecked(bool isChecked)
-        {
-            for (int i = 0; i < ChklSelectDataBaseItems.Items.Count; i++)
-            {
-                ChklSelectDataBaseItems.SetItemChecked(i, isChecked);
-            }
-        }
-
-        
-         
         #endregion
 
-
-
-
-
-        #region SqlDataHelper
-       
-
-        /// <summary>
-        /// 生成MySql脚本
-        /// </summary>
-        public void CreateScript()
-        {
-
-            #region 注释掉
-            //if (tables == null)
-            //    return;
-
-            //BtnPrevious.Visible = false;
-            //BtnSchemaNext.Text = "完成";
-            //BtnSchemaNext.Enabled = false;
-            //int count = tables.Count();
-            ////生成sql
-            //string path = TxtPath.Text + "\\MySQLText.sql";
-
-            //StreamWriter writer = new StreamWriter(path, false, Encoding.UTF8);
-
-            //using (SqlConnection conn = new SqlConnection(_connectionString))
-            //{
-            //    conn.Open();
-
-            //    Server server = new Server(new ServerConnection(conn));
-            //    Database db = server.Databases[conn.Database];
-            //    Table table = null;
-            //    int j = 1;
-            //    foreach (var tableName in tables)
-            //    {
-            //        if (db.Tables.Contains(tableName))
-            //        {
-            //            StringBuilder sb = new StringBuilder();
-            //            sb.AppendFormat("DROP TABLE IF EXISTS `{0}`;\nCREATE TABLE `{0}` (\n", tableName);
-
-            //            table = db.Tables[tableName];
-            //            long increment = 0;
-            //            foreach (Column column in table.Columns)
-            //            {
-            //                sb.Append(column.Name + " " + ConvertType(column.DataType));
-
-            //                sb.Append(column.Nullable && column.DefaultConstraint == null ? " DEFAULT NULL" : " NOT NULL");
-            //                if (column.DataType.SqlDataType != SqlDataType.Text && column.DataType.SqlDataType != SqlDataType.NText && column.DataType.SqlDataType != SqlDataType.DateTime && column.DataType.SqlDataType != SqlDataType.Bit && column.DataType.SqlDataType != SqlDataType.UniqueIdentifier)
-            //                    sb.Append(column.DefaultConstraint == null ? string.Empty : " DEFAULT " + column.DefaultConstraint.Text.Replace('(', ' ').Replace(')', ' ').Trim());
-            //                sb.Append(column.Identity ? " AUTO_INCREMENT" : string.Empty);
-            //                sb.Append(",\n");
-            //                if (column.Identity && column.IdentityIncrement > 1)
-            //                {
-            //                    increment = column.IdentityIncrement;
-            //                }
-            //            }
-
-            //            if (table.Indexes != null)
-            //            {
-            //                foreach (Index index in table.Indexes)
-            //                {
-            //                    string iXName = string.Empty;
-            //                    string strColumnNames = string.Empty;
-            //                    for (int i = 0; i < index.IndexedColumns.Count; i++)
-            //                    {
-            //                        if (table.Columns[index.IndexedColumns[i].Name].DataType.MaximumLength < 332)
-            //                        {
-            //                            strColumnNames += "`" + index.IndexedColumns[i].Name + "`,";
-            //                            //生成索引名后缀
-            //                            if (index.Name.StartsWith("IX"))
-            //                                iXName += index.IndexedColumns[i].Name + "_";
-            //                        }
-            //                    }
-
-            //                    strColumnNames = strColumnNames.TrimEnd(',');
-
-            //                    if (string.IsNullOrEmpty(strColumnNames))
-            //                        continue;
-
-            //                    if (index.Name.StartsWith("PK"))
-            //                    {
-            //                        //处理主键
-            //                        sb.AppendFormat("PRIMARY KEY ({0})", strColumnNames);
-            //                    }
-            //                    else if (index.Name.StartsWith("IX"))
-            //                    {
-            //                        //处理索引
-            //                        sb.AppendFormat("KEY `IX_{1}` ({2})", tableName, iXName.TrimEnd('_'), strColumnNames);
-            //                    }
-            //                    sb.Append(",\n");
-            //                }
-            //            }
-            //            sb.Remove(sb.Length - 2, 2);
-            //            sb.AppendFormat("\n)ENGINE=innodb{0};\r", increment > 1 ? " AUTO_INCREMENT=" + increment.ToString() : string.Empty);
-            //            writer.WriteLine(sb.ToString());
-
-            //            TxtExecMessage.SelectedText += tableName + "\t ok\r\n";
-            //            j++;
-            //            increment = 0;
-            //        }
-            //    }
-
-            //    TxtExecMessage.SelectedText = "操作完成。";
-            //    writer.Close();
-            //    conn.Close();
-
-            //    BtnPrevious.Visible = true;
-            //    BtnSchemaNext.Enabled = true;
-            //} 
-            #endregion
-        }
-
-        /// <summary>
-        /// 转换类型
-        /// </summary>
-        /// <param name="type"></param>
-        /// <returns></returns>
-        //private string ConvertType(DataType type)
-        //{
-        //    //switch (type.SqlDataType)
-        //    //{
-        //    //    case SqlDataType.Decimal:
-        //    //        return "Decimal(10,2)";
-        //    //    case SqlDataType.Char:
-        //    //        return string.Format("Char({0})", type.MaximumLength);
-        //    //    case SqlDataType.NChar:
-        //    //    case SqlDataType.VarChar:
-        //    //    case SqlDataType.NVarChar:
-        //    //        return string.Format("Varchar({0})", type.MaximumLength);
-        //    //    case SqlDataType.NVarCharMax:
-        //    //    case SqlDataType.NText:
-        //    //        return "mediumtext";
-        //    //    case SqlDataType.Int:
-        //    //        return "Int(11)";
-        //    //    case SqlDataType.Bit:
-        //    //        return "tinyint(1)";
-        //    //    case SqlDataType.Float:
-        //    //        return "Float(7,2)";
-        //    //    case SqlDataType.UniqueIdentifier:
-        //    //        return "char(36)";
-        //    //    default:
-        //    //        return type.SqlDataType.ToString();
-        //    //}
-        //}
-
-        private void MsSqlToMySql()
-        {
-            #region MyRegion
-            //if (tables == null)
-            //    return;
-
-            //BtnPrevious.Visible = false;
-            //BtnSchemaNext.Text = "完成";
-            //BtnSchemaNext.Enabled = false;
-
-            //bool error = false;
-
-            //if (!File.Exists(logPath))
-            //{
-            //    File.Create(logPath).Close();
-            //}
-
-            //StreamWriter logWriter = new StreamWriter(logPath, false, Encoding.UTF8);
-
-            ////创建一个MySqlConnection对象
-            //using (MySqlConnection conn = new MySqlConnection(TxtMySqlConnectionString.Text))
-            //{
-            //    MySqlCommand cmd = new MySqlCommand();
-            //    cmd.Connection = conn;
-            //    DataTable dt = null;
-            //    conn.Open();
-            //    string dd = string.Empty;
-            //    foreach (var tableName in tables)
-            //    {
-            //        try
-            //        {
-            //            dt = GetDataTable(tableName);
-            //            if (dt == null || dt.Rows.Count == 0)
-            //                continue;
-
-            //            cmd.CommandText = GenerateMySqlScript(dt, tableName);
-            //            cmd.ExecuteNonQuery();
-            //        }
-            //        catch (Exception e)
-            //        {
-            //            error = true;
-            //            logWriter.WriteLine(DateTime.Now + " error:" + e.Message + "\r\n");
-            //        }
-
-            //        TxtExecMessage.SelectedText = tableName + "\t ok\r\n";
-            //    }
-            //    conn.Close();
-            //}
-
-            //TxtExecMessage.SelectedText = error ? "操作完成但有异常产生，请到程序根目录的log.txt文件中查看异常" : "操作完成。";
-
-            #endregion
-            BtnPrevious.Visible = true;
-            BtnSchemaNext.Enabled = true;
-            //logWriter.Close();
-        }
-
- 
-
-        /// <summary>
-        /// 组装Insert语句
-        /// </summary>
-        /// <param name="dt"></param>
-        /// <returns></returns>
-        public string GenerateMySqlScript(DataTable dt, string tableName)
-        {
-            string columnNames = string.Empty;
-            StringBuilder sbColumns = new StringBuilder();
-            foreach (DataColumn column in dt.Columns)
-            {
-                sbColumns.Append("`" + column.ColumnName + "`,");
-            }
-
-            sbColumns.Remove(sbColumns.Length - 1, 1);
-
-            string insertModel = "INSERT INTO `" + tableName + "`(" + sbColumns.ToString() + ") VALUES ({0});\n";
-
-            StringBuilder sbInsert = new StringBuilder();
-            sbInsert.Append("DELETE FROM `" + tableName + "`;");
-            StringBuilder columnValue = new StringBuilder();
-            foreach (DataRow row in dt.Rows)
-            {
-                foreach (var item in row.ItemArray)
-                {
-                    if (item.GetType().Equals(typeof(bool)))
-                    {
-                        columnValue.Append("'" + ((bool)item ? 1 : 0) + "',");
-                    }
-                    else
-                    {
-                        columnValue.Append("'" + item + "',");
-                    }
-                }
-                sbInsert.AppendFormat(insertModel, columnValue.ToString().TrimEnd(','));
-                columnValue.Clear();
-            }
-            return sbInsert.ToString();
-        }
-
-  
-
-        #endregion
-
-        private void RBtnSelectPath_CheckedChanged(object sender, EventArgs e)
-        {
-            TxtPath.Enabled = true;
-            BtnSelectPath.Enabled = true;
-            TxtMySqlConnectionString.Enabled = false;
-            RBtnMySqlToMsSql.Enabled = false;
-            RbtnMsSqlToMySql.Enabled = false;
-        }
-
-        private void RBtnExportMySql_CheckedChanged(object sender, EventArgs e)
-        {
-            TxtPath.Enabled = true;
-            BtnSelectPath.Enabled = false;
-            TxtMySqlConnectionString.Enabled = true;
-            RBtnMySqlToMsSql.Enabled = true;
-            RbtnMsSqlToMySql.Enabled = true;
-        }
-
-        private void RBtnMsSql_CheckedChanged(object sender, EventArgs e)
-        {
-            TxtServer.Text = ".";
-            TxtUserName.Text = "sa";
-            RBtnWinAuthentication.Enabled = true;
-        }
-
-        private void RBtnMySql_CheckedChanged(object sender, EventArgs e)
-        {
-            RBtnWinAuthentication.Enabled = false;
-            RBtnSqlAuthentication.Checked = true;
-            TxtServer.Text = "127.0.0.1";
-            TxtUserName.Text = "root";
-        }
 
         /// <summary>
         /// 
@@ -724,15 +558,7 @@ namespace CodeTool
             }
         }
 
-        private void GenerationForm_Load(object sender, EventArgs e)
-        {
-            _connectionString = "server=47.93.18.104;uid=sa;pwd=sa123.";
-            TxtConnectionString.Text = _connectionString;
 
-
-            listBox_dbType.SelectedIndex = 0;
-
-        }
     }
 
 

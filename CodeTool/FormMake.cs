@@ -19,7 +19,7 @@ namespace CodeTool
         /// <summary>
         /// 
         /// </summary>
-        private static string _connectionString = "Data Source=192.168.1.36;Initial Catalog=test_528;User ID=sa;Password=sa123.";
+        private static string _connectionString = "Data Source=192.168.1.36;User ID=sa;Password=sa123.";
 
         private static string providerName = "";
         /// <summary>
@@ -60,7 +60,7 @@ namespace CodeTool
 
         private void FormMake_Load(object sender, EventArgs e)
         {
-            _connectionString = "server=47.93.18.104;uid=sa;pwd=sa123.";
+            _connectionString = "server=192.168.1.36;uid=sa;pwd=sa123.";
             TxtConnectionString.Text = _connectionString;
             listBox_dbType.SelectedIndex = 0;
             #region 文本编辑器
@@ -558,7 +558,10 @@ namespace ICSharpCodeTextEditor
             }
         }
 
+        private void listBox_dbType_SelectedIndexChanged(object sender, EventArgs e)
+        {
 
+        }
     }
 
 

@@ -70,6 +70,9 @@
             // 
             // PanelConect
             // 
+            this.PanelConect.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.PanelConect.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.PanelConect.Controls.Add(this.listBox_dbType);
             this.PanelConect.Controls.Add(this.TxtConnectionString);
@@ -84,7 +87,7 @@
             this.PanelConect.Location = new System.Drawing.Point(30, 40);
             this.PanelConect.Margin = new System.Windows.Forms.Padding(6);
             this.PanelConect.Name = "PanelConect";
-            this.PanelConect.Size = new System.Drawing.Size(1166, 777);
+            this.PanelConect.Size = new System.Drawing.Size(1111, 777);
             this.PanelConect.TabIndex = 0;
             this.PanelConect.TabStop = true;
             // 
@@ -100,6 +103,7 @@
             this.listBox_dbType.Name = "listBox_dbType";
             this.listBox_dbType.Size = new System.Drawing.Size(210, 37);
             this.listBox_dbType.TabIndex = 7;
+            this.listBox_dbType.SelectedIndexChanged += new System.EventHandler(this.listBox_dbType_SelectedIndexChanged);
             // 
             // TxtConnectionString
             // 
@@ -288,7 +292,7 @@
             this.PlSelectDataBase.Location = new System.Drawing.Point(30, 40);
             this.PlSelectDataBase.Margin = new System.Windows.Forms.Padding(6);
             this.PlSelectDataBase.Name = "PlSelectDataBase";
-            this.PlSelectDataBase.Size = new System.Drawing.Size(1166, 777);
+            this.PlSelectDataBase.Size = new System.Drawing.Size(1111, 777);
             this.PlSelectDataBase.TabIndex = 1;
             this.PlSelectDataBase.TabStop = true;
             this.PlSelectDataBase.Visible = false;
@@ -361,7 +365,7 @@
             this.PlSelectDataItem.Location = new System.Drawing.Point(30, 40);
             this.PlSelectDataItem.Margin = new System.Windows.Forms.Padding(6);
             this.PlSelectDataItem.Name = "PlSelectDataItem";
-            this.PlSelectDataItem.Size = new System.Drawing.Size(1166, 777);
+            this.PlSelectDataItem.Size = new System.Drawing.Size(1111, 777);
             this.PlSelectDataItem.TabIndex = 3;
             this.PlSelectDataItem.Visible = false;
             // 
@@ -395,7 +399,8 @@
             // 
             // BtnSchemaNext
             // 
-            this.BtnSchemaNext.Location = new System.Drawing.Point(840, 838);
+            this.BtnSchemaNext.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.BtnSchemaNext.Location = new System.Drawing.Point(792, 832);
             this.BtnSchemaNext.Margin = new System.Windows.Forms.Padding(6);
             this.BtnSchemaNext.Name = "BtnSchemaNext";
             this.BtnSchemaNext.Size = new System.Drawing.Size(150, 46);
@@ -406,7 +411,8 @@
             // 
             // BtnComplete
             // 
-            this.BtnComplete.Location = new System.Drawing.Point(1020, 838);
+            this.BtnComplete.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.BtnComplete.Location = new System.Drawing.Point(972, 832);
             this.BtnComplete.Margin = new System.Windows.Forms.Padding(6);
             this.BtnComplete.Name = "BtnComplete";
             this.BtnComplete.Size = new System.Drawing.Size(150, 46);
@@ -417,7 +423,8 @@
             // 
             // BtnPrevious
             // 
-            this.BtnPrevious.Location = new System.Drawing.Point(656, 838);
+            this.BtnPrevious.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.BtnPrevious.Location = new System.Drawing.Point(608, 832);
             this.BtnPrevious.Margin = new System.Windows.Forms.Padding(6);
             this.BtnPrevious.Name = "BtnPrevious";
             this.BtnPrevious.Size = new System.Drawing.Size(150, 46);
@@ -432,7 +439,7 @@
             this.PlSetOption.Location = new System.Drawing.Point(30, 40);
             this.PlSetOption.Margin = new System.Windows.Forms.Padding(6);
             this.PlSetOption.Name = "PlSetOption";
-            this.PlSetOption.Size = new System.Drawing.Size(1166, 777);
+            this.PlSetOption.Size = new System.Drawing.Size(1111, 777);
             this.PlSetOption.TabIndex = 9;
             this.PlSetOption.Visible = false;
             // 
@@ -442,7 +449,7 @@
             this.PlExecMessage.Location = new System.Drawing.Point(30, 40);
             this.PlExecMessage.Margin = new System.Windows.Forms.Padding(6);
             this.PlExecMessage.Name = "PlExecMessage";
-            this.PlExecMessage.Size = new System.Drawing.Size(1166, 777);
+            this.PlExecMessage.Size = new System.Drawing.Size(1111, 777);
             this.PlExecMessage.TabIndex = 10;
             this.PlExecMessage.Visible = false;
             // 
@@ -453,26 +460,27 @@
             this.TxtExecMessage.Multiline = true;
             this.TxtExecMessage.Name = "TxtExecMessage";
             this.TxtExecMessage.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.TxtExecMessage.Size = new System.Drawing.Size(1066, 700);
+            this.TxtExecMessage.Size = new System.Drawing.Size(984, 695);
             this.TxtExecMessage.TabIndex = 0;
             // 
             // FormMake
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 24F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1222, 915);
+            this.ClientSize = new System.Drawing.Size(1174, 909);
             this.Controls.Add(this.BtnPrevious);
             this.Controls.Add(this.BtnSchemaNext);
             this.Controls.Add(this.BtnComplete);
-            this.Controls.Add(this.PlSetOption);
-            this.Controls.Add(this.PlExecMessage);
             this.Controls.Add(this.PanelConect);
             this.Controls.Add(this.PlSelectDataBase);
             this.Controls.Add(this.PlSelectDataItem);
+            this.Controls.Add(this.PlSetOption);
+            this.Controls.Add(this.PlExecMessage);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(6);
+            this.MinimumSize = new System.Drawing.Size(1200, 980);
             this.Name = "FormMake";
-            this.Text = "Sop数据库 V1.0";
+            this.Text = "Sop数据库V1.0";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FormMake_FormClosing);
             this.Load += new System.EventHandler(this.FormMake_Load);
             this.PanelConect.ResumeLayout(false);

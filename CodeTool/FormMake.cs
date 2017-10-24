@@ -47,8 +47,8 @@ namespace CodeTool
 
             textEditor = new TextEditorControl();
             textEditor.Dock = DockStyle.Fill;
-            this.PlSetOption.Controls.Add(textEditor);
-
+           // PlSetOption.Controls.Add(textEditor);
+            groupBox1.Controls.Add(textEditor);
             textEditor.TextChanged += TextEditor_TextChanged;
         }
 
@@ -216,6 +216,10 @@ namespace ICSharpCodeTextEditor
             }
 
         }
+
+
+
+
         /// <summary>
         /// 上一步
         /// </summary>
@@ -248,6 +252,7 @@ namespace ICSharpCodeTextEditor
                 case Step.SelectDataBase:
                     PlSelectDataBase.Visible = false;
                     PanelConect.Visible = true;
+                    BtnPrevious.Visible = false;
                     step = Step.SetConnection;
                     break;
             }
@@ -324,13 +329,17 @@ namespace ICSharpCodeTextEditor
                     break;
                 case Step.SelectTables:
                     #region SelectTables
-                    table = listBoxSelectDataBaseItems.SelectedItem.ToString();
-                    if (table == null)
+                    if (listBoxSelectDataBaseItems.SelectedItem == null)
                     {
                         MessageBox.Show(@"请选择一个数据表！", "", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                         return;
                     }
+                    table = listBoxSelectDataBaseItems.SelectedItem.ToString();
+                   
                     table = table.Split('^')[0];
+
+
+
 
 
                     PlSelectDataItem.Visible = false;
@@ -380,24 +389,7 @@ namespace ICSharpCodeTextEditor
 
         #endregion
 
-        #region SelectDataBase
-
-        private void LbDataBases_Click(object sender, EventArgs e)
-        {
-            if (LbDataBases.SelectedItem != null)
-            {
-                ChkOperateTable.Enabled = true;
-                ChkOperateView.Enabled = true;
-            }
-            else
-            {
-                ChkOperateTable.Enabled = false;
-                ChkOperateView.Enabled = false;
-            }
-        }
-
-        #endregion
-
+        
 
 
 
@@ -562,6 +554,8 @@ namespace ICSharpCodeTextEditor
         {
 
         }
+
+       
     }
 
 

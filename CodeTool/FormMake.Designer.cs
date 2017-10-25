@@ -581,13 +581,14 @@
             // 
             // btnClearCode
             // 
-            this.btnClearCode.Font = new System.Drawing.Font("宋体", 12F);
-            this.btnClearCode.Location = new System.Drawing.Point(28, 744);
+            this.btnClearCode.Font = new System.Drawing.Font("宋体", 9F);
+            this.btnClearCode.Location = new System.Drawing.Point(415, 744);
             this.btnClearCode.Name = "btnClearCode";
             this.btnClearCode.Size = new System.Drawing.Size(138, 40);
             this.btnClearCode.TabIndex = 11;
             this.btnClearCode.Text = "格式化";
             this.btnClearCode.UseVisualStyleBackColor = true;
+            this.btnClearCode.Visible = false;
             this.btnClearCode.Click += new System.EventHandler(this.btnClearCode_Click);
             // 
             // FormMake

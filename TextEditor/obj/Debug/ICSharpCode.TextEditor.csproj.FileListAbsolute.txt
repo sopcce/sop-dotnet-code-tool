@@ -1,0 +1,7 @@
+D:\Sop\Repository\GitHub\CodeTool\TextEditor\bin\Resources\CSharp-Mode.xshd
+D:\Sop\Repository\GitHub\CodeTool\TextEditor\bin\ICSharpCode.TextEditor.dll
+D:\Sop\Repository\GitHub\CodeTool\TextEditor\bin\ICSharpCode.TextEditor.pdb
+D:\Sop\Repository\GitHub\CodeTool\TextEditor\obj\Debug\ICSharpCode.TextEditor.csprojResolveAssemblyReference.cache
+D:\Sop\Repository\GitHub\CodeTool\TextEditor\obj\Debug\ICSharpCode.TextEditor.csproj.CoreCompileInputs.cache
+D:\Sop\Repository\GitHub\CodeTool\TextEditor\obj\Debug\ICSharpCode.TextEditor.dll
+D:\Sop\Repository\GitHub\CodeTool\TextEditor\obj\Debug\ICSharpCode.TextEditor.pdb

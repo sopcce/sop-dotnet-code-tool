@@ -129,8 +129,6 @@ namespace ICSharpCodeTextEditor
                 fsmp = new FileSyntaxModeProvider(path);
                 HighlightingManager.Manager.AddSyntaxModeFileProvider(fsmp);
                 textEditor.SetHighlighting("C#");
-
-
             }
             #endregion
 
@@ -149,47 +147,6 @@ namespace ICSharpCodeTextEditor
             }
         }
 
-        //返回搜索字符
-        public static string GetLastWord(string str, int i)
-        {
-            string x = str;
-            Regex reg = new Regex(@"\s+[a-z]+\s*", RegexOptions.RightToLeft);
-            x = reg.Match(x).Value;
-
-            Regex reg2 = new Regex(@"\s");
-            x = reg2.Replace(x, "");
-            return x;
-        }
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <returns></returns>
-        public static List<string> AllClass()
-        {
-            List<string> list = new List<string>();
-            list.Add("function");
-            list.Add("return");
-            list.Add("class");
-            list.Add("new");
-            list.Add("extends");
-            list.Add("var");
-            return list;
-        }
-        //设定颜色
-        public static void MySelect(System.Windows.Forms.RichTextBox tb, int i, string s, Color c, bool font)
-        {
-            tb.Select(i - s.Length, s.Length);
-            tb.SelectionColor = c;
-            //是否改变字体
-            if (font)
-                tb.SelectionFont = new Font("宋体", 12, (FontStyle.Bold));
-            else
-                tb.SelectionFont = new Font("宋体", 12, (FontStyle.Regular));
-            //以下是把光标放到原来位置，并把光标后输入的文字重置
-            tb.Select(i, 0);
-            tb.SelectionFont = new Font("宋体", 12, (FontStyle.Regular));
-            tb.SelectionColor = Color.Black;
-        }
 
 
 
@@ -253,6 +210,7 @@ namespace ICSharpCodeTextEditor
                 case Step.SelectDataBase:
                     PlSelectDataBase.Visible = false;
                     PanelConect.Visible = true;
+                    btnClearCode.Visible = false;
                     BtnPrevious.Visible = false;
                     step = Step.SetConnection;
                     break;
@@ -347,9 +305,12 @@ namespace ICSharpCodeTextEditor
                     PlSetOption.Visible = true;
                     step = Step.SetOption;
                     string message = string.Empty;
+                    btnClearCode.Visible = true;
                     #endregion
                     break;
                 case Step.SelectViews:
+                    btnClearCode.Visible = false;
+
                     break;
                 case Step.SetOption:
                     step = Step.Execute;
@@ -357,6 +318,7 @@ namespace ICSharpCodeTextEditor
                     PlExecMessage.Visible = true;
                     TxtExecMessage.Text = "";
 
+                   
                     break;
                 case Step.Execute:
                     this.Close();

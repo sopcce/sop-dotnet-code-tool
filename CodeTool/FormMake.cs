@@ -9,6 +9,7 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Windows.Forms;
 using CodeTool.App_Code;
+using CodeTool.EditorHelper;
 using ICSharpCode.TextEditor;
 using ICSharpCode.TextEditor.Document;
 
@@ -47,7 +48,7 @@ namespace CodeTool
 
             textEditor = new TextEditorControl();
             textEditor.Dock = DockStyle.Fill;
-           // PlSetOption.Controls.Add(textEditor);
+            // PlSetOption.Controls.Add(textEditor);
             groupBox1.Controls.Add(textEditor);
             textEditor.TextChanged += TextEditor_TextChanged;
         }
@@ -117,7 +118,7 @@ namespace ICSharpCodeTextEditor
             textEditor.Document.HighlightingStrategy = HighlightingStrategyFactory.CreateHighlightingStrategy("C#");
             textEditor.Encoding = System.Text.Encoding.UTF8;
             textEditor.Font = new Font("Hack", 12);
-            textEditor.Document.FoldingManager.FoldingStrategy = new JackWangCUMT.WinForm.MingFolding();
+            textEditor.Document.FoldingManager.FoldingStrategy = new MingFolding();
             textEditor.Text = sampleCode;
 
             //自定义代码高亮
@@ -127,10 +128,10 @@ namespace ICSharpCodeTextEditor
             {
                 fsmp = new FileSyntaxModeProvider(path);
                 HighlightingManager.Manager.AddSyntaxModeFileProvider(fsmp);
-                textEditor.SetHighlighting("JackC#");
+                textEditor.SetHighlighting("C#");
 
 
-            } 
+            }
             #endregion
 
 
@@ -147,7 +148,7 @@ namespace ICSharpCodeTextEditor
                 this.Close();
             }
         }
-      
+
         //返回搜索字符
         public static string GetLastWord(string str, int i)
         {
@@ -335,7 +336,7 @@ namespace ICSharpCodeTextEditor
                         return;
                     }
                     table = listBoxSelectDataBaseItems.SelectedItem.ToString();
-                   
+
                     table = table.Split('^')[0];
 
 
@@ -389,7 +390,7 @@ namespace ICSharpCodeTextEditor
 
         #endregion
 
-        
+
 
 
 
@@ -555,7 +556,10 @@ namespace ICSharpCodeTextEditor
 
         }
 
-       
+        private void btnClearCode_Click(object sender, EventArgs e)
+        {
+            textEditor.Text = CSharpFormatHelper.FormatCSharpCode(textEditor.Text);
+        }
     }
 
 

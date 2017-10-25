@@ -1,26 +1,26 @@
-﻿/*
- * Author:JackWangCUMT
- * Date:2017.1.13
- * Email:wangmingemail@163.com
- * Please not delete this.
- */ 
-using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿ 
+
 using System.Text;
 using System.Text.RegularExpressions;
-using System.Threading.Tasks;
 
-namespace JackWangCUMT.WinForm
+namespace CodeTool.EditorHelper
 {
     public class CSharpFormatHelper
     {
-        //remove empty lines from string
+        /// <summary>
+        /// remove empty lines from string
+        /// </summary>
+        /// <param name="lines"></param>
+        /// <returns></returns>
         public static string RemoveEmptyLines(string lines)
         {
             return Regex.Replace(lines, @"^\s*$\n|\r", "", RegexOptions.Multiline).TrimEnd();
         }
-        //Indent String with Spaces
+        /// <summary>
+        /// Indent String with Spaces
+        /// </summary>
+        /// <param name="count"></param>
+        /// <returns></returns>
         public static string Indent(int count)
         {
             if (count <= 0)
@@ -33,7 +33,11 @@ namespace JackWangCUMT.WinForm
             }
         }
 
-        //格式化C#代码
+        /// <summary>
+        /// Formatting C# code
+        /// </summary>
+        /// <param name="code"></param>
+        /// <returns></returns>
         public static string FormatCSharpCode(string code)
         {
             //去除空白行

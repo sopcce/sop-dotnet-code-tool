@@ -70,6 +70,7 @@
             this.radioButton9 = new System.Windows.Forms.RadioButton();
             this.label3 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btnClearCode = new System.Windows.Forms.Button();
             this.PanelConect.SuspendLayout();
             this.GbAuthentication.SuspendLayout();
             this.PlSelectDataBase.SuspendLayout();
@@ -578,11 +579,23 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "编辑器";
             // 
+            // btnClearCode
+            // 
+            this.btnClearCode.Font = new System.Drawing.Font("宋体", 12F);
+            this.btnClearCode.Location = new System.Drawing.Point(28, 744);
+            this.btnClearCode.Name = "btnClearCode";
+            this.btnClearCode.Size = new System.Drawing.Size(138, 40);
+            this.btnClearCode.TabIndex = 11;
+            this.btnClearCode.Text = "格式化";
+            this.btnClearCode.UseVisualStyleBackColor = true;
+            this.btnClearCode.Click += new System.EventHandler(this.btnClearCode_Click);
+            // 
             // FormMake
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1078, 802);
+            this.Controls.Add(this.btnClearCode);
             this.Controls.Add(this.BtnPrevious);
             this.Controls.Add(this.BtnSchemaNext);
             this.Controls.Add(this.BtnComplete);
@@ -656,6 +669,7 @@
         private System.Windows.Forms.ListBox listBoxSelectDataBaseItems;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.Button btnClearCode;
     }
 }
 

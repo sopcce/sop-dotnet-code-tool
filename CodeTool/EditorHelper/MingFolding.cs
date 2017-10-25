@@ -1,11 +1,7 @@
-﻿using ICSharpCode.TextEditor.Document;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
+using ICSharpCode.TextEditor.Document;
 
-namespace JackWangCUMT.WinForm
+namespace CodeTool.EditorHelper
 {
     
     /// <summary>

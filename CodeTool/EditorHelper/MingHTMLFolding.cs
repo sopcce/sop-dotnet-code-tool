@@ -1,17 +1,13 @@
-﻿using ICSharpCode.TextEditor.Document;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
+using ICSharpCode.TextEditor.Document;
 
-namespace JackWangCUMT.WinForm
+namespace CodeTool.EditorHelper
 {
     
     /// <summary>
     /// The class to generate the foldings, it implements ICSharpCode.TextEditor.Document.IFoldingStrategy
     /// </summary>
-    public class MingHTMLFolding : IFoldingStrategy
+    public class MingHtmlFolding : IFoldingStrategy
     {
         /// <summary>
         /// Generates the foldings for our document.

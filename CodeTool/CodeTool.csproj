@@ -96,7 +96,6 @@
     <Compile Include="FormMake.Designer.cs">
       <DependentUpon>FormMake.cs</DependentUpon>
     </Compile>
-    <None Include="HighLighting\J1ackCSharp-Mode.xshd" />
     <Compile Include="Main.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -119,7 +118,7 @@
       <DependentUpon>Main.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="app.config" />
-    <None Include="HighLighting\JackCSharp-Mode.xshd">
+    <None Include="HighLighting\CSharp-Mode.xshd">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Include="packages.config" />

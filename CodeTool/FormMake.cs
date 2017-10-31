@@ -9,9 +9,9 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Windows.Forms;
 using CodeTool.App_Code;
-using CodeTool.EditorHelper;
 using ICSharpCode.TextEditor;
 using ICSharpCode.TextEditor.Document;
+using ICSharpCode.TextEditor.EditorHelper;
 
 namespace CodeTool
 {
@@ -116,10 +116,10 @@ namespace ICSharpCodeTextEditor
 
             textEditor.SetHighlighting("C#");
             textEditor.Document.HighlightingStrategy = HighlightingStrategyFactory.CreateHighlightingStrategy("C#");
-            textEditor.Encoding = System.Text.Encoding.UTF8;
-            textEditor.Font = new Font("Hack", 12);
-            textEditor.Document.FoldingManager.FoldingStrategy = new MingFolding();
-            textEditor.Text = sampleCode;
+            //textEditor.Encoding = System.Text.Encoding.UTF8;
+            //textEditor.Font = new Font("Hack", 12);
+            //textEditor.Document.FoldingManager.FoldingStrategy = new MingFolding();
+            //textEditor.Text = sampleCode;
 
             //自定义代码高亮
             string path = Application.StartupPath + "\\HighLighting";

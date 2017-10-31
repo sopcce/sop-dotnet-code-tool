@@ -103,9 +103,6 @@
       <DependentUpon>Main.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="app.config" />
-    <None Include="HighLighting\CSharp-Mode.xshd">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>

@@ -63,9 +63,6 @@
     <Compile Include="App_Code\CommonHelper.cs" />
     <Compile Include="App_Code\ConfigHelper.cs" />
     <Compile Include="App_Code\PetaPoco.cs" />
-    <Compile Include="EditorHelper\CSharpFormatHelper.cs" />
-    <Compile Include="EditorHelper\MingFolding.cs" />
-    <Compile Include="EditorHelper\MingHTMLFolding.cs" />
     <Compile Include="FormTemplate.cs">
       <SubType>Form</SubType>
     </Compile>

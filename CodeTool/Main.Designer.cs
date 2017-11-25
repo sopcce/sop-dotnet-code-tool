@@ -47,8 +47,8 @@
             this.Edit_ToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Padding = new System.Windows.Forms.Padding(12, 4, 0, 4);
-            this.menuStrip1.Size = new System.Drawing.Size(1134, 44);
+            this.menuStrip1.Padding = new System.Windows.Forms.Padding(9, 3, 0, 3);
+            this.menuStrip1.Size = new System.Drawing.Size(850, 34);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -58,36 +58,36 @@
             this.DataRemoval_ToolStripMenuItem,
             this.EntityGeneration_ToolStripMenuItem});
             this.File_ToolStripMenuItem.Name = "File_ToolStripMenuItem";
-            this.File_ToolStripMenuItem.Size = new System.Drawing.Size(103, 36);
+            this.File_ToolStripMenuItem.Size = new System.Drawing.Size(80, 28);
             this.File_ToolStripMenuItem.Text = "功能(&F)";
             // 
             // DataRemoval_ToolStripMenuItem
             // 
             this.DataRemoval_ToolStripMenuItem.Name = "DataRemoval_ToolStripMenuItem";
-            this.DataRemoval_ToolStripMenuItem.Size = new System.Drawing.Size(268, 38);
+            this.DataRemoval_ToolStripMenuItem.Size = new System.Drawing.Size(200, 30);
             this.DataRemoval_ToolStripMenuItem.Text = "数据迁移工具";
             this.DataRemoval_ToolStripMenuItem.Click += new System.EventHandler(this.DataRemoval_ToolStripMenuItem_Click);
             // 
             // EntityGeneration_ToolStripMenuItem
             // 
             this.EntityGeneration_ToolStripMenuItem.Name = "EntityGeneration_ToolStripMenuItem";
-            this.EntityGeneration_ToolStripMenuItem.Size = new System.Drawing.Size(268, 38);
+            this.EntityGeneration_ToolStripMenuItem.Size = new System.Drawing.Size(200, 30);
             this.EntityGeneration_ToolStripMenuItem.Text = "实体生成工具";
             this.EntityGeneration_ToolStripMenuItem.Click += new System.EventHandler(this.EntityGeneration_ToolStripMenuItem_Click);
             // 
             // Edit_ToolStripMenuItem
             // 
             this.Edit_ToolStripMenuItem.Name = "Edit_ToolStripMenuItem";
-            this.Edit_ToolStripMenuItem.Size = new System.Drawing.Size(103, 36);
+            this.Edit_ToolStripMenuItem.Size = new System.Drawing.Size(80, 28);
             this.Edit_ToolStripMenuItem.Text = "编辑(&E)";
             // 
             // btnTemp
             // 
             this.btnTemp.Font = new System.Drawing.Font("宋体", 22F);
-            this.btnTemp.Location = new System.Drawing.Point(461, 290);
-            this.btnTemp.Margin = new System.Windows.Forms.Padding(6);
+            this.btnTemp.Location = new System.Drawing.Point(346, 218);
+            this.btnTemp.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnTemp.Name = "btnTemp";
-            this.btnTemp.Size = new System.Drawing.Size(290, 124);
+            this.btnTemp.Size = new System.Drawing.Size(218, 93);
             this.btnTemp.TabIndex = 1;
             this.btnTemp.Text = "模板生成";
             this.btnTemp.UseVisualStyleBackColor = true;
@@ -96,10 +96,10 @@
             // btnUnicode
             // 
             this.btnUnicode.Font = new System.Drawing.Font("宋体", 22F);
-            this.btnUnicode.Location = new System.Drawing.Point(115, 290);
-            this.btnUnicode.Margin = new System.Windows.Forms.Padding(6);
+            this.btnUnicode.Location = new System.Drawing.Point(86, 218);
+            this.btnUnicode.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnUnicode.Name = "btnUnicode";
-            this.btnUnicode.Size = new System.Drawing.Size(290, 124);
+            this.btnUnicode.Size = new System.Drawing.Size(218, 93);
             this.btnUnicode.TabIndex = 2;
             this.btnUnicode.Text = "编码";
             this.btnUnicode.UseVisualStyleBackColor = true;
@@ -107,15 +107,15 @@
             // 
             // Main
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 24F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1134, 832);
+            this.ClientSize = new System.Drawing.Size(850, 624);
             this.Controls.Add(this.btnTemp);
             this.Controls.Add(this.btnUnicode);
             this.Controls.Add(this.menuStrip1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip1;
-            this.Margin = new System.Windows.Forms.Padding(6);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "Main";

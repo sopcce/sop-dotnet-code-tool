@@ -9,9 +9,9 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Windows.Forms;
 using CodeTool.App_Code;
+using CodeTool.EditorHelper;
 using ICSharpCode.TextEditor;
 using ICSharpCode.TextEditor.Document;
-using ICSharpCode.TextEditor.EditorHelper;
 
 namespace CodeTool
 {

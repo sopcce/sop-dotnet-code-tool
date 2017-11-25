@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using ICSharpCode.TextEditor.Document;
 
-namespace ICSharpCode.TextEditor.EditorHelper
+namespace CodeTool.EditorHelper
 {
     
     /// <summary>

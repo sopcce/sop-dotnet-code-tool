@@ -26,17 +26,16 @@ namespace CodeTool
                 string[] lines = richTextBoxBefore.Lines;
                 for (int i = 0; i < lines.Length; i++)
                 {
-
                     string line = lines[i];
-                    result = result + "sb.AppendLine(\" " + line.Replace("\"", string.Format("\\{0}", "\"")) + "\"); \n";
-                }
+                    result = result + "sb.Append(\" " + line.Replace("\"", string.Format("\\{0}", "\"")) + "\"); \n";
+                } 
                 richTextBoxAfter.Text = result;
             }
             catch (Exception ex)
             {
-                MessageBox.Show("错误信息："+ ex.Message);
+                MessageBox.Show(@"错误信息：" + ex.Message);
             }
-           
+
         }
 
         private void btnCleanRN_Click(object sender, EventArgs e)
@@ -93,7 +92,24 @@ namespace CodeTool
 
         }
 
+        private void btnStringBuilder_AppendFormat_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                string result = string.Empty;
+                string[] lines = richTextBoxBefore.Lines;
+                for (int i = 0; i < lines.Length; i++)
+                {
+                    string line = lines[i];
+                    result = result + "sb.AppendFormat(\" " + line.Replace("\"", string.Format("\\{0}", "\"")) + "\"); \n";
+                }
 
-
+                richTextBoxAfter.Text = result;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("错误信息：" + ex.Message);
+            }
+        }
     }
 }

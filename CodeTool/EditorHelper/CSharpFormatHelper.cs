@@ -1,24 +1,16 @@
 ﻿using System.Text;
 using System.Text.RegularExpressions;
 
-namespace ICSharpCode.TextEditor.EditorHelper
+namespace CodeTool.EditorHelper
 {
     public class CSharpFormatHelper
     {
-        /// <summary>
-        /// remove empty lines from string
-        /// </summary>
-        /// <param name="lines"></param>
-        /// <returns></returns>
+        //remove empty lines from string
         public static string RemoveEmptyLines(string lines)
         {
             return Regex.Replace(lines, @"^\s*$\n|\r", "", RegexOptions.Multiline).TrimEnd();
         }
-        /// <summary>
-        /// Indent String with Spaces
-        /// </summary>
-        /// <param name="count"></param>
-        /// <returns></returns>
+        //Indent String with Spaces
         public static string Indent(int count)
         {
             if (count <= 0)
@@ -31,11 +23,7 @@ namespace ICSharpCode.TextEditor.EditorHelper
             }
         }
 
-        /// <summary>
-        /// Formatting C# code
-        /// </summary>
-        /// <param name="code"></param>
-        /// <returns></returns>
+        //格式化C#代码
         public static string FormatCSharpCode(string code)
         {
             //去除空白行

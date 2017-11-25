@@ -15,8 +15,8 @@ namespace CodeTool
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            //Application.Run(new Main());
-            Application.Run(new FormMake());
+            Application.Run(new Main());
+            //Application.Run(new FrmSample());
 
 
         }

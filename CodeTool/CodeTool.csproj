@@ -9,7 +9,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>CodeTool</RootNamespace>
     <AssemblyName>CodeTool</AssemblyName>
-    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />
   </PropertyGroup>
@@ -63,6 +63,9 @@
     <Compile Include="App_Code\CommonHelper.cs" />
     <Compile Include="App_Code\ConfigHelper.cs" />
     <Compile Include="App_Code\PetaPoco.cs" />
+    <Compile Include="EditorHelper\CSharpFormatHelper.cs" />
+    <Compile Include="EditorHelper\MingFolding.cs" />
+    <Compile Include="EditorHelper\MingHTMLFolding.cs" />
     <Compile Include="FormTemplate.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -103,6 +106,7 @@
       <DependentUpon>Main.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="app.config" />
+    <None Include="HighLighting\JackCSharp-Mode.xshd" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
@@ -115,7 +119,7 @@
     <Content Include="lib\Mono.Cecil.dll" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\TextEditor\ICSharpCode.TextEditor.csproj">
+    <ProjectReference Include="..\..\..\..\ICSharpCode.TextEditor_2.2\Project\ICSharpCode.TextEditor.csproj">
       <Project>{2d18be89-d210-49eb-a9dd-2246fbb3df6d}</Project>
       <Name>ICSharpCode.TextEditor</Name>
     </ProjectReference>

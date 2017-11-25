@@ -1,4 +1,0 @@
-D:\Sop\ICSharpCode.TextEditor_2.2\Project\bin\ICSharpCode.TextEditor.dll
-D:\Sop\ICSharpCode.TextEditor_2.2\Project\obj\Release\ICSharpCode.TextEditor.csprojResolveAssemblyReference.cache
-D:\Sop\ICSharpCode.TextEditor_2.2\Project\obj\Release\ICSharpCode.TextEditor.csproj.CoreCompileInputs.cache
-D:\Sop\ICSharpCode.TextEditor_2.2\Project\obj\Release\ICSharpCode.TextEditor.dll

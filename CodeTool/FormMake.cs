@@ -9,9 +9,6 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Windows.Forms;
 using CodeTool.App_Code;
-using CodeTool.EditorHelper;
-using ICSharpCode.TextEditor;
-using ICSharpCode.TextEditor.Document;
 
 namespace CodeTool
 {
@@ -20,20 +17,14 @@ namespace CodeTool
         /// <summary>
         /// 
         /// </summary>
-        private static string _connectionString = "Data Source=192.168.1.36;User ID=sa;Password=sa123.";
-
-        private static string providerName = "";
-        /// <summary>
-        /// 
-        /// </summary>
-        private TextEditorControl textEditor = null;
+        private static string _connectionString = "Data Source=192.168.1.36;User ID=sa;Password=sa123.", table, dbType, providerName;
 
         /// <summary>
         /// 设置连接信息
         /// </summary>
         private static Step step = Step.SetConnection;
-        private static string table;
-        /// <summary>
+
+        /// <summary>  
         /// 
         /// </summary>
         private static IEnumerable<string> views;
@@ -46,90 +37,36 @@ namespace CodeTool
         {
             InitializeComponent();
 
-            textEditor = new TextEditorControl();
-            textEditor.Dock = DockStyle.Fill;
-            // PlSetOption.Controls.Add(textEditor);
-            groupBox1.Controls.Add(textEditor);
-            textEditor.TextChanged += TextEditor_TextChanged;
         }
 
-        private void TextEditor_TextChanged(object sender, EventArgs e)
-        {
-            //更新，以便进行代码折叠
-            textEditor.Document.FoldingManager.UpdateFoldings(null, null);
-        }
+
 
         private void FormMake_Load(object sender, EventArgs e)
         {
             _connectionString = "server=192.168.1.36;uid=sa;pwd=sa123.";
             TxtConnectionString.Text = _connectionString;
+
+
+
+            #region  数据库类型
+            listBox_dbType.Items.AddRange(new string[] 
+            { 
+                "SqlServer"
+                ,"MySql"
+                ,"MariaDb"
+                ,"SqlCeConnection"
+                ,"Npgsql"
+                ,"pgsql"
+                ,"Oracle"
+                ,"SQLite"
+                ,"Firebird"
+                ,"FbConnection"
+                ,"OleDb"
+                ,"SqlServerCe"
+                ,"ACE.OLEDB"
+                ,"System.Data.SqlClient"
+            });
             listBox_dbType.SelectedIndex = 0;
-            #region 文本编辑器
-
-
-            string sampleCode = @"using ICSharpCode.TextEditor;
-using System;
-using System.Collections.Generic;
-         using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-namespace ICSharpCodeTextEditor
-{
-    public partial class Form1 : Form
-    {
-        private TextEditorControl textEditor = null;
-        public Form1()
-        {
-            InitializeComponent();
-                     textEditor = new TextEditorControl();
-            textEditor.Dock = DockStyle.Fill;
-   this.pContainer.Controls.Add(textEditor);
-            textEditor.TextChanged += TextEditor_TextChanged;
-        }
-        private void TextEditor_TextChanged(object sender, EventArgs e)
-        {
-            //更新，以便进行代码折叠
-            textEditor.Document.FoldingManager.UpdateFoldings(null, null);
-        }
-        private void btnFormatCSharp_Click(object sender, EventArgs e)
-        {
-            textEditor.Text = 
-            JackWangCUMT.WinForm.CSharpFormatHelper.FormatCSharpCode(textEditor.Text);
-        }
-        private void Form1_Load(object sender, EventArgs e)
-        {
-            if(textEditor!=null)
-                   {
-     textEditor.SetHighlighting(""C#"");
-
-                textEditor.Encoding = System.Text.Encoding.UTF8;
-            textEditor.Document.FoldingManager.FoldingStrategy = new JackWangCUMT.WinForm.MingFolding();
-        }
-    }
-}
-}
-";
-
-            textEditor.SetHighlighting("C#");
-            textEditor.Document.HighlightingStrategy = HighlightingStrategyFactory.CreateHighlightingStrategy("C#");
-            //textEditor.Encoding = System.Text.Encoding.UTF8;
-            //textEditor.Font = new Font("Hack", 12);
-            //textEditor.Document.FoldingManager.FoldingStrategy = new MingFolding();
-            //textEditor.Text = sampleCode;
-
-            //自定义代码高亮
-            string path = Application.StartupPath + "\\HighLighting";
-            FileSyntaxModeProvider fsmp;
-            if (Directory.Exists(path))
-            {
-                fsmp = new FileSyntaxModeProvider(path);
-                HighlightingManager.Manager.AddSyntaxModeFileProvider(fsmp);
-                textEditor.SetHighlighting("C#");
-            }
             #endregion
 
 
@@ -137,14 +74,14 @@ namespace ICSharpCodeTextEditor
 
         private void FormMake_FormClosing(object sender, FormClosingEventArgs e)
         {
-            var result = MessageBox.Show(@"你确定要退出本程序吗？", @"关闭窗口",
-                MessageBoxButtons.OKCancel,
-                MessageBoxIcon.Question);
-            if (result == DialogResult.OK)
-            {
-                this.Dispose();
-                this.Close();
-            }
+            //var result = MessageBox.Show(@"你确定要退出本程序吗？", @"关闭窗口",
+            //    MessageBoxButtons.OKCancel,
+            //    MessageBoxIcon.Question);
+            //if (result == DialogResult.OK)
+            //{
+            //    this.Dispose();
+            //    this.Close();
+            //}
         }
 
 
@@ -164,14 +101,14 @@ namespace ICSharpCodeTextEditor
         /// <param name="e"></param>
         private void BtnComplete_Click(object sender, EventArgs e)
         {
-            var result = MessageBox.Show(@"你确定要退出本程序吗？", @"关闭窗口",
-                MessageBoxButtons.OKCancel,
-                MessageBoxIcon.Question);
-            if (result == DialogResult.OK)
-            {
-                this.Dispose();
-                this.Close();
-            }
+            //var result = MessageBox.Show(@"你确定要退出本程序吗？", @"关闭窗口",
+            //    MessageBoxButtons.OKCancel,
+            //    MessageBoxIcon.Question);
+            //if (result == DialogResult.OK)
+            //{
+            //    this.Dispose();
+            //    this.Close();
+            //}
 
         }
 
@@ -210,7 +147,7 @@ namespace ICSharpCodeTextEditor
                 case Step.SelectDataBase:
                     PlSelectDataBase.Visible = false;
                     PanelConect.Visible = true;
-                    btnClearCode.Visible = false;
+                    //btnClearCode.Visible = false;
                     BtnPrevious.Visible = false;
                     step = Step.SetConnection;
                     break;
@@ -305,11 +242,11 @@ namespace ICSharpCodeTextEditor
                     PlSetOption.Visible = true;
                     step = Step.SetOption;
                     string message = string.Empty;
-                    btnClearCode.Visible = true;
+                    //btnClearCode.Visible = true;
                     #endregion
                     break;
                 case Step.SelectViews:
-                    btnClearCode.Visible = false;
+                    //btnClearCode.Visible = false;
 
                     break;
                 case Step.SetOption:
@@ -318,7 +255,7 @@ namespace ICSharpCodeTextEditor
                     PlExecMessage.Visible = true;
                     TxtExecMessage.Text = "";
 
-                   
+
                     break;
                 case Step.Execute:
                     this.Close();
@@ -367,7 +304,9 @@ namespace ICSharpCodeTextEditor
             try
             {
                 errorMessage = string.Empty;
-                PetaPoco.Database db = new PetaPoco.Database(_connectionString, "");
+                dbType = listBox_dbType.SelectedItem.ToString();
+
+                PetaPoco.Database db = new PetaPoco.Database(_connectionString, dbType);
                 db.OpenSharedConnection();
                 if (db.Connection.State != ConnectionState.Open)
                 {
@@ -513,15 +452,9 @@ namespace ICSharpCodeTextEditor
             }
         }
 
-        private void listBox_dbType_SelectedIndexChanged(object sender, EventArgs e)
-        {
 
-        }
 
-        private void btnClearCode_Click(object sender, EventArgs e)
-        {
-            textEditor.Text = CSharpFormatHelper.FormatCSharpCode(textEditor.Text);
-        }
+
     }
 
 

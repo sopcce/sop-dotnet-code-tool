@@ -43,5 +43,12 @@ namespace CodeTool
             FormTemplate unform = new FormTemplate();
             unform.ShowDialog();
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
+            FormMake unform = new FormMake();
+            unform.ShowDialog();
+        }
     }
 }

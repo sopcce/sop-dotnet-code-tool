@@ -1037,7 +1037,7 @@ namespace CodeTool.Common.DBUtility
         /// <param name="className">不区分大小写，可选值：MySql、OleDb、Oracle、SQLite、SqlServer、PostgreSql</param>
         public static DbHelper Create(string className)
         {
-            Type type = Type.GetType("DBUtility." + className, true, true);
+            Type type = Type.GetType("CodeTool.Common.DBUtility." + className, true, true);
             ConstructorInfo ci = type.GetConstructor(new Type[] { });
             return (DbHelper)ci.Invoke(null);
         }

@@ -38,21 +38,21 @@ namespace CodeTool
             // 
             this.mnuCopy.Name = "mnuCopy";
             this.mnuCopy.Size = new System.Drawing.Size(152, 22);
-            this.mnuCopy.Text = "复制";
+            this.mnuCopy.Text = @"复制";
             this.mnuCopy.Click += new System.EventHandler(this.mnuCopy_Click);
             // 
             // mnuParse
             // 
             this.mnuParse.Name = "mnuParse";
             this.mnuParse.Size = new System.Drawing.Size(152, 22);
-            this.mnuParse.Text = "粘贴";
+            this.mnuParse.Text = @"粘贴";
             this.mnuParse.Click += new System.EventHandler(this.mnuParse_Click);
             // 
             // mnuCut
             // 
             this.mnuCut.Name = "mnuCut";
             this.mnuCut.Size = new System.Drawing.Size(152, 22);
-            this.mnuCut.Text = "剪切";
+            this.mnuCut.Text = @"剪切";
             this.mnuCut.Click += new System.EventHandler(this.mnuCut_Click);
         }
 

@@ -62,7 +62,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>bSHhQmWb+3E8Uu5jzQ9aFnRRBYg8Fuz9hA8OIF0oNWM=</dsig:DigestValue>
+        <dsig:DigestValue>/+UAPMWukQULVpP8rAykX3jBrsXM9jkk3JH47oQLBYs=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -74,7 +74,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>SngfGwhuTBbyw2IG/UjodVntlqTEEgqq9uztC8m1BkU=</dsig:DigestValue>
+        <dsig:DigestValue>MD9ebcLdxatU9pIOMsDnjBRj4KmTUfv7e2ndprQ8nV4=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -206,7 +206,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>lcbHVa4nvkqdnx7mkumXxG8Uk4nn2IYtLoj/+Pnc290=</dsig:DigestValue>
+        <dsig:DigestValue>zivseXQxlJbChs1VXs9ln5bAc+hNAB3Qf+D0YKQv7CI=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -229,6 +229,60 @@
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
       <dsig:DigestValue>b4ruSOA3i43lGnSMhNwnDBxVL3I0T3PJvfB/axs5+mE=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Config\Config\History.xml" size="578" writeableType="applicationData">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>ii3YefSJsZ7sZ945Bl+ue71kTFjQcAaSYMt1wDdMu6M=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Config\Config\Language.xml" size="808" writeableType="applicationData">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>5f/bNxSKcAS1+UnJdcHadXUonSQF7imRK0O3xAQYKJA=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Config\Config\NewTemplate\DbType.js" size="11626">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>VRI8JPv0tsbZAOiPGredBzgzjnyP9rVEH4qQnglymTI=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Config\Config\NewTemplate\Helper.js" size="1496">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>y3zdHsASDB+XKCYayCKXAGb0hp7Wl2PkqrwsVj8VxU0=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Config\Config\NewTemplate\main.js" size="213">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>UP3SYc0YEIVnYYlaiXbpe2JwVSSGd1bgt0vCfJcONls=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Config\Config\NewTemplate\settings.xml" size="296" writeableType="applicationData">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>o2IfhF0nhcmRNF2ESCVvQw0pytlqbuU+5pH5KT+t7rA=</dsig:DigestValue>
     </hash>
   </file>
   <file name="it.ico" size="16958">

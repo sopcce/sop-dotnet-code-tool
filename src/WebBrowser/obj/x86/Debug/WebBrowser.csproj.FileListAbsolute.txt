@@ -20,3 +20,11 @@ E:\codeaa\CodeTool\src\WebBrowser\obj\x86\Debug\WebBrowser.csproj.CoreCompileInp
 E:\codeaa\CodeTool\src\WebBrowser\obj\x86\Debug\WebBrowser.csproj.CopyComplete
 E:\codeaa\CodeTool\src\WebBrowser\obj\x86\Debug\WebBrowser.dll
 E:\codeaa\CodeTool\src\WebBrowser\obj\x86\Debug\WebBrowser.pdb
+E:\codeaa\CodeTool\src\WebBrowser\bin\Debug\license.txt
+E:\codeaa\CodeTool\src\WebBrowser\bin\Debug\WebBrowser.dll
+E:\codeaa\CodeTool\src\WebBrowser\bin\Debug\WebBrowser.pdb
+E:\codeaa\CodeTool\src\WebBrowser\bin\Debug\AxInterop.SHDocVw.dll
+E:\codeaa\CodeTool\src\WebBrowser\bin\Debug\Interop.SHDocVw.dll
+E:\codeaa\CodeTool\src\WebBrowser\bin\Debug\Microsoft.mshtml.dll
+E:\codeaa\CodeTool\src\WebBrowser\bin\Debug\WeifenLuo.WinFormsUI.Docking.dll
+E:\codeaa\CodeTool\src\WebBrowser\bin\Debug\WeifenLuo.WinFormsUI.Docking.pdb

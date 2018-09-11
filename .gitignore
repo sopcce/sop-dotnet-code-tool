@@ -4,3 +4,9 @@
 
 /.vs
 /CodeTool/obj
+/src/.vs
+/src/packages
+/src/WinFormUI/bin
+/src/WinFormUI/obj
+/src/CodeTool/obj
+/src/CodeTool/bin

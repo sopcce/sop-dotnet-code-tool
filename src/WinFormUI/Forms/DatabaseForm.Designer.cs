@@ -1,4 +1,4 @@
-﻿namespace CodeTool
+﻿namespace CodeTool.Forms
 {
     partial class DatabaseForm
     {
@@ -59,30 +59,34 @@
             // 
             // toolStrip1
             // 
+            this.toolStrip1.ImageScalingSize = new System.Drawing.Size(24, 24);
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.btnAddDatabase,
             this.btnRemoveDatabase});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(210, 25);
+            this.toolStrip1.Padding = new System.Windows.Forms.Padding(0, 0, 3, 0);
+            this.toolStrip1.Size = new System.Drawing.Size(348, 38);
             this.toolStrip1.TabIndex = 0;
             this.toolStrip1.Text = "toolStrip1";
             // 
             // btnAddDatabase
             // 
+            this.btnAddDatabase.Font = new System.Drawing.Font("Microsoft YaHei UI", 12F);
             this.btnAddDatabase.Image = global::CodeTool.Properties.Resources.add;
             this.btnAddDatabase.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnAddDatabase.Name = "btnAddDatabase";
-            this.btnAddDatabase.Size = new System.Drawing.Size(85, 22);
+            this.btnAddDatabase.Size = new System.Drawing.Size(162, 35);
             this.btnAddDatabase.Text = "添加数据库";
             this.btnAddDatabase.Click += new System.EventHandler(this.btnAddDatabase_Click);
             // 
             // btnRemoveDatabase
             // 
+            this.btnRemoveDatabase.Font = new System.Drawing.Font("Microsoft YaHei UI", 12F);
             this.btnRemoveDatabase.Image = global::CodeTool.Properties.Resources.delete;
             this.btnRemoveDatabase.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnRemoveDatabase.Name = "btnRemoveDatabase";
-            this.btnRemoveDatabase.Size = new System.Drawing.Size(85, 22);
+            this.btnRemoveDatabase.Size = new System.Drawing.Size(162, 35);
             this.btnRemoveDatabase.Text = "移除数据库";
             this.btnRemoveDatabase.Click += new System.EventHandler(this.btnRemoveDatabase_Click);
             // 
@@ -91,10 +95,11 @@
             this.tvDatabase.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tvDatabase.ImageIndex = 0;
             this.tvDatabase.ImageList = this.imageList1;
-            this.tvDatabase.Location = new System.Drawing.Point(0, 25);
+            this.tvDatabase.Location = new System.Drawing.Point(0, 38);
+            this.tvDatabase.Margin = new System.Windows.Forms.Padding(5);
             this.tvDatabase.Name = "tvDatabase";
             this.tvDatabase.SelectedImageIndex = 0;
-            this.tvDatabase.Size = new System.Drawing.Size(210, 341);
+            this.tvDatabase.Size = new System.Drawing.Size(348, 863);
             this.tvDatabase.TabIndex = 1;
             this.tvDatabase.MouseDown += new System.Windows.Forms.MouseEventHandler(this.tvDatabase_MouseDown);
             // 
@@ -102,7 +107,7 @@
             // 
             this.imageList1.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList1.ImageStream")));
             this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
-            this.imageList1.Images.SetKeyName(0, "db.gif");
+            this.imageList1.Images.SetKeyName(0, "db.png");
             this.imageList1.Images.SetKeyName(1, "folder.gif");
             this.imageList1.Images.SetKeyName(2, "table.gif");
             this.imageList1.Images.SetKeyName(3, "field.gif");
@@ -112,6 +117,7 @@
             // 
             // cmsTable
             // 
+            this.cmsTable.ImageScalingSize = new System.Drawing.Size(24, 24);
             this.cmsTable.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.menuCreateCode,
             this.menuSelect,
@@ -119,40 +125,40 @@
             this.menuDelete,
             this.menuInsert});
             this.cmsTable.Name = "contextMenuStrip1";
-            this.cmsTable.Size = new System.Drawing.Size(153, 136);
+            this.cmsTable.Size = new System.Drawing.Size(153, 144);
             // 
             // menuCreateCode
             // 
             this.menuCreateCode.Name = "menuCreateCode";
-            this.menuCreateCode.Size = new System.Drawing.Size(118, 22);
+            this.menuCreateCode.Size = new System.Drawing.Size(152, 28);
             this.menuCreateCode.Text = "生成代码";
             this.menuCreateCode.Click += new System.EventHandler(this.menuCreateCode_Click);
             // 
             // menuSelect
             // 
             this.menuSelect.Name = "menuSelect";
-            this.menuSelect.Size = new System.Drawing.Size(118, 22);
+            this.menuSelect.Size = new System.Drawing.Size(152, 28);
             this.menuSelect.Text = "查询记录";
             this.menuSelect.Click += new System.EventHandler(this.menuSelect_Click);
             // 
             // menuUpdate
             // 
             this.menuUpdate.Name = "menuUpdate";
-            this.menuUpdate.Size = new System.Drawing.Size(152, 22);
+            this.menuUpdate.Size = new System.Drawing.Size(152, 28);
             this.menuUpdate.Text = "修改记录";
             this.menuUpdate.Click += new System.EventHandler(this.menuUpdate_Click);
             // 
             // menuDelete
             // 
             this.menuDelete.Name = "menuDelete";
-            this.menuDelete.Size = new System.Drawing.Size(152, 22);
+            this.menuDelete.Size = new System.Drawing.Size(152, 28);
             this.menuDelete.Text = "删除记录";
             this.menuDelete.Click += new System.EventHandler(this.menuDelete_Click);
             // 
             // menuInsert
             // 
             this.menuInsert.Name = "menuInsert";
-            this.menuInsert.Size = new System.Drawing.Size(152, 22);
+            this.menuInsert.Size = new System.Drawing.Size(152, 28);
             this.menuInsert.Text = "增加记录";
             this.menuInsert.Click += new System.EventHandler(this.menuInsert_Click);
             // 
@@ -166,28 +172,30 @@
             // 
             // cmsDB
             // 
+            this.cmsDB.ImageScalingSize = new System.Drawing.Size(24, 24);
             this.cmsDB.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.menuOutput,
             this.menuDeleteDatabase});
             this.cmsDB.Name = "cmsDB";
-            this.cmsDB.Size = new System.Drawing.Size(119, 48);
+            this.cmsDB.Size = new System.Drawing.Size(153, 60);
             // 
             // menuOutput
             // 
             this.menuOutput.Name = "menuOutput";
-            this.menuOutput.Size = new System.Drawing.Size(118, 22);
+            this.menuOutput.Size = new System.Drawing.Size(152, 28);
             this.menuOutput.Text = "输出代码";
             this.menuOutput.Click += new System.EventHandler(this.menuOutput_Click);
             // 
             // menuDeleteDatabase
             // 
             this.menuDeleteDatabase.Name = "menuDeleteDatabase";
-            this.menuDeleteDatabase.Size = new System.Drawing.Size(118, 22);
+            this.menuDeleteDatabase.Size = new System.Drawing.Size(152, 28);
             this.menuDeleteDatabase.Text = "删除";
             this.menuDeleteDatabase.Click += new System.EventHandler(this.menuDeleteDatabase_Click);
             // 
             // cmsView
             // 
+            this.cmsView.ImageScalingSize = new System.Drawing.Size(24, 24);
             this.cmsView.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.menuCreateCode1,
             this.menuSelect1,
@@ -195,54 +203,55 @@
             this.menuDelete1,
             this.menuInsert1});
             this.cmsView.Name = "cmsView";
-            this.cmsView.Size = new System.Drawing.Size(153, 136);
+            this.cmsView.Size = new System.Drawing.Size(153, 144);
             // 
             // menuCreateCode1
             // 
             this.menuCreateCode1.Name = "menuCreateCode1";
-            this.menuCreateCode1.Size = new System.Drawing.Size(152, 22);
+            this.menuCreateCode1.Size = new System.Drawing.Size(152, 28);
             this.menuCreateCode1.Text = "生成代码";
             this.menuCreateCode1.Click += new System.EventHandler(this.menuCreateCode_Click);
             // 
             // menuSelect1
             // 
             this.menuSelect1.Name = "menuSelect1";
-            this.menuSelect1.Size = new System.Drawing.Size(152, 22);
+            this.menuSelect1.Size = new System.Drawing.Size(152, 28);
             this.menuSelect1.Text = "查询记录";
             this.menuSelect1.Click += new System.EventHandler(this.menuSelect_Click);
             // 
             // menuUpdate1
             // 
             this.menuUpdate1.Name = "menuUpdate1";
-            this.menuUpdate1.Size = new System.Drawing.Size(152, 22);
+            this.menuUpdate1.Size = new System.Drawing.Size(152, 28);
             this.menuUpdate1.Text = "修改记录";
             this.menuUpdate1.Click += new System.EventHandler(this.menuUpdate_Click);
             // 
             // menuDelete1
             // 
             this.menuDelete1.Name = "menuDelete1";
-            this.menuDelete1.Size = new System.Drawing.Size(152, 22);
+            this.menuDelete1.Size = new System.Drawing.Size(152, 28);
             this.menuDelete1.Text = "删除记录";
             this.menuDelete1.Click += new System.EventHandler(this.menuDelete_Click);
             // 
             // menuInsert1
             // 
             this.menuInsert1.Name = "menuInsert1";
-            this.menuInsert1.Size = new System.Drawing.Size(152, 22);
+            this.menuInsert1.Size = new System.Drawing.Size(152, 28);
             this.menuInsert1.Text = "增加记录";
             this.menuInsert1.Click += new System.EventHandler(this.menuInsert_Click);
             // 
             // DatabaseForm
             // 
             this.AutoHidePortion = 0.2D;
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 24F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(210, 366);
+            this.ClientSize = new System.Drawing.Size(348, 901);
             this.Controls.Add(this.tvDatabase);
             this.Controls.Add(this.toolStrip1);
-            this.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.Font = new System.Drawing.Font("宋体", 12F);
             this.HideOnClose = true;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(5);
             this.Name = "DatabaseForm";
             this.ShowHint = WeifenLuo.WinFormsUI.Docking.DockState.DockLeft;
             this.TabText = "数据库";

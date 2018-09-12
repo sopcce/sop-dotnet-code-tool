@@ -33,13 +33,13 @@
             this.tvTemplates = new System.Windows.Forms.TreeView();
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.cms = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.mnuAddJSFile = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuAddTemplate = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuAddJSFile = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuAddXmlFile = new System.Windows.Forms.ToolStripMenuItem();
-            this.mnuDelete = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuEdit = new System.Windows.Forms.ToolStripMenuItem();
-            this.mnuOpenFolder = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuDelete = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuRefresh = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuOpenFolder = new System.Windows.Forms.ToolStripMenuItem();
             this.cms.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -49,9 +49,10 @@
             this.tvTemplates.ImageIndex = 0;
             this.tvTemplates.ImageList = this.imageList1;
             this.tvTemplates.Location = new System.Drawing.Point(0, 0);
+            this.tvTemplates.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tvTemplates.Name = "tvTemplates";
             this.tvTemplates.SelectedImageIndex = 0;
-            this.tvTemplates.Size = new System.Drawing.Size(310, 437);
+            this.tvTemplates.Size = new System.Drawing.Size(465, 656);
             this.tvTemplates.TabIndex = 0;
             this.tvTemplates.DoubleClick += new System.EventHandler(this.tvTemplates_DoubleClick);
             this.tvTemplates.MouseDown += new System.Windows.Forms.MouseEventHandler(this.tvTemplates_MouseDown);
@@ -67,6 +68,7 @@
             // 
             // cms
             // 
+            this.cms.ImageScalingSize = new System.Drawing.Size(24, 24);
             this.cms.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.mnuAddTemplate,
             this.mnuAddJSFile,
@@ -76,70 +78,70 @@
             this.mnuRefresh,
             this.mnuOpenFolder});
             this.cms.Name = "cms";
-            this.cms.Size = new System.Drawing.Size(201, 180);
+            this.cms.Size = new System.Drawing.Size(276, 214);
             this.cms.Opening += new System.ComponentModel.CancelEventHandler(this.contextMenuStrip1_Opening);
-            // 
-            // mnuAddJSFile
-            // 
-            this.mnuAddJSFile.Image = global::CodeTool.Properties.Resources.js;
-            this.mnuAddJSFile.Name = "mnuAddJSFile";
-            this.mnuAddJSFile.Size = new System.Drawing.Size(200, 22);
-            this.mnuAddJSFile.Text = "添加模板文件（*.js）";
-            this.mnuAddJSFile.Click += new System.EventHandler(this.mnuAddJSFile_Click);
             // 
             // mnuAddTemplate
             // 
             this.mnuAddTemplate.Image = global::CodeTool.Properties.Resources.template;
             this.mnuAddTemplate.Name = "mnuAddTemplate";
-            this.mnuAddTemplate.Size = new System.Drawing.Size(200, 22);
+            this.mnuAddTemplate.Size = new System.Drawing.Size(275, 30);
             this.mnuAddTemplate.Text = "添加模板";
             this.mnuAddTemplate.Click += new System.EventHandler(this.mnuAddTemplate_Click);
+            // 
+            // mnuAddJSFile
+            // 
+            this.mnuAddJSFile.Image = global::CodeTool.Properties.Resources.js;
+            this.mnuAddJSFile.Name = "mnuAddJSFile";
+            this.mnuAddJSFile.Size = new System.Drawing.Size(275, 30);
+            this.mnuAddJSFile.Text = "添加模板文件（*.js）";
+            this.mnuAddJSFile.Click += new System.EventHandler(this.mnuAddJSFile_Click);
             // 
             // mnuAddXmlFile
             // 
             this.mnuAddXmlFile.Image = global::CodeTool.Properties.Resources.xml;
             this.mnuAddXmlFile.Name = "mnuAddXmlFile";
-            this.mnuAddXmlFile.Size = new System.Drawing.Size(200, 22);
+            this.mnuAddXmlFile.Size = new System.Drawing.Size(275, 30);
             this.mnuAddXmlFile.Text = "添加设置文件（*.xml）";
             this.mnuAddXmlFile.Click += new System.EventHandler(this.mnuAddXmlFile_Click);
-            // 
-            // mnuDelete
-            // 
-            this.mnuDelete.Image = global::CodeTool.Properties.Resources.delete;
-            this.mnuDelete.Name = "mnuDelete";
-            this.mnuDelete.Size = new System.Drawing.Size(200, 22);
-            this.mnuDelete.Text = "删除";
-            this.mnuDelete.Click += new System.EventHandler(this.mnuDelete_Click);
             // 
             // mnuEdit
             // 
             this.mnuEdit.Image = global::CodeTool.Properties.Resources.edit;
             this.mnuEdit.Name = "mnuEdit";
-            this.mnuEdit.Size = new System.Drawing.Size(200, 22);
+            this.mnuEdit.Size = new System.Drawing.Size(275, 30);
             this.mnuEdit.Text = "编辑";
             this.mnuEdit.Click += new System.EventHandler(this.mnuEdit_Click);
             // 
-            // mnuOpenFolder
+            // mnuDelete
             // 
-            this.mnuOpenFolder.Image = global::CodeTool.Properties.Resources.open;
-            this.mnuOpenFolder.Name = "mnuOpenFolder";
-            this.mnuOpenFolder.Size = new System.Drawing.Size(200, 22);
-            this.mnuOpenFolder.Text = "打开文件夹";
-            this.mnuOpenFolder.Click += new System.EventHandler(this.mnuOpenFolder_Click);
+            this.mnuDelete.Image = global::CodeTool.Properties.Resources.delete;
+            this.mnuDelete.Name = "mnuDelete";
+            this.mnuDelete.Size = new System.Drawing.Size(275, 30);
+            this.mnuDelete.Text = "删除";
+            this.mnuDelete.Click += new System.EventHandler(this.mnuDelete_Click);
             // 
             // mnuRefresh
             // 
             this.mnuRefresh.Image = global::CodeTool.Properties.Resources.refresh;
             this.mnuRefresh.Name = "mnuRefresh";
-            this.mnuRefresh.Size = new System.Drawing.Size(200, 22);
+            this.mnuRefresh.Size = new System.Drawing.Size(275, 30);
             this.mnuRefresh.Text = "刷新";
             this.mnuRefresh.Click += new System.EventHandler(this.mnuRefresh_Click);
             // 
+            // mnuOpenFolder
+            // 
+            this.mnuOpenFolder.Image = global::CodeTool.Properties.Resources.open;
+            this.mnuOpenFolder.Name = "mnuOpenFolder";
+            this.mnuOpenFolder.Size = new System.Drawing.Size(275, 30);
+            this.mnuOpenFolder.Text = "打开文件夹";
+            this.mnuOpenFolder.Click += new System.EventHandler(this.mnuOpenFolder_Click);
+            // 
             // TemplateForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(310, 437);
+            this.ClientSize = new System.Drawing.Size(465, 656);
             this.Controls.Add(this.tvTemplates);
             this.DockAreas = ((WeifenLuo.WinFormsUI.Docking.DockAreas)(((((WeifenLuo.WinFormsUI.Docking.DockAreas.Float | WeifenLuo.WinFormsUI.Docking.DockAreas.DockLeft) 
             | WeifenLuo.WinFormsUI.Docking.DockAreas.DockRight) 
@@ -148,6 +150,7 @@
             this.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.HideOnClose = true;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "TemplateForm";
             this.ShowHint = WeifenLuo.WinFormsUI.Docking.DockState.DockRight;
             this.TabText = "模板";

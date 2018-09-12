@@ -37,9 +37,9 @@ namespace CodeTool
             this.tabGrid = new System.Windows.Forms.TabPage();
             this.dgView = new System.Windows.Forms.DataGridView();
             this.tabMessage = new System.Windows.Forms.TabPage();
+            this.txtLineEffect = new CodeTool.UserControls.MyTextBox(this.components);
             this.panel1 = new System.Windows.Forms.Panel();
             this.runSql = new System.Windows.Forms.Button();
-            this.txtLineEffect = new MyTextBox(this.components);
             this.sqlTextEditor = new CodeTool.TextEditor();
             this.tabInfo.SuspendLayout();
             this.tabGrid.SuspendLayout();
@@ -54,10 +54,11 @@ namespace CodeTool
             this.tabInfo.Controls.Add(this.tabGrid);
             this.tabInfo.Controls.Add(this.tabMessage);
             this.tabInfo.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tabInfo.Location = new System.Drawing.Point(0, 308);
+            this.tabInfo.Location = new System.Drawing.Point(0, 462);
+            this.tabInfo.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tabInfo.Name = "tabInfo";
             this.tabInfo.SelectedIndex = 0;
-            this.tabInfo.Size = new System.Drawing.Size(688, 227);
+            this.tabInfo.Size = new System.Drawing.Size(1032, 340);
             this.tabInfo.TabIndex = 3;
             // 
             // tabGrid
@@ -65,9 +66,10 @@ namespace CodeTool
             this.tabGrid.Controls.Add(this.dgView);
             this.tabGrid.ImageIndex = 0;
             this.tabGrid.Location = new System.Drawing.Point(4, 4);
+            this.tabGrid.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tabGrid.Name = "tabGrid";
-            this.tabGrid.Padding = new System.Windows.Forms.Padding(3);
-            this.tabGrid.Size = new System.Drawing.Size(680, 201);
+            this.tabGrid.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabGrid.Size = new System.Drawing.Size(1024, 308);
             this.tabGrid.TabIndex = 0;
             this.tabGrid.Text = "网格";
             this.tabGrid.UseVisualStyleBackColor = true;
@@ -81,13 +83,14 @@ namespace CodeTool
             this.dgView.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgView.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.dgView.GridColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.dgView.Location = new System.Drawing.Point(3, 3);
+            this.dgView.Location = new System.Drawing.Point(4, 4);
+            this.dgView.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.dgView.Name = "dgView";
             this.dgView.ReadOnly = true;
             dataGridViewCellStyle1.NullValue = null;
             this.dgView.RowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dgView.RowTemplate.Height = 23;
-            this.dgView.Size = new System.Drawing.Size(674, 195);
+            this.dgView.Size = new System.Drawing.Size(1016, 300);
             this.dgView.TabIndex = 0;
             this.dgView.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.dgView_DataBindingComplete);
             // 
@@ -96,62 +99,68 @@ namespace CodeTool
             this.tabMessage.Controls.Add(this.txtLineEffect);
             this.tabMessage.ImageIndex = 1;
             this.tabMessage.Location = new System.Drawing.Point(4, 4);
+            this.tabMessage.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tabMessage.Name = "tabMessage";
-            this.tabMessage.Padding = new System.Windows.Forms.Padding(3);
-            this.tabMessage.Size = new System.Drawing.Size(680, 201);
+            this.tabMessage.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabMessage.Size = new System.Drawing.Size(1024, 308);
             this.tabMessage.TabIndex = 1;
             this.tabMessage.Text = "消息";
             this.tabMessage.UseVisualStyleBackColor = true;
+            // 
+            // txtLineEffect
+            // 
+            this.txtLineEffect.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtLineEffect.Location = new System.Drawing.Point(4, 4);
+            this.txtLineEffect.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtLineEffect.Multiline = true;
+            this.txtLineEffect.Name = "txtLineEffect";
+            this.txtLineEffect.Size = new System.Drawing.Size(1016, 300);
+            this.txtLineEffect.TabIndex = 0;
             // 
             // panel1
             // 
             this.panel1.Controls.Add(this.runSql);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(688, 57);
+            this.panel1.Size = new System.Drawing.Size(1032, 86);
             this.panel1.TabIndex = 1;
             // 
             // runSql
             // 
             this.runSql.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.runSql.Location = new System.Drawing.Point(25, 13);
+            this.runSql.Location = new System.Drawing.Point(38, 20);
+            this.runSql.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.runSql.Name = "runSql";
-            this.runSql.Size = new System.Drawing.Size(100, 30);
+            this.runSql.Size = new System.Drawing.Size(150, 45);
             this.runSql.TabIndex = 0;
             this.runSql.Text = "执行";
             this.runSql.UseVisualStyleBackColor = true;
             this.runSql.Click += new System.EventHandler(this.runSql_Click);
             // 
-            // txtLineEffect
-            // 
-            this.txtLineEffect.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtLineEffect.Location = new System.Drawing.Point(3, 3);
-            this.txtLineEffect.Multiline = true;
-            this.txtLineEffect.Name = "txtLineEffect";
-            this.txtLineEffect.Size = new System.Drawing.Size(674, 195);
-            this.txtLineEffect.TabIndex = 0;
-            // 
             // sqlTextEditor
             // 
             this.sqlTextEditor.Dock = System.Windows.Forms.DockStyle.Top;
             this.sqlTextEditor.IsReadOnly = false;
-            this.sqlTextEditor.Location = new System.Drawing.Point(0, 57);
+            this.sqlTextEditor.Location = new System.Drawing.Point(0, 86);
+            this.sqlTextEditor.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.sqlTextEditor.Name = "sqlTextEditor";
-            this.sqlTextEditor.Size = new System.Drawing.Size(688, 251);
+            this.sqlTextEditor.Size = new System.Drawing.Size(1032, 376);
             this.sqlTextEditor.TabIndex = 4;
             // 
-            // SqlSeleteView
+            // SqlSeleteViewForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(688, 535);
+            this.ClientSize = new System.Drawing.Size(1032, 802);
             this.Controls.Add(this.tabInfo);
             this.Controls.Add(this.sqlTextEditor);
             this.Controls.Add(this.panel1);
             this.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Name = "SqlSeleteView";
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Name = "SqlSeleteViewForm";
             this.TabText = "";
             this.tabInfo.ResumeLayout(false);
             this.tabGrid.ResumeLayout(false);

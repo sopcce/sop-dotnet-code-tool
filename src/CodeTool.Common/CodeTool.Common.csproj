@@ -139,9 +139,16 @@
     <Compile Include="Model\Database.cs" />
     <Compile Include="Model\Field.cs" />
     <Compile Include="Model\Table.cs" />
+    <Compile Include="NewFolder1\DESEncrypt.cs" />
+    <Compile Include="NewFolder1\PetaPoco.cs" />
+    <Compile Include="NewFolder1\TableInfo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="NewFolder1\ICSharpCode.NRefactory.dll" />
+    <Content Include="NewFolder1\ICSharpCode.SharpDevelop.Dom.dll" />
+    <Content Include="NewFolder1\ICSharpCode.TextEditor.dll" />
+    <Content Include="NewFolder1\Mono.Cecil.dll" />
     <Content Include="sybdrvado11.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>

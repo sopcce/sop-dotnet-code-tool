@@ -48,21 +48,23 @@
             this.tableLayoutPanel1.Controls.Add(this.txtSetJson, 1, 1);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
+            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 2;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 45F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(976, 274);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(1464, 215);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // labDbJson
             // 
             this.labDbJson.AutoSize = true;
             this.labDbJson.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.labDbJson.Location = new System.Drawing.Point(3, 0);
+            this.labDbJson.Location = new System.Drawing.Point(4, 0);
+            this.labDbJson.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labDbJson.Name = "labDbJson";
-            this.labDbJson.Padding = new System.Windows.Forms.Padding(8);
-            this.labDbJson.Size = new System.Drawing.Size(482, 30);
+            this.labDbJson.Padding = new System.Windows.Forms.Padding(12, 12, 12, 12);
+            this.labDbJson.Size = new System.Drawing.Size(724, 45);
             this.labDbJson.TabIndex = 0;
             this.labDbJson.Text = "databaseJson（数据库的JSON格式）";
             // 
@@ -70,10 +72,11 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label1.Location = new System.Drawing.Point(491, 0);
+            this.label1.Location = new System.Drawing.Point(736, 0);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Padding = new System.Windows.Forms.Padding(8);
-            this.label1.Size = new System.Drawing.Size(482, 30);
+            this.label1.Padding = new System.Windows.Forms.Padding(12, 12, 12, 12);
+            this.label1.Size = new System.Drawing.Size(724, 45);
             this.label1.TabIndex = 0;
             this.label1.Text = "settingJson（设置项的JSON格式）";
             // 
@@ -82,11 +85,12 @@
             this.txtDbJson.Dock = System.Windows.Forms.DockStyle.Fill;
             this.txtDbJson.Font = new System.Drawing.Font("宋体", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.txtDbJson.ForeColor = System.Drawing.Color.ForestGreen;
-            this.txtDbJson.Location = new System.Drawing.Point(3, 33);
+            this.txtDbJson.Location = new System.Drawing.Point(4, 49);
+            this.txtDbJson.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtDbJson.Multiline = true;
             this.txtDbJson.Name = "txtDbJson";
             this.txtDbJson.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.txtDbJson.Size = new System.Drawing.Size(482, 238);
+            this.txtDbJson.Size = new System.Drawing.Size(724, 162);
             this.txtDbJson.TabIndex = 1;
             // 
             // txtSetJson
@@ -94,19 +98,20 @@
             this.txtSetJson.Dock = System.Windows.Forms.DockStyle.Fill;
             this.txtSetJson.Font = new System.Drawing.Font("宋体", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.txtSetJson.ForeColor = System.Drawing.Color.OrangeRed;
-            this.txtSetJson.Location = new System.Drawing.Point(491, 33);
+            this.txtSetJson.Location = new System.Drawing.Point(736, 49);
+            this.txtSetJson.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtSetJson.Multiline = true;
             this.txtSetJson.Name = "txtSetJson";
             this.txtSetJson.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.txtSetJson.Size = new System.Drawing.Size(482, 238);
+            this.txtSetJson.Size = new System.Drawing.Size(724, 162);
             this.txtSetJson.TabIndex = 1;
             // 
             // DebugForm
             // 
             this.AutoHidePortion = 0.5D;
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(976, 274);
+            this.ClientSize = new System.Drawing.Size(1464, 215);
             this.Controls.Add(this.tableLayoutPanel1);
             this.DockAreas = ((WeifenLuo.WinFormsUI.Docking.DockAreas)(((((WeifenLuo.WinFormsUI.Docking.DockAreas.Float | WeifenLuo.WinFormsUI.Docking.DockAreas.DockLeft) 
             | WeifenLuo.WinFormsUI.Docking.DockAreas.DockRight) 
@@ -114,6 +119,7 @@
             | WeifenLuo.WinFormsUI.Docking.DockAreas.DockBottom)));
             this.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "DebugForm";
             this.ShowHint = WeifenLuo.WinFormsUI.Docking.DockState.DockBottomAutoHide;
             this.TabText = "调拭";

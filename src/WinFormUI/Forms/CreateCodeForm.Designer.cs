@@ -1,6 +1,6 @@
 ﻿using CodeTool.UserControls;
 
-namespace CodeTool
+namespace CodeTool.Forms
 {
     partial class CreateCodeForm
     {

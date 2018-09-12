@@ -5,7 +5,7 @@ using CodeTool.Common.Generator;
 using CodeTool.Common.Model;
 using CodeTool.Config;
 
-namespace CodeTool
+namespace CodeTool.Forms
 {
     public partial class CreateCodeForm : WeifenLuo.WinFormsUI.Docking.DockContent, ITemplateChanged
     {

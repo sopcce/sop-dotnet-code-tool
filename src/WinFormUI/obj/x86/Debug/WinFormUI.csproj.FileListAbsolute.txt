@@ -109,7 +109,7 @@ E:\codeaa\CodeTool\src\WinFormUI\obj\x86\Debug\CodeTool.Common.DbConnections.Sql
 E:\codeaa\CodeTool\src\WinFormUI\obj\x86\Debug\CodeTool.Common.DbConnections.SqLiteConn.resources
 E:\codeaa\CodeTool\src\WinFormUI\obj\x86\Debug\CodeTool.Forms.AboutForm.resources
 E:\codeaa\CodeTool\src\WinFormUI\obj\x86\Debug\CodeTool.Forms.ConnectionForm.resources
-E:\codeaa\CodeTool\src\WinFormUI\obj\x86\Debug\CodeTool.CreateCodeForm.resources
+E:\codeaa\CodeTool\src\WinFormUI\obj\x86\Debug\CodeTool.Forms.CreateCodeForm.resources
 E:\codeaa\CodeTool\src\WinFormUI\obj\x86\Debug\CodeTool.CSharpToVBForm.resources
 E:\codeaa\CodeTool\src\WinFormUI\obj\x86\Debug\CodeTool.DebugForm.resources
 E:\codeaa\CodeTool\src\WinFormUI\obj\x86\Debug\CodeTool.ErrorForm.resources
@@ -119,9 +119,9 @@ E:\codeaa\CodeTool\src\WinFormUI\obj\x86\Debug\CodeTool.CodeClearForm.resources
 E:\codeaa\CodeTool\src\WinFormUI\obj\x86\Debug\CodeTool.SqlSeleteViewForm.resources
 E:\codeaa\CodeTool\src\WinFormUI\obj\x86\Debug\CodeTool.TemplateForm.resources
 E:\codeaa\CodeTool\src\WinFormUI\obj\x86\Debug\CodeTool.EditForm.resources
-E:\codeaa\CodeTool\src\WinFormUI\obj\x86\Debug\CodeTool.DatabaseForm.resources
 E:\codeaa\CodeTool\src\WinFormUI\obj\x86\Debug\CodeTool.Forms.MainForm.resources
 E:\codeaa\CodeTool\src\WinFormUI\obj\x86\Debug\CodeTool.InputForm.resources
+E:\codeaa\CodeTool\src\WinFormUI\obj\x86\Debug\CodeTool.FormUnCode.resources
 E:\codeaa\CodeTool\src\WinFormUI\obj\x86\Debug\CodeTool.Properties.Resources.resources
 E:\codeaa\CodeTool\src\WinFormUI\obj\x86\Debug\CodeTool.UserControls.SelectTableUserControl.resources
 E:\codeaa\CodeTool\src\WinFormUI\obj\x86\Debug\CodeTool.UserControls.SelectTemplateUserControl.resources
@@ -129,8 +129,6 @@ E:\codeaa\CodeTool\src\WinFormUI\obj\x86\Debug\CodeTool.UserControls.SettingUser
 E:\codeaa\CodeTool\src\WinFormUI\obj\x86\Debug\WinFormUI.csproj.GenerateResource.cache
 E:\codeaa\CodeTool\src\WinFormUI\obj\x86\Debug\WinFormUI.csproj.CoreCompileInputs.cache
 E:\codeaa\CodeTool\src\WinFormUI\obj\x86\Debug\CodeTool.exe.manifest
-E:\codeaa\CodeTool\src\WinFormUI\obj\x86\Debug\CodeTool.application
-E:\codeaa\CodeTool\src\WinFormUI\obj\x86\Debug\WinFormUI.csproj.CopyComplete
 E:\codeaa\CodeTool\src\WinFormUI\obj\x86\Debug\CodeTool.exe
 E:\codeaa\CodeTool\src\WinFormUI\obj\x86\Debug\CodeTool.pdb
 E:\codeaa\CodeTool\src\WinFormUI\bin\Debug\sybdrvado11.dll
@@ -163,3 +161,6 @@ E:\codeaa\CodeTool\src\WinFormUI\bin\Debug\System.Data.SQLite.xml
 E:\codeaa\CodeTool\src\WinFormUI\bin\Debug\System.Data.SQLite.dll.config
 E:\codeaa\CodeTool\src\WinFormUI\bin\Debug\Npgsql.xml
 E:\codeaa\CodeTool\src\WinFormUI\bin\Debug\Newtonsoft.Json.xml
+E:\codeaa\CodeTool\src\WinFormUI\obj\x86\Debug\CodeTool.application
+E:\codeaa\CodeTool\src\WinFormUI\obj\x86\Debug\WinFormUI.csproj.CopyComplete
+E:\codeaa\CodeTool\src\WinFormUI\obj\x86\Debug\CodeTool.Forms.DatabaseForm.resources

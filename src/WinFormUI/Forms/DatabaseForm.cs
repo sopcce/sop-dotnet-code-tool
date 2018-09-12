@@ -3,11 +3,10 @@ using System.Drawing;
 using System.Windows.Forms;
 using CodeTool.Common.Model;
 using CodeTool.Config;
-using CodeTool.Forms;
 
 //using CodeTool.Forms;
 
-namespace CodeTool
+namespace CodeTool.Forms
 {
     public partial class DatabaseForm : WeifenLuo.WinFormsUI.Docking.DockContent
     {
@@ -20,6 +19,7 @@ namespace CodeTool
             InitializeComponent();
         }
 
+        #region 添加移除数据库
         private void btnAddDatabase_Click(object sender, EventArgs e)
         {
             ConnectionForm frm = new ConnectionForm();
@@ -40,6 +40,7 @@ namespace CodeTool
             }
             tvDatabase.Nodes.Remove(node);
         }
+        #endregion
 
         #region 加载节点
         /// <summary>
@@ -338,6 +339,11 @@ namespace CodeTool
             Point p = new Point(Control.MousePosition.X - pt.X, Control.MousePosition.Y - pt.Y);
             TreeNode tn = tv.GetNodeAt(p);
             return tn;
+        }
+
+        protected virtual void OnShowStatus(string obj)
+        {
+            ShowStatus?.Invoke(obj);
         }
     }
 }

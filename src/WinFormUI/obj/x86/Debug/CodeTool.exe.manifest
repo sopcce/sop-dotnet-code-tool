@@ -55,26 +55,26 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="CodeTool.exe" size="235520">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="CodeTool.exe" size="332288">
       <assemblyIdentity name="CodeTool" version="1.1.2.0" language="neutral" processorArchitecture="x86" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>/+UAPMWukQULVpP8rAykX3jBrsXM9jkk3JH47oQLBYs=</dsig:DigestValue>
+        <dsig:DigestValue>RDetN+eL9ZAckgadOjgkZ8CCrxQfyzeSaf+Hs9fRUig=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="CodeTool.Common.dll" size="100864">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="CodeTool.Common.dll" size="201728">
       <assemblyIdentity name="CodeTool.Common" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>MD9ebcLdxatU9pIOMsDnjBRj4KmTUfv7e2ndprQ8nV4=</dsig:DigestValue>
+        <dsig:DigestValue>FA4Jn/EimuTK6gtI+5grzeZFLPDKp+z6k1CFEEIdiHg=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -206,19 +206,19 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>zivseXQxlJbChs1VXs9ln5bAc+hNAB3Qf+D0YKQv7CI=</dsig:DigestValue>
+        <dsig:DigestValue>QhLdsKPINViSb0CfPpwX8G4Vap+QlTuvYDqX+Zzz3MQ=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
   <dependency>
     <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="WeifenLuo.WinFormsUI.Docking.dll" size="436224">
-      <assemblyIdentity name="WeifenLuo.WinFormsUI.Docking" version="2.3.1.20372" publicKeyToken="0A6EA1C0812E9E0A" language="neutral" processorArchitecture="msil" />
+      <assemblyIdentity name="WeifenLuo.WinFormsUI.Docking" version="2.3.1.25502" publicKeyToken="0A6EA1C0812E9E0A" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>HMaTlIov188i+wm4WQpz/2kzlu+rRJwZuPQ8FhguozM=</dsig:DigestValue>
+        <dsig:DigestValue>cnWMkJZ0vmP1RmG3m6YU5KcgG6ObUNyc07WrvA+swpI=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -294,13 +294,31 @@
       <dsig:DigestValue>sgb9QbI2F5As4911cVlL67tkcNqx+gHr76hQozaaX5U=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="Resources\add.png" size="683">
+  <file name="Resources\add.png" size="1035">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>109F9pXF8Zat4tvrx//HqZ44kLJtxfS+DGw7pY7Vl1o=</dsig:DigestValue>
+      <dsig:DigestValue>69J18I2ERhxR36ilh2r2iVMVIvCedVQJgjWv5FUAn3g=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Resources\database.ico" size="16958">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>GxMbaS0H/93TqmvkAHFqhg+oiPLplXSJQZVrBJ7U0Gw=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Resources\database.png" size="677">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>lDW90O4KWOtV0DMTZ2YVt71b881Y5XisBTM0YSmpuj8=</dsig:DigestValue>
     </hash>
   </file>
   <file name="Resources\db.ico" size="4286">
@@ -310,24 +328,6 @@
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
       <dsig:DigestValue>1rC4q/k4PK/UthZ3f9QmUaQTMTkilnaJZvVGDaY0p4o=</dsig:DigestValue>
-    </hash>
-  </file>
-  <file name="Resources\SocanCode.ico" size="4286">
-    <hash>
-      <dsig:Transforms>
-        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
-      </dsig:Transforms>
-      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>d5J4LeJrXcjDpGRCTRFk2c8itFNE3RbMtigUJGi1Hx8=</dsig:DigestValue>
-    </hash>
-  </file>
-  <file name="SocanCode.ico" size="4286">
-    <hash>
-      <dsig:Transforms>
-        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
-      </dsig:Transforms>
-      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>d5J4LeJrXcjDpGRCTRFk2c8itFNE3RbMtigUJGi1Hx8=</dsig:DigestValue>
     </hash>
   </file>
 </asmv1:assembly>

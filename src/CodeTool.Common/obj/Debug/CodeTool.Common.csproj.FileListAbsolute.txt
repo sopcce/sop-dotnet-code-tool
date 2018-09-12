@@ -49,8 +49,8 @@ E:\codeaa\CodeTool\src\CodeTool.Common\bin\Debug\Npgsql.xml
 E:\codeaa\CodeTool\src\CodeTool.Common\bin\Debug\System.Data.SQLite.xml
 E:\codeaa\CodeTool\src\CodeTool.Common\bin\Debug\System.Data.SQLite.dll.config
 E:\codeaa\CodeTool\src\CodeTool.Common\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
-E:\codeaa\CodeTool\src\CodeTool.Common\obj\Debug\CodeTool.Common.csprojAssemblyReference.cache
 E:\codeaa\CodeTool\src\CodeTool.Common\obj\Debug\CodeTool.Common.csproj.CoreCompileInputs.cache
 E:\codeaa\CodeTool\src\CodeTool.Common\obj\Debug\CodeTool.Common.csproj.CopyComplete
 E:\codeaa\CodeTool\src\CodeTool.Common\obj\Debug\CodeTool.Common.dll
 E:\codeaa\CodeTool\src\CodeTool.Common\obj\Debug\CodeTool.Common.pdb
+E:\codeaa\CodeTool\src\CodeTool.Common\obj\Debug\CodeTool.Common.csprojAssemblyReference.cache

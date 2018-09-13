@@ -55,14 +55,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="CodeTool.exe" size="332288">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="CodeTool.exe" size="331776">
       <assemblyIdentity name="CodeTool" version="1.1.2.0" language="neutral" processorArchitecture="x86" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>RDetN+eL9ZAckgadOjgkZ8CCrxQfyzeSaf+Hs9fRUig=</dsig:DigestValue>
+        <dsig:DigestValue>jhWjRF5VSYhyL6YSlpjrlMZf/RXRY4aqnkLbN78ScEo=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -74,7 +74,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>FA4Jn/EimuTK6gtI+5grzeZFLPDKp+z6k1CFEEIdiHg=</dsig:DigestValue>
+        <dsig:DigestValue>5RzGhopNhQ07hQXRVVTTJ3RUivHIzLsSQa760RcI3gQ=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -206,19 +206,19 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>QhLdsKPINViSb0CfPpwX8G4Vap+QlTuvYDqX+Zzz3MQ=</dsig:DigestValue>
+        <dsig:DigestValue>CDjUDet2NcDKmUZO3Jk5yoM1swiYMuWX4V9f7bBLlcA=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
   <dependency>
     <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="WeifenLuo.WinFormsUI.Docking.dll" size="436224">
-      <assemblyIdentity name="WeifenLuo.WinFormsUI.Docking" version="2.3.1.25502" publicKeyToken="0A6EA1C0812E9E0A" language="neutral" processorArchitecture="msil" />
+      <assemblyIdentity name="WeifenLuo.WinFormsUI.Docking" version="2.3.1.42666" publicKeyToken="0A6EA1C0812E9E0A" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>cnWMkJZ0vmP1RmG3m6YU5KcgG6ObUNyc07WrvA+swpI=</dsig:DigestValue>
+        <dsig:DigestValue>sZCtUCbsv4d1dEkj5Sb2BYSSkjJIYQNEicAp79AzEhg=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -294,13 +294,13 @@
       <dsig:DigestValue>sgb9QbI2F5As4911cVlL67tkcNqx+gHr76hQozaaX5U=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="Resources\add.png" size="1035">
+  <file name="Resources\add.png" size="447">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>69J18I2ERhxR36ilh2r2iVMVIvCedVQJgjWv5FUAn3g=</dsig:DigestValue>
+      <dsig:DigestValue>s1VcTSUiKvtdkBKlV666ZqC2PsbxEDk2tQX7cbCkH+c=</dsig:DigestValue>
     </hash>
   </file>
   <file name="Resources\database.ico" size="16958">

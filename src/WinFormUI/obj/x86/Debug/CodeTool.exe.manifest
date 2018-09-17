@@ -55,14 +55,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="CodeTool.exe" size="331776">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="CodeTool.exe" size="343552">
       <assemblyIdentity name="CodeTool" version="1.1.2.0" language="neutral" processorArchitecture="x86" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>jhWjRF5VSYhyL6YSlpjrlMZf/RXRY4aqnkLbN78ScEo=</dsig:DigestValue>
+        <dsig:DigestValue>8V3TWnTzsKEyhhWz22gPRO4P2YUuFIIUeWW2pMOL/v0=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

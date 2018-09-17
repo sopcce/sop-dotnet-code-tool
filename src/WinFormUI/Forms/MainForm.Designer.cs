@@ -46,9 +46,11 @@
             WeifenLuo.WinFormsUI.Docking.TabGradient tabGradient7 = new WeifenLuo.WinFormsUI.Docking.TabGradient();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.menuCode = new System.Windows.Forms.ToolStripMenuItem();
-            this.menuCreateCode = new System.Windows.Forms.ToolStripMenuItem();
-            this.menuOutputCode = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuFile = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuNewCreate = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuOpen = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuColse = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuQuit = new System.Windows.Forms.ToolStripMenuItem();
             this.menuView = new System.Windows.Forms.ToolStripMenuItem();
             this.menufrmDatabase = new System.Windows.Forms.ToolStripMenuItem();
             this.menuTemplate = new System.Windows.Forms.ToolStripMenuItem();
@@ -57,7 +59,10 @@
             this.menuCodeToTemplateForm = new System.Windows.Forms.ToolStripMenuItem();
             this.menuCodeClear = new System.Windows.Forms.ToolStripMenuItem();
             this.cSharp转换VBNETToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuCreateCode = new System.Windows.Forms.ToolStripMenuItem();
             this.menuHelp = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuViewHelp = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuToHelp = new System.Windows.Forms.ToolStripMenuItem();
             this.menuWebsite = new System.Windows.Forms.ToolStripMenuItem();
             this.menuAbout = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
@@ -67,6 +72,7 @@
             this.mnuClose = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuCloseOther = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuCloseAll = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuOutputCode = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.cmsDockPanel.SuspendLayout();
@@ -76,7 +82,7 @@
             // 
             this.menuStrip1.ImageScalingSize = new System.Drawing.Size(24, 24);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.menuCode,
+            this.menuFile,
             this.menuView,
             this.menuTools,
             this.menuHelp});
@@ -87,28 +93,40 @@
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
-            // menuCode
+            // menuFile
             // 
-            this.menuCode.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.menuCreateCode,
-            this.menuOutputCode});
-            this.menuCode.Name = "menuCode";
-            this.menuCode.Size = new System.Drawing.Size(58, 28);
-            this.menuCode.Text = "代码";
+            this.menuFile.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.menuNewCreate,
+            this.menuOpen,
+            this.menuColse,
+            this.menuQuit});
+            this.menuFile.Name = "menuFile";
+            this.menuFile.Size = new System.Drawing.Size(80, 28);
+            this.menuFile.Text = "文件(&F)"; 
             // 
-            // menuCreateCode
+            // menuNewCreate
             // 
-            this.menuCreateCode.Name = "menuCreateCode";
-            this.menuCreateCode.Size = new System.Drawing.Size(164, 30);
-            this.menuCreateCode.Text = "生成代码";
-            this.menuCreateCode.Click += new System.EventHandler(this.menuCreateCode_Click);
+            this.menuNewCreate.Name = "menuNewCreate";
+            this.menuNewCreate.Size = new System.Drawing.Size(155, 30);
+            this.menuNewCreate.Text = "新建(&N)";
             // 
-            // menuOutputCode
+            // menuOpen
             // 
-            this.menuOutputCode.Name = "menuOutputCode";
-            this.menuOutputCode.Size = new System.Drawing.Size(164, 30);
-            this.menuOutputCode.Text = "输出代码";
-            this.menuOutputCode.Click += new System.EventHandler(this.menuOutputCode_Click);
+            this.menuOpen.Name = "menuOpen";
+            this.menuOpen.Size = new System.Drawing.Size(155, 30);
+            this.menuOpen.Text = "打开(&O)";
+            // 
+            // menuColse
+            // 
+            this.menuColse.Name = "menuColse";
+            this.menuColse.Size = new System.Drawing.Size(155, 30);
+            this.menuColse.Text = "关闭(&C)";
+            // 
+            // menuQuit
+            // 
+            this.menuQuit.Name = "menuQuit";
+            this.menuQuit.Size = new System.Drawing.Size(155, 30);
+            this.menuQuit.Text = "退出(&X)";
             // 
             // menuView
             // 
@@ -146,7 +164,9 @@
             this.menuTools.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.menuCodeToTemplateForm,
             this.menuCodeClear,
-            this.cSharp转换VBNETToolStripMenuItem});
+            this.cSharp转换VBNETToolStripMenuItem,
+            this.menuCreateCode,
+            this.menuOutputCode});
             this.menuTools.Name = "menuTools";
             this.menuTools.Size = new System.Drawing.Size(58, 28);
             this.menuTools.Text = "工具";
@@ -172,27 +192,49 @@
             this.cSharp转换VBNETToolStripMenuItem.Text = "CSharp转换VB.NET";
             this.cSharp转换VBNETToolStripMenuItem.Click += new System.EventHandler(this.cSharp转换VBNETToolStripMenuItem_Click);
             // 
+            // menuCreateCode
+            // 
+            this.menuCreateCode.Name = "menuCreateCode";
+            this.menuCreateCode.Size = new System.Drawing.Size(252, 30);
+            this.menuCreateCode.Text = "生成代码";
+            this.menuCreateCode.Click += new System.EventHandler(this.menuCreateCode_Click);
+            // 
             // menuHelp
             // 
             this.menuHelp.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.menuViewHelp,
+            this.menuToHelp,
             this.menuWebsite,
             this.menuAbout});
             this.menuHelp.Name = "menuHelp";
-            this.menuHelp.Size = new System.Drawing.Size(58, 28);
-            this.menuHelp.Text = "帮助";
+            this.menuHelp.Size = new System.Drawing.Size(84, 28);
+            this.menuHelp.Text = "帮助(&H)";
+            // 
+            // menuViewHelp
+            // 
+            this.menuViewHelp.Image = global::CodeTool.Properties.Resources.question;
+            this.menuViewHelp.Name = "menuViewHelp";
+            this.menuViewHelp.Size = new System.Drawing.Size(194, 30);
+            this.menuViewHelp.Text = "查看帮助(&V)";
+            // 
+            // menuToHelp
+            // 
+            this.menuToHelp.Name = "menuToHelp";
+            this.menuToHelp.Size = new System.Drawing.Size(194, 30);
+            this.menuToHelp.Text = "技术支持(&T)";
             // 
             // menuWebsite
             // 
             this.menuWebsite.Name = "menuWebsite";
-            this.menuWebsite.Size = new System.Drawing.Size(164, 30);
-            this.menuWebsite.Text = "官方网站";
+            this.menuWebsite.Size = new System.Drawing.Size(194, 30);
+            this.menuWebsite.Text = "官方网站(&W)";
             this.menuWebsite.Click += new System.EventHandler(this.menuWebsite_Click);
             // 
             // menuAbout
             // 
             this.menuAbout.Name = "menuAbout";
-            this.menuAbout.Size = new System.Drawing.Size(164, 30);
-            this.menuAbout.Text = "关于";
+            this.menuAbout.Size = new System.Drawing.Size(194, 30);
+            this.menuAbout.Text = "关于(&A)";
             this.menuAbout.Click += new System.EventHandler(this.menuAbout_Click);
             // 
             // statusStrip1
@@ -221,14 +263,14 @@
             // 
             this.dockPanel1.ActiveAutoHideContent = null;
             this.dockPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dockPanel1.DockBackColor = System.Drawing.SystemColors.Control;
+            this.dockPanel1.DockBackColor = System.Drawing.SystemColors.ControlLight;
             this.dockPanel1.DockBottomPortion = 0.2D;
             this.dockPanel1.DockLeftPortion = 0.2D;
             this.dockPanel1.DockRightPortion = 0.2D;
             this.dockPanel1.DockTopPortion = 0.2D;
             this.dockPanel1.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.World);
             this.dockPanel1.Location = new System.Drawing.Point(0, 34);
-            this.dockPanel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dockPanel1.Margin = new System.Windows.Forms.Padding(4);
             this.dockPanel1.Name = "dockPanel1";
             this.dockPanel1.Size = new System.Drawing.Size(1008, 492);
             dockPanelGradient1.EndColor = System.Drawing.SystemColors.ControlLight;
@@ -309,6 +351,13 @@
             this.mnuCloseAll.Text = "关闭全部标签";
             this.mnuCloseAll.Click += new System.EventHandler(this.mnuCloseAll_Click);
             // 
+            // menuOutputCode
+            // 
+            this.menuOutputCode.Name = "menuOutputCode";
+            this.menuOutputCode.Size = new System.Drawing.Size(252, 30);
+            this.menuOutputCode.Text = "批量生成";
+            this.menuOutputCode.Click += new System.EventHandler(this.menuOutputCode_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
@@ -320,7 +369,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.IsMdiContainer = true;
             this.MainMenuStrip = this.menuStrip1;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "MainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "CodeTool代码生成器";
@@ -349,16 +398,22 @@
         private System.Windows.Forms.ToolStripMenuItem menuView;
         private System.Windows.Forms.ToolStripMenuItem menufrmDatabase;
         private System.Windows.Forms.ToolStripMenuItem menuCodeToTemplateForm;
-        private System.Windows.Forms.ToolStripMenuItem menuCode;
+        private System.Windows.Forms.ToolStripMenuItem menuFile;
         private System.Windows.Forms.ContextMenuStrip cmsDockPanel;
         private System.Windows.Forms.ToolStripMenuItem mnuClose;
         private System.Windows.Forms.ToolStripMenuItem mnuCloseOther;
         private System.Windows.Forms.ToolStripMenuItem mnuCloseAll;
-        private System.Windows.Forms.ToolStripMenuItem menuCreateCode;
-        private System.Windows.Forms.ToolStripMenuItem menuOutputCode;
         private System.Windows.Forms.ToolStripMenuItem menuTemplate;
         private System.Windows.Forms.ToolStripMenuItem menuCodeClear;
         private System.Windows.Forms.ToolStripMenuItem menuShowDebug;
         private System.Windows.Forms.ToolStripMenuItem cSharp转换VBNETToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem menuNewCreate;
+        private System.Windows.Forms.ToolStripMenuItem menuOpen;
+        private System.Windows.Forms.ToolStripMenuItem menuColse;
+        private System.Windows.Forms.ToolStripMenuItem menuQuit;
+        private System.Windows.Forms.ToolStripMenuItem menuViewHelp;
+        private System.Windows.Forms.ToolStripMenuItem menuToHelp;
+        private System.Windows.Forms.ToolStripMenuItem menuCreateCode;
+        private System.Windows.Forms.ToolStripMenuItem menuOutputCode;
     }
 }

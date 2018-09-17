@@ -66,27 +66,27 @@
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.Padding = new System.Windows.Forms.Padding(0, 0, 3, 0);
-            this.toolStrip1.Size = new System.Drawing.Size(348, 38);
+            this.toolStrip1.Size = new System.Drawing.Size(618, 34);
             this.toolStrip1.TabIndex = 0;
             this.toolStrip1.Text = "toolStrip1";
             // 
             // btnAddDatabase
             // 
-            this.btnAddDatabase.Font = new System.Drawing.Font("Microsoft YaHei UI", 12F);
+            this.btnAddDatabase.Font = new System.Drawing.Font("Microsoft YaHei UI", 10F);
             this.btnAddDatabase.Image = global::CodeTool.Properties.Resources.add;
             this.btnAddDatabase.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnAddDatabase.Name = "btnAddDatabase";
-            this.btnAddDatabase.Size = new System.Drawing.Size(162, 35);
+            this.btnAddDatabase.Size = new System.Drawing.Size(140, 31);
             this.btnAddDatabase.Text = "添加数据库";
             this.btnAddDatabase.Click += new System.EventHandler(this.btnAddDatabase_Click);
             // 
             // btnRemoveDatabase
             // 
-            this.btnRemoveDatabase.Font = new System.Drawing.Font("Microsoft YaHei UI", 12F);
+            this.btnRemoveDatabase.Font = new System.Drawing.Font("Microsoft YaHei UI", 10F);
             this.btnRemoveDatabase.Image = global::CodeTool.Properties.Resources.delete;
             this.btnRemoveDatabase.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnRemoveDatabase.Name = "btnRemoveDatabase";
-            this.btnRemoveDatabase.Size = new System.Drawing.Size(162, 35);
+            this.btnRemoveDatabase.Size = new System.Drawing.Size(140, 31);
             this.btnRemoveDatabase.Text = "移除数据库";
             this.btnRemoveDatabase.Click += new System.EventHandler(this.btnRemoveDatabase_Click);
             // 
@@ -95,11 +95,11 @@
             this.tvDatabase.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tvDatabase.ImageIndex = 0;
             this.tvDatabase.ImageList = this.imageList1;
-            this.tvDatabase.Location = new System.Drawing.Point(0, 38);
+            this.tvDatabase.Location = new System.Drawing.Point(0, 34);
             this.tvDatabase.Margin = new System.Windows.Forms.Padding(5);
             this.tvDatabase.Name = "tvDatabase";
             this.tvDatabase.SelectedImageIndex = 0;
-            this.tvDatabase.Size = new System.Drawing.Size(348, 863);
+            this.tvDatabase.Size = new System.Drawing.Size(618, 867);
             this.tvDatabase.TabIndex = 1;
             this.tvDatabase.MouseDown += new System.Windows.Forms.MouseEventHandler(this.tvDatabase_MouseDown);
             // 
@@ -107,13 +107,26 @@
             // 
             this.imageList1.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList1.ImageStream")));
             this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
-            this.imageList1.Images.SetKeyName(0, "db.png");
-            this.imageList1.Images.SetKeyName(1, "folder.gif");
-            this.imageList1.Images.SetKeyName(2, "table.gif");
-            this.imageList1.Images.SetKeyName(3, "field.gif");
-            this.imageList1.Images.SetKeyName(4, "view.gif");
-            this.imageList1.Images.SetKeyName(5, "sp.gif");
-            this.imageList1.Images.SetKeyName(6, "parameter.gif");
+            this.imageList1.Images.SetKeyName(0, "close-data.png");
+            this.imageList1.Images.SetKeyName(1, "close-database.png");
+            this.imageList1.Images.SetKeyName(2, "close-field.png");
+            this.imageList1.Images.SetKeyName(3, "close-folder.png");
+            this.imageList1.Images.SetKeyName(4, "close-function.png");
+            this.imageList1.Images.SetKeyName(5, "close-parameter.png");
+            this.imageList1.Images.SetKeyName(6, "close-table.png");
+            this.imageList1.Images.SetKeyName(7, "close-tables.png");
+            this.imageList1.Images.SetKeyName(8, "close-view.png");
+            this.imageList1.Images.SetKeyName(9, "close-zz.png");
+            this.imageList1.Images.SetKeyName(10, "open-data.png");
+            this.imageList1.Images.SetKeyName(11, "open-database.png");
+            this.imageList1.Images.SetKeyName(12, "open-field.png");
+            this.imageList1.Images.SetKeyName(13, "open-folder.png");
+            this.imageList1.Images.SetKeyName(14, "open-function.png");
+            this.imageList1.Images.SetKeyName(15, "open-parameter.png");
+            this.imageList1.Images.SetKeyName(16, "open-table.png");
+            this.imageList1.Images.SetKeyName(17, "open-tables.png");
+            this.imageList1.Images.SetKeyName(18, "open-view.png");
+            this.imageList1.Images.SetKeyName(19, "open-zz.png");
             // 
             // cmsTable
             // 
@@ -177,20 +190,20 @@
             this.menuOutput,
             this.menuDeleteDatabase});
             this.cmsDB.Name = "cmsDB";
-            this.cmsDB.Size = new System.Drawing.Size(153, 60);
+            this.cmsDB.Size = new System.Drawing.Size(171, 60);
             // 
             // menuOutput
             // 
             this.menuOutput.Name = "menuOutput";
-            this.menuOutput.Size = new System.Drawing.Size(152, 28);
+            this.menuOutput.Size = new System.Drawing.Size(170, 28);
             this.menuOutput.Text = "输出代码";
             this.menuOutput.Click += new System.EventHandler(this.menuOutput_Click);
             // 
             // menuDeleteDatabase
             // 
             this.menuDeleteDatabase.Name = "menuDeleteDatabase";
-            this.menuDeleteDatabase.Size = new System.Drawing.Size(152, 28);
-            this.menuDeleteDatabase.Text = "删除";
+            this.menuDeleteDatabase.Size = new System.Drawing.Size(170, 28);
+            this.menuDeleteDatabase.Text = "移除数据库";
             this.menuDeleteDatabase.Click += new System.EventHandler(this.menuDeleteDatabase_Click);
             // 
             // cmsView
@@ -245,7 +258,7 @@
             this.AutoHidePortion = 0.2D;
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 24F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(348, 901);
+            this.ClientSize = new System.Drawing.Size(618, 901);
             this.Controls.Add(this.tvDatabase);
             this.Controls.Add(this.toolStrip1);
             this.Font = new System.Drawing.Font("宋体", 12F);

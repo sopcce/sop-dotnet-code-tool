@@ -14,6 +14,9 @@ namespace CodeTool.Forms
         public event Action<Table> CreateCode;
         public event Action<string> ShowStatus;
 
+
+
+
         public DatabaseForm()
         {
             InitializeComponent();
@@ -48,14 +51,18 @@ namespace CodeTool.Forms
         /// </summary>
         private void ShowDatabase(Database database)
         {
+            //TODO: ICO
             TreeNode nodeDB = new TreeNode(
                 string.Format("{0}－{1}",
                     database.Name,
                     database.TypeDescn),
-                0, 0);
+                0, 10);
             nodeDB.Tag = database;
             nodeDB.ContextMenuStrip = cmsDB;
             this.tvDatabase.Nodes.Add(nodeDB);
+
+           
+
 
             ShowFolders(database, nodeDB);
             nodeDB.Expand();
@@ -67,22 +74,23 @@ namespace CodeTool.Forms
         private void ShowFolders(Database db, TreeNode nodeRoot)
         {
             //添加“表”文件夹
-            TreeNode nodeTableFolder = new TreeNode("表", 1, 1);
+            TreeNode nodeTableFolder = new TreeNode("表", 7, 17);
             nodeRoot.Nodes.Add(nodeTableFolder);
+
 
             //添加表
             ShowTables(db, nodeTableFolder);
             nodeTableFolder.Expand();
 
             //添加“视图”文件夹
-            TreeNode nodeViewFolder = new TreeNode("视图", 1, 1);
+            TreeNode nodeViewFolder = new TreeNode("视图", 8, 18);
             nodeRoot.Nodes.Add(nodeViewFolder);
 
             //添加视图
             ShowViews(db, nodeViewFolder);
 
             //添加“存储过程”文件夹
-            TreeNode nodeStoreProceduresFolder = new TreeNode("存储过程", 1, 1);
+            TreeNode nodeStoreProceduresFolder = new TreeNode("存储过程", 4, 14);
             nodeRoot.Nodes.Add(nodeStoreProceduresFolder);
 
             //添加存储过程
@@ -96,7 +104,7 @@ namespace CodeTool.Forms
         {
             foreach (Table table in database.Tables)
             {
-                TreeNode nodeTable = new TreeNode(table.Name, 2, 2);
+                TreeNode nodeTable = new TreeNode(table.Name, 6, 16);
                 nodeTable.Tag = table;
                 nodeTable.ContextMenuStrip = cmsTable;
                 nodeRoot.Nodes.Add(nodeTable);
@@ -112,7 +120,7 @@ namespace CodeTool.Forms
         {
             foreach (Table table in database.Views)
             {
-                TreeNode nodeTable = new TreeNode(table.Name, 2, 2);
+                TreeNode nodeTable = new TreeNode(table.Name, 8, 18);
                 nodeTable.Tag = table;
                 nodeTable.ContextMenuStrip = cmsView;
                 nodeRoot.Nodes.Add(nodeTable);
@@ -128,7 +136,7 @@ namespace CodeTool.Forms
         {
             foreach (string storeProcedure in db.StoreProcedures)
             {
-                nodeRoot.Nodes.Add(new TreeNode(storeProcedure, 5, 5));
+                nodeRoot.Nodes.Add(new TreeNode(storeProcedure, 4, 14));
             }
         }
 
@@ -141,11 +149,16 @@ namespace CodeTool.Forms
             {
                 string text = string.Format("{0}:{1}{2}{3}", field.Name, field.FieldType,
                     field.IsId ? "[Id]" : "", field.IsKey ? "[key]" : "");
-                TreeNode nodeField = new TreeNode(text, 3, 3);
+                TreeNode nodeField = new TreeNode(text, 2, 12);
+                nodeField.ForeColor = field.IsKey ? Color.Red : Color.Black;
+
+
                 nodeRoot.Nodes.Add(nodeField);
 
-                //TreeNode nodeField = new TreeNode(field.Name, 3, 3);
-                //nodeRoot.Nodes.Add(nodeField);
+
+
+
+
             }
         }
         #endregion
@@ -309,7 +322,7 @@ namespace CodeTool.Forms
         {
             if (CreateCode != null)
             {
-                Table table = tvDatabase.SelectedNode.Tag as Table;
+                Table table = tvDatabase?.SelectedNode?.Tag as Table;
                 if (table != null)
                 {
                     CreateCode(table);

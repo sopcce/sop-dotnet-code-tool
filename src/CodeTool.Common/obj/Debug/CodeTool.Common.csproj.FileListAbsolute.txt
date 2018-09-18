@@ -54,3 +54,9 @@ E:\codeaa\CodeTool\src\CodeTool.Common\obj\Debug\CodeTool.Common.csproj.CopyComp
 E:\codeaa\CodeTool\src\CodeTool.Common\obj\Debug\CodeTool.Common.dll
 E:\codeaa\CodeTool\src\CodeTool.Common\obj\Debug\CodeTool.Common.pdb
 E:\codeaa\CodeTool\src\CodeTool.Common\obj\Debug\CodeTool.Common.csprojAssemblyReference.cache
+E:\codeaa\CodeTool\src\CodeTool.Common\bin\Debug\NVelocity.dll
+E:\codeaa\CodeTool\src\CodeTool.Common\bin\Debug\RazorEngine.dll
+E:\codeaa\CodeTool\src\CodeTool.Common\bin\Debug\System.Web.Razor.dll
+E:\codeaa\CodeTool\src\CodeTool.Common\bin\Debug\NVelocity.xml
+E:\codeaa\CodeTool\src\CodeTool.Common\bin\Debug\RazorEngine.xml
+E:\codeaa\CodeTool\src\CodeTool.Common\bin\Debug\System.Web.Razor.xml

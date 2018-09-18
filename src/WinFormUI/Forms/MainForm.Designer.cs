@@ -60,6 +60,7 @@
             this.menuCodeClear = new System.Windows.Forms.ToolStripMenuItem();
             this.cSharp转换VBNETToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuCreateCode = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuOutputCode = new System.Windows.Forms.ToolStripMenuItem();
             this.menuHelp = new System.Windows.Forms.ToolStripMenuItem();
             this.menuViewHelp = new System.Windows.Forms.ToolStripMenuItem();
             this.menuToHelp = new System.Windows.Forms.ToolStripMenuItem();
@@ -72,7 +73,6 @@
             this.mnuClose = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuCloseOther = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuCloseAll = new System.Windows.Forms.ToolStripMenuItem();
-            this.menuOutputCode = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.cmsDockPanel.SuspendLayout();
@@ -102,30 +102,30 @@
             this.menuQuit});
             this.menuFile.Name = "menuFile";
             this.menuFile.Size = new System.Drawing.Size(80, 28);
-            this.menuFile.Text = "文件(&F)"; 
+            this.menuFile.Text = "文件(&F)";
             // 
             // menuNewCreate
             // 
             this.menuNewCreate.Name = "menuNewCreate";
-            this.menuNewCreate.Size = new System.Drawing.Size(155, 30);
+            this.menuNewCreate.Size = new System.Drawing.Size(252, 30);
             this.menuNewCreate.Text = "新建(&N)";
             // 
             // menuOpen
             // 
             this.menuOpen.Name = "menuOpen";
-            this.menuOpen.Size = new System.Drawing.Size(155, 30);
+            this.menuOpen.Size = new System.Drawing.Size(252, 30);
             this.menuOpen.Text = "打开(&O)";
             // 
             // menuColse
             // 
             this.menuColse.Name = "menuColse";
-            this.menuColse.Size = new System.Drawing.Size(155, 30);
+            this.menuColse.Size = new System.Drawing.Size(252, 30);
             this.menuColse.Text = "关闭(&C)";
             // 
             // menuQuit
             // 
             this.menuQuit.Name = "menuQuit";
-            this.menuQuit.Size = new System.Drawing.Size(155, 30);
+            this.menuQuit.Size = new System.Drawing.Size(252, 30);
             this.menuQuit.Text = "退出(&X)";
             // 
             // menuView
@@ -135,27 +135,27 @@
             this.menuTemplate,
             this.menuShowDebug});
             this.menuView.Name = "menuView";
-            this.menuView.Size = new System.Drawing.Size(58, 28);
-            this.menuView.Text = "视图";
+            this.menuView.Size = new System.Drawing.Size(82, 28);
+            this.menuView.Text = "视图(&V)";
             // 
             // menufrmDatabase
             // 
             this.menufrmDatabase.Name = "menufrmDatabase";
-            this.menufrmDatabase.Size = new System.Drawing.Size(146, 30);
+            this.menufrmDatabase.Size = new System.Drawing.Size(252, 30);
             this.menufrmDatabase.Text = "数据库";
             this.menufrmDatabase.Click += new System.EventHandler(this.menufrmDatabase_Click);
             // 
             // menuTemplate
             // 
             this.menuTemplate.Name = "menuTemplate";
-            this.menuTemplate.Size = new System.Drawing.Size(146, 30);
+            this.menuTemplate.Size = new System.Drawing.Size(252, 30);
             this.menuTemplate.Text = "模板";
             this.menuTemplate.Click += new System.EventHandler(this.menuTemplate_Click);
             // 
             // menuShowDebug
             // 
             this.menuShowDebug.Name = "menuShowDebug";
-            this.menuShowDebug.Size = new System.Drawing.Size(146, 30);
+            this.menuShowDebug.Size = new System.Drawing.Size(252, 30);
             this.menuShowDebug.Text = "调拭";
             this.menuShowDebug.Click += new System.EventHandler(this.menuShowDebug_Click);
             // 
@@ -168,8 +168,8 @@
             this.menuCreateCode,
             this.menuOutputCode});
             this.menuTools.Name = "menuTools";
-            this.menuTools.Size = new System.Drawing.Size(58, 28);
-            this.menuTools.Text = "工具";
+            this.menuTools.Size = new System.Drawing.Size(80, 28);
+            this.menuTools.Text = "工具(&T)";
             // 
             // menuCodeToTemplateForm
             // 
@@ -199,6 +199,13 @@
             this.menuCreateCode.Text = "生成代码";
             this.menuCreateCode.Click += new System.EventHandler(this.menuCreateCode_Click);
             // 
+            // menuOutputCode
+            // 
+            this.menuOutputCode.Name = "menuOutputCode";
+            this.menuOutputCode.Size = new System.Drawing.Size(252, 30);
+            this.menuOutputCode.Text = "批量生成";
+            this.menuOutputCode.Click += new System.EventHandler(this.menuOutputCode_Click);
+            // 
             // menuHelp
             // 
             this.menuHelp.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -214,26 +221,26 @@
             // 
             this.menuViewHelp.Image = global::CodeTool.Properties.Resources.question;
             this.menuViewHelp.Name = "menuViewHelp";
-            this.menuViewHelp.Size = new System.Drawing.Size(194, 30);
+            this.menuViewHelp.Size = new System.Drawing.Size(252, 30);
             this.menuViewHelp.Text = "查看帮助(&V)";
             // 
             // menuToHelp
             // 
             this.menuToHelp.Name = "menuToHelp";
-            this.menuToHelp.Size = new System.Drawing.Size(194, 30);
+            this.menuToHelp.Size = new System.Drawing.Size(252, 30);
             this.menuToHelp.Text = "技术支持(&T)";
             // 
             // menuWebsite
             // 
             this.menuWebsite.Name = "menuWebsite";
-            this.menuWebsite.Size = new System.Drawing.Size(194, 30);
+            this.menuWebsite.Size = new System.Drawing.Size(252, 30);
             this.menuWebsite.Text = "官方网站(&W)";
             this.menuWebsite.Click += new System.EventHandler(this.menuWebsite_Click);
             // 
             // menuAbout
             // 
             this.menuAbout.Name = "menuAbout";
-            this.menuAbout.Size = new System.Drawing.Size(194, 30);
+            this.menuAbout.Size = new System.Drawing.Size(252, 30);
             this.menuAbout.Text = "关于(&A)";
             this.menuAbout.Click += new System.EventHandler(this.menuAbout_Click);
             // 
@@ -350,13 +357,6 @@
             this.mnuCloseAll.Size = new System.Drawing.Size(188, 28);
             this.mnuCloseAll.Text = "关闭全部标签";
             this.mnuCloseAll.Click += new System.EventHandler(this.mnuCloseAll_Click);
-            // 
-            // menuOutputCode
-            // 
-            this.menuOutputCode.Name = "menuOutputCode";
-            this.menuOutputCode.Size = new System.Drawing.Size(252, 30);
-            this.menuOutputCode.Text = "批量生成";
-            this.menuOutputCode.Click += new System.EventHandler(this.menuOutputCode_Click);
             // 
             // MainForm
             // 

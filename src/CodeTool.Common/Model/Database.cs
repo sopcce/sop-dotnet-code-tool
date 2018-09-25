@@ -5,7 +5,7 @@ using System.Data.SqlClient;
 using System.IO;
 using System.Text.RegularExpressions;
 using Oracle.ManagedDataAccess.Client;
-
+using System.ComponentModel;
 //using Oracle.DataAccess.Client;
 
 namespace CodeTool.Common.Model
@@ -15,15 +15,25 @@ namespace CodeTool.Common.Model
     /// </summary>
     public enum DatabaseTypes
     {
+        [Description("Access")]
         Access,
+        [Description("SqlServer")]
         Sql2000,
+        [Description("SqlServer")]
         Sql2005,
+        [Description("MySql")]
         MySql,
+        [Description("Oracle")]
         Oracle,
+        [Description("SQLite")]
         SQLite,
+        [Description("Ase")]
         Ase,
+        [Description("DB2")]
         DB2,
+        [Description("pgsql")]
         PostgreSql
+ 
     }
 
     /// <summary>

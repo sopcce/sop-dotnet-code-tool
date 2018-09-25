@@ -57,34 +57,11 @@ namespace CodeTool.Common.Generator
             //    IJSResult r = GetJSResult(obj);
             //    if (r != null)
             //        jsResults.Add(r);
-            //}
-
+            //} 
             return null;
         }
 
-        //private IJSResult GetJSResult(ObjectInstance obj)
-        //{
-        //    //object type = obj.GetPropertyValue("type");
-        //    //if (type == null || type.ToString().ToLower() == "code")
-        //    //{
-        //    //    Codes code = new Codes(TemplateFolder);
-        //    //    object title = obj.GetPropertyValue("title");
-        //    //    if (title != null) code.Title = title.ToString();
-        //    //    code.Path = obj.GetPropertyValue("path").ToString();
-        //    //    code.Code = obj.GetPropertyValue("code").ToString();
-        //    //    return code;
-        //    //}
-        //    //else if (type.ToString().ToLower() == "copy")
-        //    //{
-        //    //    Copy copy = new Copy(TemplateFolder);
-        //    //    copy.IsFolder = (bool)obj.GetPropertyValue("isfolder");
-        //    //    copy.Source = obj.GetPropertyValue("source").ToString();
-        //    //    copy.Target = obj.GetPropertyValue("target").ToString();
-        //    //    return copy;
-        //    //}
-
-        //    return null;
-        //}
+       
 
         public void Generate()
         {

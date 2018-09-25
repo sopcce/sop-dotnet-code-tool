@@ -75,10 +75,10 @@ namespace Fabrics
                 //field.Descn 暂时获取不到
                 //field.IsId 暂时获取不到
                 //field.IsKey 暂时获取不到
-                field.Length = SchemaHelper.GetInt(r["DATA_LENGTH"]);
-                field.Name = SchemaHelper.GetString(r["COLUMN_NAME"]);
-                field.Pos = SchemaHelper.GetInt(r["COLUMN_ID"]);
-                field.Size = (int)field.Length;
+                field.FieldLength = SchemaHelper.GetInt(r["DATA_LENGTH"]);
+                field.FieldName = SchemaHelper.GetString(r["COLUMN_NAME"]);
+                field.FieldNumber = SchemaHelper.GetInt(r["COLUMN_ID"]);
+                field.FieldSize = (int)field.FieldLength;
 
                 table.AddField(field);
             }
@@ -92,7 +92,7 @@ namespace Fabrics
                 string key = SchemaHelper.GetString(r[0]);
                 foreach (Field field in table.Fields)
                 {
-                    if (field.Name.Equals(key, StringComparison.CurrentCultureIgnoreCase))
+                    if (field.FieldName.Equals(key, StringComparison.CurrentCultureIgnoreCase))
                         field.IsKey = true;
                 }
             }

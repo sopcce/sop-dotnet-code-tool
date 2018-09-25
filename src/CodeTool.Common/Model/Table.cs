@@ -35,12 +35,12 @@ namespace CodeTool.Common.Model
         /// <summary>
         /// 表中的所有列
         /// </summary>
-        public List<global::CodeTool.Common.Model.Field> Fields { get; set; }
+        public List<Field> Fields { get; set; }
       
         /// <summary>
         /// 添加一个字段
         /// </summary>
-        public void AddField(global::CodeTool.Common.Model.Field field)
+        public void AddField(Field field)
         {
             field.Table = this;
             Fields.Add(field);

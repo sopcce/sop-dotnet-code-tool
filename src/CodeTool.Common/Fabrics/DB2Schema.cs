@@ -18,9 +18,9 @@ namespace Fabrics
             foreach (DataRow row2 in rows)
             {
                 Field fieldex = new Field();
-                fieldex.Name = row2["COLNAME"].ToString();
+                fieldex.FieldName = row2["COLNAME"].ToString();
                 fieldex.FieldType = SchemaHelper.GetString(row2["TYPENAME"]);
-                if (dictionary.ContainsKey(fieldex.Name))
+                if (dictionary.ContainsKey(fieldex.FieldName))
                 {
                     fieldex.IsKey = true;
                 }
@@ -44,10 +44,10 @@ namespace Fabrics
                 {
                     fieldex.IsId = false;
                 }
-                fieldex.Pos = Convert.ToInt32(row2["COLNO"]);
-                fieldex.Length = Convert.ToInt32(row2["LENGTH"]);
+                fieldex.FieldNumber = Convert.ToInt32(row2["COLNO"]);
+                fieldex.FieldLength = Convert.ToInt32(row2["LENGTH"]);
                 fieldex.DefaultValue = row2["DEFAULT"].ToString();
-                fieldex.Descn = fieldex.Name;
+                fieldex.FieldDescn = fieldex.FieldName;
                 table.AddField(fieldex);
             }
         }

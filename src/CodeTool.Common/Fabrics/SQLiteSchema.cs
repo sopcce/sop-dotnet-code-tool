@@ -25,13 +25,13 @@ namespace Fabrics
                 Field model = new Field();
 
                 model.AllowNull = Convert.ToBoolean(r["IS_NULLABLE"]);
-                model.Pos = Convert.ToInt32(r["ORDINAL_POSITION"]);
-                model.Name = r["COLUMN_NAME"].ToString();
+                model.FieldNumber = Convert.ToInt32(r["ORDINAL_POSITION"]);
+                model.FieldName = r["COLUMN_NAME"].ToString();
                 model.FieldType =  SchemaHelper.GetString(r["DATA_TYPE"]);
                 model.DefaultValue = r["COLUMN_DEFAULT"].ToString();
-                model.Descn = SchemaHelper.GetString(r["DESCRIPTION"]);
-                model.Size = Convert.ToInt32((r["CHARACTER_MAXIMUM_LENGTH"] == DBNull.Value) ? 0 : r["CHARACTER_MAXIMUM_LENGTH"]);
-                model.Length = SchemaHelper.GetInt(r["CHARACTER_MAXIMUM_LENGTH"]);
+                model.FieldDescn = SchemaHelper.GetString(r["DESCRIPTION"]);
+                model.FieldSize = Convert.ToInt32((r["CHARACTER_MAXIMUM_LENGTH"] == DBNull.Value) ? 0 : r["CHARACTER_MAXIMUM_LENGTH"]);
+                model.FieldLength = SchemaHelper.GetInt(r["CHARACTER_MAXIMUM_LENGTH"]);
                 model.IsId = SchemaHelper.GetBool(r["AUTOINCREMENT"]);
 
                 if (Convert.ToBoolean(r["PRIMARY_KEY"]))

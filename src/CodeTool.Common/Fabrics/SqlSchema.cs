@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.Data;
+using System.Linq;
 using System.Text;
 using CodeTool.Common.DBUtility;
 using CodeTool.Common.Model;
@@ -18,9 +19,24 @@ namespace Fabrics
             DbHelper dbHelper = DbHelper.Create("SqlServer");
             dbHelper.ConnectionString = database.ConnString;
 
-            DataSet ds = dbHelper.ExecuteDataset(CommandType.Text,
-                GetSql(database.Type, SchemaHelper.SchemaType.Table), null);
+            string sqlTable = GetSql(database.Type, SchemaHelper.SchemaType.Table);
+            DataSet ds = dbHelper.ExecuteDataset(CommandType.Text, sqlTable, null);
             List<Table> tables = GetSQLTableList(ds);
+
+
+            //todo
+            //var db = DataPoco.GetPoco(connectionString, type);
+            //var dd = db.Query<FieldInfo>(sqlTable);
+
+            //foreach (var item in dd)
+            //{
+            //    var SDSDS = item.DefaultValue;
+            //}
+
+
+
+
+
             foreach (Table table in tables)
             {
                 database.AddTable(table);
@@ -146,15 +162,32 @@ namespace Fabrics
             Field model = new Field();
             model.AllowNull = SchemaHelper.GetBool(r["AllowNull"]);
             model.DefaultValue = SchemaHelper.GetString(r["DefaultValue"]);
-            model.Descn = SchemaHelper.GetString(r["FieldDescn"]);
-            model.Length = SchemaHelper.GetInt(r["FieldLength"]);
-            model.Name = SchemaHelper.GetString(r["FieldName"]);
-            model.Pos = SchemaHelper.GetInt(r["FieldNumber"]);
-            model.Size = SchemaHelper.GetInt(r["FieldSize"]);
+            model.FieldDescn = SchemaHelper.GetString(r["FieldDescn"]);
+            model.FieldLength = SchemaHelper.GetInt(r["FieldLength"]);
+            model.FieldName = SchemaHelper.GetString(r["FieldName"]);
+            model.FieldNumber = SchemaHelper.GetInt(r["FieldNumber"]);
+            model.FieldSize = SchemaHelper.GetInt(r["FieldSize"]);
             model.FieldType = SchemaHelper.GetString(r["FieldType"]);
             model.IsId = SchemaHelper.GetBool(r["IsId"]);
             model.IsKey = SchemaHelper.GetBool(r["IsKey"]);
             return model;
         }
+
+    }
+    public class FieldInfo
+    {
+        public string TableName { get; set; }
+        public string FieldNumber { get; set; }
+        public string FieldName { get; set; }
+        public string FieldSize { get; set; }
+        public string FieldType { get; set; }
+        public string IsId { get; set; }
+        public string IsKey { get; set; }
+        public string FieldLength { get; set; }
+        public string FieldDescn { get; set; }
+        public string AllowNull { get; set; }
+        public string DefaultValue { get; set; }
+        public string DecimalDigits { get; set; }
+        
     }
 }

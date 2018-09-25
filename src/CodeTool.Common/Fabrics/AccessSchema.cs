@@ -60,18 +60,18 @@ namespace CodeTool.Common.Fabrics
             Model.Field model = new Model.Field();
             model.AllowNull = SchemaHelper.GetBool(r["IS_NULLABLE"]);
             model.DefaultValue = SchemaHelper.GetString(r["COLUMN_DEFAULT"]);
-            model.Descn = SchemaHelper.GetString(r["DESCRIPTION"]);
-            model.Name = SchemaHelper.GetString(r["COLUMN_NAME"]);
-            model.Pos = SchemaHelper.GetInt(r["ORDINAL_POSITION"]);
-            model.Size = SchemaHelper.GetInt(r["CHARACTER_OCTET_LENGTH"]);
+            model.FieldDescn = SchemaHelper.GetString(r["DESCRIPTION"]);
+            model.FieldName = SchemaHelper.GetString(r["COLUMN_NAME"]);
+            model.FieldNumber = SchemaHelper.GetInt(r["ORDINAL_POSITION"]);
+            model.FieldSize = SchemaHelper.GetInt(r["CHARACTER_OCTET_LENGTH"]);
             model.FieldType = SchemaHelper.GetString(r["DATA_TYPE"]);
-            model.Length = SchemaHelper.GetInt(r["CHARACTER_MAXIMUM_LENGTH"]);
+            model.FieldLength = SchemaHelper.GetInt(r["CHARACTER_MAXIMUM_LENGTH"]);
             model.IsId = SchemaHelper.GetInt(r["COLUMN_FLAGS"]) == 90 && SchemaHelper.GetInt(r["DATA_TYPE"]) == 3;
 
             DataTable dtPrimanyKey = GetDbSchema(connectionString, OleDbSchemaGuid.Primary_Keys, null);
             foreach (DataRow rp in dtPrimanyKey.Rows)
             {
-                if (rp[2].ToString() == tbName && rp[3].ToString() == model.Name)
+                if (rp[2].ToString() == tbName && rp[3].ToString() == model.FieldName)
                 {
                     model.IsKey = true;
                 }

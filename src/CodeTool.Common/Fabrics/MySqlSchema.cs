@@ -95,10 +95,10 @@ namespace Fabrics
                 field.AllowNull = rField["IS_NULLABLE"].ToString().ToLower() == "yes";
                 field.FieldType = SchemaHelper.GetString(rField["DATA_TYPE"]);
                 field.DefaultValue = SchemaHelper.GetString(rField["COLUMN_DEFAULT"]);
-                field.Descn = SchemaHelper.GetString(rField["COLUMN_COMMENT"]);
-                field.Length = SchemaHelper.GetLong(rField["CHARACTER_MAXIMUM_LENGTH"]);
-                field.Name = SchemaHelper.GetString(rField["COLUMN_NAME"]);
-                field.Pos = SchemaHelper.GetInt(rField["ORDINAL_POSITION"]);
+                field.FieldDescn = SchemaHelper.GetString(rField["COLUMN_COMMENT"]);
+                field.FieldLength = SchemaHelper.GetLong(rField["CHARACTER_MAXIMUM_LENGTH"]);
+                field.FieldName = SchemaHelper.GetString(rField["COLUMN_NAME"]);
+                field.FieldNumber = SchemaHelper.GetInt(rField["ORDINAL_POSITION"]);
                 table.AddField(field);
             }
         }

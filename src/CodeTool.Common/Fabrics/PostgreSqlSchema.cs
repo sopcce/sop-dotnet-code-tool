@@ -17,9 +17,9 @@ namespace Fabrics
                 Field field = new Field();
                 field.AllowNull = SchemaHelper.GetBool(row["notnull"]);
                 field.FieldType = SchemaHelper.GetString(row["type"]);
-                field.Length = SchemaHelper.GetInt(row["length"]);
-                field.Name = SchemaHelper.GetString(row["field"]);
-                field.Size = SchemaHelper.GetInt(row["lengthvar"]);
+                field.FieldLength = SchemaHelper.GetInt(row["length"]);
+                field.FieldName = SchemaHelper.GetString(row["field"]);
+                field.FieldSize = SchemaHelper.GetInt(row["lengthvar"]);
                 //field.DefaultValue = SchemaHelper.GetString(row["DecimalDigits"]);
                 //field.Pos = SchemaHelper.GetInt(row["Position"]);
                 table.AddField(field);
@@ -31,7 +31,7 @@ join pg_attribute a on c.conrelid=a.attrelid and a.attnum = ANY (c.conkey) join 
                 string str = SchemaHelper.GetString(row[0]);
                 foreach (Field field in table.Fields)
                 {
-                    if (field.Name.Equals(str, StringComparison.CurrentCultureIgnoreCase))
+                    if (field.FieldName.Equals(str, StringComparison.CurrentCultureIgnoreCase))
                     {
                         field.IsKey = true;
                     }

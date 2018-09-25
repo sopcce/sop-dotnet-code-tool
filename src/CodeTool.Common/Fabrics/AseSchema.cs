@@ -19,10 +19,10 @@ namespace Fabrics
                 field.AllowNull = SchemaHelper.GetBool(row["AllowNull"]);
                 field.DefaultValue = SchemaHelper.GetString(row["DecimalDigits"]);
                 field.FieldType = SchemaHelper.GetString(row["FieldType"]);
-                field.Length = SchemaHelper.GetInt(row["FieldLength"]);
-                field.Name = SchemaHelper.GetString(row["FieldName"]);
-                field.Pos = SchemaHelper.GetInt(row["Position"]);
-                field.Size = SchemaHelper.GetInt(row["FieldSize"]);
+                field.FieldLength = SchemaHelper.GetInt(row["FieldLength"]);
+                field.FieldName = SchemaHelper.GetString(row["FieldName"]);
+                field.FieldNumber = SchemaHelper.GetInt(row["Position"]);
+                field.FieldSize = SchemaHelper.GetInt(row["FieldSize"]);
                 table.AddField(field);
             }
             DataSet set2 = this.dbHelper.ExecuteDataset(CommandType.Text, string.Format("select index_col(o.name, i.indid, 1), i.keycnt from sysindexes i join sysobjects o on o.id = i.id where o.name = '{0}' and i.keycnt > 1 and i.status & 2048 = 0", table.Name), null);
@@ -31,7 +31,7 @@ namespace Fabrics
                 string str = SchemaHelper.GetString(row[0]);
                 foreach (Field field in table.Fields)
                 {
-                    if (field.Name.Equals(str, StringComparison.CurrentCultureIgnoreCase))
+                    if (field.FieldName.Equals(str, StringComparison.CurrentCultureIgnoreCase))
                     {
                         field.IsKey = true;
                     }

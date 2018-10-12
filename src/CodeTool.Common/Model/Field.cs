@@ -68,8 +68,7 @@ namespace CodeTool.Common.Model
         /// </summary>
         public string FieldName { get; internal set; }
         public int FieldNumber { get; internal set; }
-
-       
+        public object Name { get; set; }
 
         public int CompareTo(object obj)
         {

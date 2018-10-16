@@ -42,7 +42,7 @@ namespace CodeTool
 
         private void txtJs_Click(object sender, EventArgs e)
         {
-            ShowMessage.Alert("¸´ÖÆ¡£");
+            MessageBoxMessage.Alert("¸´ÖÆ¡£");
         }
     }
 }

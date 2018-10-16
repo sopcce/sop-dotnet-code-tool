@@ -17,14 +17,16 @@ namespace CodeTool.Forms
 {
     public partial class MainForm : Form
     {
-        
-       
+
+
 
         public static WeifenLuo.WinFormsUI.Docking.DockPanel DockPanel;
 
         private DatabaseForm _frmDatabase;
         private TemplateForm _frmTemplate;
         public DebugForm FrmDebug;
+
+
 
         public MainForm()
         {
@@ -41,18 +43,26 @@ namespace CodeTool.Forms
             _frmDatabase = new DatabaseForm();
             _frmDatabase.OutputCode += new Action<Database>(frmDatabase_OutputCode);
             _frmDatabase.CreateCode += new Action<Table>(frmDatabase_CreateCode);
+            _frmDatabase.DataInfo += new Action<Database, Table>(frmDatabase_DataInfo);
             _frmDatabase.Show(DockPanel);
+
+            FrmDebug = new DebugForm();
+            FrmDebug.Show(DockPanel);
+
 
             _frmTemplate = new TemplateForm();
             _frmTemplate.TemplateChanged += new Action(frmTemplate_TemplateChanged);
             _frmTemplate.Show(DockPanel);
 
-            FrmDebug = new DebugForm();
-            FrmDebug.Show(DockPanel);
+
 
             BackgroundWorker bw = new BackgroundWorker();
             bw.DoWork += new DoWorkEventHandler(bw_DoWork);
             bw.RunWorkerCompleted += new RunWorkerCompletedEventHandler(bw_RunWorkerCompleted);
+
+
+
+
             bw.RunWorkerAsync();
 
             OpenUrl(SqlConfig.HomeUrl);
@@ -140,6 +150,15 @@ namespace CodeTool.Forms
             frm.ShowDebug += new Action<string, string, bool>(frm_ShowDebug);
             frm.Show(MainForm.DockPanel);
         }
+        void frmDatabase_DataInfo(Database db, Table table)
+        {
+            var db1 = db;
+            DataInfoForm frm = new DataInfoForm(db,table);
+            //frm.ShowDebug += new Action<string, string, bool>(frm_ShowDebug);
+            frm.Show(MainForm.DockPanel);
+        }
+
+
 
         void frm_ShowDebug(string dbJson, string setJson, bool show)
         {
@@ -285,6 +304,30 @@ namespace CodeTool.Forms
                 e.Content.DockHandler.TabPageContextMenuStrip = cmsDockPanel;
             }
         }
+        /// <summary>
+        /// 在dockPanel中查找已经打开的窗口
+        /// </summary>
+        /// <param name="text">传入的窗口标题</param>
+        /// <returns>返回的窗口</returns>
+        public  IDockContent FindDocument(string text)
+        {
+            if (DockPanel.DocumentStyle == DocumentStyle.SystemMdi)
+            {
+                foreach (Form form in MdiChildren)
+                    if (form.Text == text)
+                        return form as IDockContent;
+                return null;
+            }
+            else
+            {
+                foreach (IDockContent content in DockPanel.Documents)
+                    if (content.DockHandler.TabText == text)
+                        return content;
+
+                return null;
+            }
+        }
+
 
         /// <summary>
         /// 打开一个文件
@@ -326,8 +369,8 @@ namespace CodeTool.Forms
 #endif
         }
 
-     
 
-      
+
+
     }
 }

@@ -3,6 +3,7 @@ using System.Drawing;
 using System.Windows.Forms;
 using CodeTool.Common.Model;
 using CodeTool.Config;
+using WeifenLuo.WinFormsUI.Docking;
 
 //using CodeTool.Forms;
 
@@ -14,7 +15,7 @@ namespace CodeTool.Forms
         public event Action<Table> CreateCode;
         public event Action<string> ShowStatus;
 
-
+        public event Action<Database, Table> DataInfo;
 
 
         public DatabaseForm()
@@ -61,7 +62,7 @@ namespace CodeTool.Forms
             nodeDB.ContextMenuStrip = cmsDB;
             this.tvDatabase.Nodes.Add(nodeDB);
 
-           
+
 
 
             ShowFolders(database, nodeDB);
@@ -147,9 +148,16 @@ namespace CodeTool.Forms
         {
             foreach (Field field in table.Fields)
             {
-                string text = string.Format("{0}:{1}{2}{3}", field.Name, field.FieldType,
-                    field.IsId ? "[Id]" : "", field.IsKey ? "[key]" : "");
+                string text = string.Format("{0} ({1}{2}{3},{4})",
+                    field.FieldName,
+                    field.IsKey ? "PK " : "",
+                    field.FieldType,
+                    field.FieldLength == 0 ? "" : $"({ field.FieldLength})",
+                    field.AllowNull ? "null" : "not null"
+                    );
+
                 TreeNode nodeField = new TreeNode(text, 2, 12);
+
                 nodeField.ForeColor = field.IsKey ? Color.Red : Color.Black;
 
 
@@ -174,16 +182,13 @@ namespace CodeTool.Forms
                 if (table != null)
                 {
                     SqlSeleteViewForm ssv = new SqlSeleteViewForm(db, table);
-                    if ((ssv.sqlTextEditor.Text.Trim().Length != 0) && (ssv.sqlTextEditor.Text[ssv.sqlTextEditor.Text.Length - 1] != '\n'))
-                    {
-                        ssv.sqlTextEditor.Text = ssv.sqlTextEditor.Text + "\n";
-                    }
-                    ssv.sqlTextEditor.Text = ssv.sqlTextEditor.Text + "select * from " + this.tvDatabase.SelectedNode.Text + "";
+                    ssv.addSqlTextEditor();
+                    ssv.sqlTextEditor.Text = ssv.sqlTextEditor.Text + "select * from " + table.Name + "";
                     ssv.Show(MainForm.DockPanel);
                 }
                 else
                 {
-                    ShowMessage.Alert("请先选中一个表或视图。");
+                    MessageBoxMessage.Alert("请先选中一个表或视图。");
                 }
             }
         }
@@ -198,24 +203,22 @@ namespace CodeTool.Forms
                 if (table != null)
                 {
                     SqlSeleteViewForm ssv = new SqlSeleteViewForm(db, table);
-                    string str = "\nwhere 1 = 1";
-                    string str2 = "update ";
-                    str2 = ((str2 + "" + this.tvDatabase.SelectedNode.Text + "") + " \nset ") + this.tvDatabase.SelectedNode.Nodes[0].Text + " = ''";
-                    for (int i = 1; i < this.tvDatabase.SelectedNode.Nodes.Count; i++)
+                    ssv.addSqlTextEditor();
+                    string sql = $"update {table.Name} set ";
+                    foreach (Field field in table.Fields)
                     {
-                        str2 = (str2 + ",") + this.tvDatabase.SelectedNode.Nodes[i].Text + "=''";
+                        if (field.IsKey)
+                            continue;
+                        sql += field.FieldName + "='', ";
                     }
-                    if ((ssv.sqlTextEditor.Text.Trim().Length != 0) && (ssv.sqlTextEditor.Text[ssv.sqlTextEditor.Text.Length - 1] != '\n'))
-                    {
-                        ssv.sqlTextEditor.Text = ssv.sqlTextEditor.Text + "\n";
-                    }
-                    ssv.sqlTextEditor.Text = ssv.sqlTextEditor.Text + str2;
-                    ssv.sqlTextEditor.Text = ssv.sqlTextEditor.Text + str;
+                    sql = sql.TrimEnd(',');
+                    sql += " where ";
+                    ssv.sqlTextEditor.Text = ssv.sqlTextEditor.Text + sql;
                     ssv.Show(MainForm.DockPanel);
                 }
                 else
                 {
-                    ShowMessage.Alert("请先选中一个表或视图。");
+                    MessageBoxMessage.Alert("请先选中一个表或视图。");
                 }
             }
         }
@@ -230,19 +233,13 @@ namespace CodeTool.Forms
                 if (table != null)
                 {
                     SqlSeleteViewForm ssv = new SqlSeleteViewForm(db, table);
-                    string str = "\nwhere 1 = 1";
-                    string str2 = "delete from ";
-                    str2 = (str2 + "" + this.tvDatabase.SelectedNode.Text + "") + str;
-                    if ((ssv.sqlTextEditor.Text.Trim().Length != 0) && (ssv.sqlTextEditor.Text[ssv.sqlTextEditor.Text.Length - 1] != '\n'))
-                    {
-                        ssv.sqlTextEditor.Text = ssv.sqlTextEditor.Text + "\n";
-                    }
-                    ssv.sqlTextEditor.Text = ssv.sqlTextEditor.Text + str2;
+                    ssv.addSqlTextEditor();
+                    ssv.sqlTextEditor.Text = ssv.sqlTextEditor.Text + @"delete from " + table.Name + "";
                     ssv.Show(MainForm.DockPanel);
                 }
                 else
                 {
-                    ShowMessage.Alert("请先选中一个表或视图。");
+                    MessageBoxMessage.Alert("请先选中一个表或视图。");
                 }
             }
         }
@@ -257,25 +254,28 @@ namespace CodeTool.Forms
                 if (table != null)
                 {
                     SqlSeleteViewForm ssv = new SqlSeleteViewForm(db, table);
-                    string str = "";
-                    string str2 = "insert into ";
-                    str2 = (str2 + "" + this.tvDatabase.SelectedNode.Text + "") + " (" + this.tvDatabase.SelectedNode.Nodes[0].Text;
-                    for (int i = 1; i < this.tvDatabase.SelectedNode.Nodes.Count; i++)
+
+                    string tempSql = string.Empty;
+                    string tempSqlValue = string.Empty;
+                    foreach (Field field in table.Fields)
                     {
-                        str = str + ",''";
-                        str2 = str2 + "," + this.tvDatabase.SelectedNode.Nodes[i].Text;
+                        if (field.IsKey)
+                            continue;
+                        tempSql += field.FieldName + ",";
+                        tempSqlValue += "'',";
+
                     }
-                    str2 = (str2 + ") \n" + "values(''") + str + ")";
-                    if ((ssv.sqlTextEditor.Text.Trim().Length != 0) && (ssv.sqlTextEditor.Text[ssv.sqlTextEditor.Text.Length - 1] != '\n'))
-                    {
-                        ssv.sqlTextEditor.Text = ssv.sqlTextEditor.Text + "\n";
-                    }
-                    ssv.sqlTextEditor.Text = ssv.sqlTextEditor.Text + str2;
+                    tempSql = tempSql.TrimEnd(',');
+                    tempSqlValue = tempSqlValue.TrimEnd(',');
+                    string sql = $"  INSERT INTO {table.Name} ({tempSql}) VALUES({tempSqlValue}) ";
+
+                    ssv.addSqlTextEditor();
+                    ssv.sqlTextEditor.Text = ssv.sqlTextEditor.Text + sql;
                     ssv.Show(MainForm.DockPanel);
                 }
                 else
                 {
-                    ShowMessage.Alert("请先选中一个表或视图。");
+                    MessageBoxMessage.Alert("请先选中一个表或视图。");
                 }
             }
         }
@@ -310,7 +310,7 @@ namespace CodeTool.Forms
                 }
                 else
                 {
-                    ShowMessage.Alert("请先选中一个数据库。");
+                    MessageBoxMessage.Alert("请先选中一个数据库。");
                 }
             }
         }
@@ -329,34 +329,78 @@ namespace CodeTool.Forms
                 }
                 else
                 {
-                    ShowMessage.Alert("请先选中一个表或视图。");
+                    MessageBoxMessage.Alert("请先选中一个表或视图。");
                 }
             }
         }
 
         private void tvDatabase_MouseDown(object sender, MouseEventArgs e)
         {
-            TreeNode tn = GetMouseNode(tvDatabase, this);
+            Point pt = this.PointToScreen(tvDatabase.Location);
+            Point p = new Point(Control.MousePosition.X - pt.X, Control.MousePosition.Y - pt.Y);
+            TreeNode tn = tvDatabase.GetNodeAt(p);
             if (tn != null)
             {
                 tvDatabase.SelectedNode = tn;
             }
+            //打开详细信息列表 
+
+            Database db = tvDatabase.SelectedNode.Tag as Database;
+            Table table = tvDatabase.SelectedNode.Tag as Table;
+            DataInfoForm dataInfoForm = new DataInfoForm(db, table);
+            dataInfoForm.Show(MainForm.DockPanel);
+
+            if (new MainForm().FindDocument("DataInfoForm") != null)
+
+            {
+                Form f = new MainForm().FindDocument("DataInfoForm") as Form;
+                f.Close();
+
+            }
+
         }
 
-        /// <summary>
-        /// 得到TreeView里鼠标指向的节点,同时把该节点设置为当前选中的节点
-        /// </summary>
-        private TreeNode GetMouseNode(TreeView tv, Control currentForm)
-        {
-            Point pt = currentForm.PointToScreen(tv.Location);
-            Point p = new Point(Control.MousePosition.X - pt.X, Control.MousePosition.Y - pt.Y);
-            TreeNode tn = tv.GetNodeAt(p);
-            return tn;
-        }
+
 
         protected virtual void OnShowStatus(string obj)
         {
             ShowStatus?.Invoke(obj);
+        }
+
+        private void menuRunSql_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void menuBrowseDB_Click(object sender, EventArgs e)
+        {
+            if (CreateCode != null)
+            {
+
+                Database db = tvDatabase.SelectedNode.Tag as Database;
+                Table table = tvDatabase.SelectedNode.Tag as Table;
+                if (db != null)
+                {
+                    //SqlSeleteViewForm ssv = new SqlSeleteViewForm(db, table);
+                    //ssv.addSqlTextEditor();
+                    //ssv.sqlTextEditor.Text = ssv.sqlTextEditor.Text + "select * from " + table.Name + "";
+                    //ssv.Show(MainForm.DockPanel);
+                }
+                else
+                {
+                    MessageBoxMessage.Alert("请先选中一个数据库。");
+                }
+            }
+        }
+
+        private void 新建查询ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tvDatabase_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

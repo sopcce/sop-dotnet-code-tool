@@ -36,15 +36,26 @@
             this.tvDatabase = new System.Windows.Forms.TreeView();
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.cmsTable = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.menuCreateCode = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuRunSql = new System.Windows.Forms.ToolStripMenuItem();
             this.menuSelect = new System.Windows.Forms.ToolStripMenuItem();
-            this.menuUpdate = new System.Windows.Forms.ToolStripMenuItem();
-            this.menuDelete = new System.Windows.Forms.ToolStripMenuItem();
-            this.menuInsert = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuUpdateToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuDeleteClickToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.增肌记录ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuCreateCode = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
             this.cmsDB = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.menuBrowseDB = new System.Windows.Forms.ToolStripMenuItem();
             this.menuOutput = new System.Windows.Forms.ToolStripMenuItem();
             this.menuDeleteDatabase = new System.Windows.Forms.ToolStripMenuItem();
+            this.刷新数据库ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.新建查询ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.生成存储过程ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.生成数据脚本ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.生成数据库文档ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.导出数据库脚本ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.结构文件ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.数据文件ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.数据结构文件ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cmsView = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.menuCreateCode1 = new System.Windows.Forms.ToolStripMenuItem();
             this.menuSelect1 = new System.Windows.Forms.ToolStripMenuItem();
@@ -66,28 +77,28 @@
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.Padding = new System.Windows.Forms.Padding(0, 0, 3, 0);
-            this.toolStrip1.Size = new System.Drawing.Size(618, 34);
+            this.toolStrip1.Size = new System.Drawing.Size(370, 31);
             this.toolStrip1.TabIndex = 0;
             this.toolStrip1.Text = "toolStrip1";
             // 
             // btnAddDatabase
             // 
             this.btnAddDatabase.Font = new System.Drawing.Font("Microsoft YaHei UI", 10F);
-            this.btnAddDatabase.Image = global::CodeTool.Properties.Resources.add;
+            this.btnAddDatabase.Image = ((System.Drawing.Image)(resources.GetObject("btnAddDatabase.Image")));
             this.btnAddDatabase.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnAddDatabase.Name = "btnAddDatabase";
-            this.btnAddDatabase.Size = new System.Drawing.Size(140, 31);
-            this.btnAddDatabase.Text = "添加数据库";
+            this.btnAddDatabase.Size = new System.Drawing.Size(28, 28);
+            this.btnAddDatabase.ToolTipText = "添加数据库";
             this.btnAddDatabase.Click += new System.EventHandler(this.btnAddDatabase_Click);
             // 
             // btnRemoveDatabase
             // 
             this.btnRemoveDatabase.Font = new System.Drawing.Font("Microsoft YaHei UI", 10F);
-            this.btnRemoveDatabase.Image = global::CodeTool.Properties.Resources.delete;
+            this.btnRemoveDatabase.Image = ((System.Drawing.Image)(resources.GetObject("btnRemoveDatabase.Image")));
             this.btnRemoveDatabase.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnRemoveDatabase.Name = "btnRemoveDatabase";
-            this.btnRemoveDatabase.Size = new System.Drawing.Size(140, 31);
-            this.btnRemoveDatabase.Text = "移除数据库";
+            this.btnRemoveDatabase.Size = new System.Drawing.Size(28, 28);
+            this.btnRemoveDatabase.ToolTipText = "移除数据库";
             this.btnRemoveDatabase.Click += new System.EventHandler(this.btnRemoveDatabase_Click);
             // 
             // tvDatabase
@@ -95,11 +106,11 @@
             this.tvDatabase.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tvDatabase.ImageIndex = 0;
             this.tvDatabase.ImageList = this.imageList1;
-            this.tvDatabase.Location = new System.Drawing.Point(0, 34);
+            this.tvDatabase.Location = new System.Drawing.Point(0, 31);
             this.tvDatabase.Margin = new System.Windows.Forms.Padding(5);
             this.tvDatabase.Name = "tvDatabase";
             this.tvDatabase.SelectedImageIndex = 0;
-            this.tvDatabase.Size = new System.Drawing.Size(618, 867);
+            this.tvDatabase.Size = new System.Drawing.Size(370, 870);
             this.tvDatabase.TabIndex = 1;
             this.tvDatabase.MouseDown += new System.Windows.Forms.MouseEventHandler(this.tvDatabase_MouseDown);
             // 
@@ -132,13 +143,50 @@
             // 
             this.cmsTable.ImageScalingSize = new System.Drawing.Size(24, 24);
             this.cmsTable.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.menuCreateCode,
-            this.menuSelect,
-            this.menuUpdate,
-            this.menuDelete,
-            this.menuInsert});
+            this.menuRunSql,
+            this.menuCreateCode});
             this.cmsTable.Name = "contextMenuStrip1";
-            this.cmsTable.Size = new System.Drawing.Size(153, 144);
+            this.cmsTable.Size = new System.Drawing.Size(153, 60);
+            // 
+            // menuRunSql
+            // 
+            this.menuRunSql.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.menuSelect,
+            this.menuUpdateToolStripMenuItem,
+            this.menuDeleteClickToolStripMenuItem,
+            this.增肌记录ToolStripMenuItem});
+            this.menuRunSql.Name = "menuRunSql";
+            this.menuRunSql.Size = new System.Drawing.Size(152, 28);
+            this.menuRunSql.Text = "执行SQL";
+            this.menuRunSql.Click += new System.EventHandler(this.menuRunSql_Click);
+            // 
+            // menuSelect
+            // 
+            this.menuSelect.Name = "menuSelect";
+            this.menuSelect.Size = new System.Drawing.Size(164, 30);
+            this.menuSelect.Text = "查询记录";
+            this.menuSelect.Click += new System.EventHandler(this.menuSelect_Click);
+            // 
+            // menuUpdateToolStripMenuItem
+            // 
+            this.menuUpdateToolStripMenuItem.Name = "menuUpdateToolStripMenuItem";
+            this.menuUpdateToolStripMenuItem.Size = new System.Drawing.Size(164, 30);
+            this.menuUpdateToolStripMenuItem.Text = "修改记录";
+            this.menuUpdateToolStripMenuItem.Click += new System.EventHandler(this.menuUpdate_Click);
+            // 
+            // menuDeleteClickToolStripMenuItem
+            // 
+            this.menuDeleteClickToolStripMenuItem.Name = "menuDeleteClickToolStripMenuItem";
+            this.menuDeleteClickToolStripMenuItem.Size = new System.Drawing.Size(164, 30);
+            this.menuDeleteClickToolStripMenuItem.Text = "删除记录";
+            this.menuDeleteClickToolStripMenuItem.Click += new System.EventHandler(this.menuDelete_Click);
+            // 
+            // 增肌记录ToolStripMenuItem
+            // 
+            this.增肌记录ToolStripMenuItem.Name = "增肌记录ToolStripMenuItem";
+            this.增肌记录ToolStripMenuItem.Size = new System.Drawing.Size(164, 30);
+            this.增肌记录ToolStripMenuItem.Text = "增肌记录";
+            this.增肌记录ToolStripMenuItem.Click += new System.EventHandler(this.menuInsert_Click);
             // 
             // menuCreateCode
             // 
@@ -146,34 +194,6 @@
             this.menuCreateCode.Size = new System.Drawing.Size(152, 28);
             this.menuCreateCode.Text = "生成代码";
             this.menuCreateCode.Click += new System.EventHandler(this.menuCreateCode_Click);
-            // 
-            // menuSelect
-            // 
-            this.menuSelect.Name = "menuSelect";
-            this.menuSelect.Size = new System.Drawing.Size(152, 28);
-            this.menuSelect.Text = "查询记录";
-            this.menuSelect.Click += new System.EventHandler(this.menuSelect_Click);
-            // 
-            // menuUpdate
-            // 
-            this.menuUpdate.Name = "menuUpdate";
-            this.menuUpdate.Size = new System.Drawing.Size(152, 28);
-            this.menuUpdate.Text = "修改记录";
-            this.menuUpdate.Click += new System.EventHandler(this.menuUpdate_Click);
-            // 
-            // menuDelete
-            // 
-            this.menuDelete.Name = "menuDelete";
-            this.menuDelete.Size = new System.Drawing.Size(152, 28);
-            this.menuDelete.Text = "删除记录";
-            this.menuDelete.Click += new System.EventHandler(this.menuDelete_Click);
-            // 
-            // menuInsert
-            // 
-            this.menuInsert.Name = "menuInsert";
-            this.menuInsert.Size = new System.Drawing.Size(152, 28);
-            this.menuInsert.Text = "增加记录";
-            this.menuInsert.Click += new System.EventHandler(this.menuInsert_Click);
             // 
             // toolStripButton1
             // 
@@ -187,24 +207,98 @@
             // 
             this.cmsDB.ImageScalingSize = new System.Drawing.Size(24, 24);
             this.cmsDB.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.menuOutput,
-            this.menuDeleteDatabase});
+            this.menuBrowseDB,
+            this.menuDeleteDatabase,
+            this.刷新数据库ToolStripMenuItem,
+            this.新建查询ToolStripMenuItem,
+            this.生成存储过程ToolStripMenuItem,
+            this.生成数据脚本ToolStripMenuItem,
+            this.生成数据库文档ToolStripMenuItem,
+            this.导出数据库脚本ToolStripMenuItem,
+            this.menuOutput});
             this.cmsDB.Name = "cmsDB";
-            this.cmsDB.Size = new System.Drawing.Size(171, 60);
+            this.cmsDB.Size = new System.Drawing.Size(215, 274);
+            // 
+            // menuBrowseDB
+            // 
+            this.menuBrowseDB.Name = "menuBrowseDB";
+            this.menuBrowseDB.Size = new System.Drawing.Size(214, 30);
+            this.menuBrowseDB.Text = "浏览数据库";
+            this.menuBrowseDB.Click += new System.EventHandler(this.menuBrowseDB_Click);
             // 
             // menuOutput
             // 
             this.menuOutput.Name = "menuOutput";
-            this.menuOutput.Size = new System.Drawing.Size(170, 28);
+            this.menuOutput.Size = new System.Drawing.Size(214, 30);
             this.menuOutput.Text = "输出代码";
             this.menuOutput.Click += new System.EventHandler(this.menuOutput_Click);
             // 
             // menuDeleteDatabase
             // 
             this.menuDeleteDatabase.Name = "menuDeleteDatabase";
-            this.menuDeleteDatabase.Size = new System.Drawing.Size(170, 28);
-            this.menuDeleteDatabase.Text = "移除数据库";
+            this.menuDeleteDatabase.Size = new System.Drawing.Size(214, 30);
+            this.menuDeleteDatabase.Text = "注销数据库";
             this.menuDeleteDatabase.Click += new System.EventHandler(this.menuDeleteDatabase_Click);
+            // 
+            // 刷新数据库ToolStripMenuItem
+            // 
+            this.刷新数据库ToolStripMenuItem.Name = "刷新数据库ToolStripMenuItem";
+            this.刷新数据库ToolStripMenuItem.Size = new System.Drawing.Size(214, 30);
+            this.刷新数据库ToolStripMenuItem.Text = "刷新数据库";
+            // 
+            // 新建查询ToolStripMenuItem
+            // 
+            this.新建查询ToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("新建查询ToolStripMenuItem.Image")));
+            this.新建查询ToolStripMenuItem.Name = "新建查询ToolStripMenuItem";
+            this.新建查询ToolStripMenuItem.Size = new System.Drawing.Size(214, 30);
+            this.新建查询ToolStripMenuItem.Text = "新建查询";
+            this.新建查询ToolStripMenuItem.Click += new System.EventHandler(this.新建查询ToolStripMenuItem_Click);
+            // 
+            // 生成存储过程ToolStripMenuItem
+            // 
+            this.生成存储过程ToolStripMenuItem.Name = "生成存储过程ToolStripMenuItem";
+            this.生成存储过程ToolStripMenuItem.Size = new System.Drawing.Size(214, 30);
+            this.生成存储过程ToolStripMenuItem.Text = "生成存储过程";
+            // 
+            // 生成数据脚本ToolStripMenuItem
+            // 
+            this.生成数据脚本ToolStripMenuItem.Name = "生成数据脚本ToolStripMenuItem";
+            this.生成数据脚本ToolStripMenuItem.Size = new System.Drawing.Size(214, 30);
+            this.生成数据脚本ToolStripMenuItem.Text = "生成数据脚本";
+            // 
+            // 生成数据库文档ToolStripMenuItem
+            // 
+            this.生成数据库文档ToolStripMenuItem.Name = "生成数据库文档ToolStripMenuItem";
+            this.生成数据库文档ToolStripMenuItem.Size = new System.Drawing.Size(214, 30);
+            this.生成数据库文档ToolStripMenuItem.Text = "生成数据库文档";
+            // 
+            // 导出数据库脚本ToolStripMenuItem
+            // 
+            this.导出数据库脚本ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.结构文件ToolStripMenuItem,
+            this.数据文件ToolStripMenuItem,
+            this.数据结构文件ToolStripMenuItem});
+            this.导出数据库脚本ToolStripMenuItem.Name = "导出数据库脚本ToolStripMenuItem";
+            this.导出数据库脚本ToolStripMenuItem.Size = new System.Drawing.Size(214, 30);
+            this.导出数据库脚本ToolStripMenuItem.Text = "导出数据库脚本";
+            // 
+            // 结构文件ToolStripMenuItem
+            // 
+            this.结构文件ToolStripMenuItem.Name = "结构文件ToolStripMenuItem";
+            this.结构文件ToolStripMenuItem.Size = new System.Drawing.Size(200, 30);
+            this.结构文件ToolStripMenuItem.Text = "结构文件";
+            // 
+            // 数据文件ToolStripMenuItem
+            // 
+            this.数据文件ToolStripMenuItem.Name = "数据文件ToolStripMenuItem";
+            this.数据文件ToolStripMenuItem.Size = new System.Drawing.Size(200, 30);
+            this.数据文件ToolStripMenuItem.Text = "数据文件";
+            // 
+            // 数据结构文件ToolStripMenuItem
+            // 
+            this.数据结构文件ToolStripMenuItem.Name = "数据结构文件ToolStripMenuItem";
+            this.数据结构文件ToolStripMenuItem.Size = new System.Drawing.Size(200, 30);
+            this.数据结构文件ToolStripMenuItem.Text = "数据结构文件";
             // 
             // cmsView
             // 
@@ -258,7 +352,7 @@
             this.AutoHidePortion = 0.2D;
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 24F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(618, 901);
+            this.ClientSize = new System.Drawing.Size(370, 901);
             this.Controls.Add(this.tvDatabase);
             this.Controls.Add(this.toolStrip1);
             this.Font = new System.Drawing.Font("宋体", 12F);
@@ -280,28 +374,37 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.ToolStrip toolStrip1;
-        private System.Windows.Forms.ToolStripButton btnAddDatabase;
-        private System.Windows.Forms.ContextMenuStrip cmsTable;
-        private System.Windows.Forms.ToolStripMenuItem menuCreateCode;
-        private System.Windows.Forms.ImageList imageList1;
-        private System.Windows.Forms.ToolStripButton toolStripButton1;
         public System.Windows.Forms.TreeView tvDatabase;
-        private System.Windows.Forms.ContextMenuStrip cmsDB;
-        private System.Windows.Forms.ToolStripMenuItem menuOutput;
-        private System.Windows.Forms.ToolStripMenuItem menuDeleteDatabase;
-        private System.Windows.Forms.ContextMenuStrip cmsView;
-        private System.Windows.Forms.ToolStripMenuItem menuCreateCode1;
-        private System.Windows.Forms.ToolStripButton btnRemoveDatabase;
-        private System.Windows.Forms.ToolStripMenuItem menuSelect;
-        private System.Windows.Forms.ToolStripMenuItem menuUpdate;
-        private System.Windows.Forms.ToolStripMenuItem menuDelete;
-        private System.Windows.Forms.ToolStripMenuItem menuInsert;
-        private System.Windows.Forms.ToolStripMenuItem menuSelect1;
-        private System.Windows.Forms.ToolStripMenuItem menuUpdate1;
-        private System.Windows.Forms.ToolStripMenuItem menuDelete1;
-        private System.Windows.Forms.ToolStripMenuItem menuInsert1;
-
+        public System.Windows.Forms.ToolStrip toolStrip1;
+        public System.Windows.Forms.ToolStripButton btnAddDatabase;
+        public System.Windows.Forms.ContextMenuStrip cmsTable;
+        public System.Windows.Forms.ToolStripMenuItem menuCreateCode;
+        public System.Windows.Forms.ImageList imageList1;
+        public System.Windows.Forms.ToolStripButton toolStripButton1;
+        public System.Windows.Forms.ContextMenuStrip cmsDB;
+        public System.Windows.Forms.ToolStripMenuItem menuOutput;
+        public System.Windows.Forms.ToolStripMenuItem menuDeleteDatabase;
+        public System.Windows.Forms.ContextMenuStrip cmsView;
+        public System.Windows.Forms.ToolStripMenuItem menuCreateCode1;
+        public System.Windows.Forms.ToolStripButton btnRemoveDatabase;
+        public System.Windows.Forms.ToolStripMenuItem menuRunSql;
+        public System.Windows.Forms.ToolStripMenuItem menuSelect1;
+        public System.Windows.Forms.ToolStripMenuItem menuUpdate1;
+        public System.Windows.Forms.ToolStripMenuItem menuDelete1;
+        public System.Windows.Forms.ToolStripMenuItem menuInsert1;
+        public System.Windows.Forms.ToolStripMenuItem menuSelect;
+        public System.Windows.Forms.ToolStripMenuItem menuUpdateToolStripMenuItem;
+        public System.Windows.Forms.ToolStripMenuItem menuDeleteClickToolStripMenuItem;
+        public System.Windows.Forms.ToolStripMenuItem 增肌记录ToolStripMenuItem;
+        public System.Windows.Forms.ToolStripMenuItem 刷新数据库ToolStripMenuItem;
+        public System.Windows.Forms.ToolStripMenuItem 新建查询ToolStripMenuItem;
+        public System.Windows.Forms.ToolStripMenuItem 生成存储过程ToolStripMenuItem;
+        public System.Windows.Forms.ToolStripMenuItem 生成数据脚本ToolStripMenuItem;
+        public System.Windows.Forms.ToolStripMenuItem 生成数据库文档ToolStripMenuItem;
+        public System.Windows.Forms.ToolStripMenuItem 导出数据库脚本ToolStripMenuItem;
+        public System.Windows.Forms.ToolStripMenuItem 结构文件ToolStripMenuItem;
+        public System.Windows.Forms.ToolStripMenuItem 数据文件ToolStripMenuItem;
+        public System.Windows.Forms.ToolStripMenuItem menuBrowseDB;
+        public System.Windows.Forms.ToolStripMenuItem 数据结构文件ToolStripMenuItem;
     }
 }

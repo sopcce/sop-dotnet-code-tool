@@ -205,13 +205,13 @@ namespace CodeTool.Forms
 			{
 				if (e.Error != null)
 				{
-					ShowMessage.Error("连接失败！错误：" + e.Error.Message);
+					MessageBoxMessage.Error("连接失败！错误：" + e.Error.Message);
 				}
 				else
 				{
 					if (e.Result == null)
 					{
-						ShowMessage.Error("连接失败！");
+						MessageBoxMessage.Error("连接失败！");
 					}
 					else
 					{

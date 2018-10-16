@@ -164,6 +164,12 @@
     <Compile Include="Forms\CSharpToVBForm.designer.cs">
       <DependentUpon>CSharpToVBForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\DataInfoForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\DataInfoForm.Designer.cs">
+      <DependentUpon>DataInfoForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\DebugForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -189,6 +195,7 @@
     <Compile Include="Forms\Tool\FormUnCode.Designer.cs">
       <DependentUpon>FormUnCode.cs</DependentUpon>
     </Compile>
+    <Compile Include="GlobalSuppressions.cs" />
     <Compile Include="UserControls\MyTextBox.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -250,7 +257,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <Compile Include="Config\ShowMessage.cs" />
+    <Compile Include="Config\MessageBoxMessage.cs" />
     <Compile Include="TextEditor.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -280,6 +287,7 @@
     <Content Include="Config\Config\NewTemplate\main.js" />
     <Content Include="Config\Config\NewTemplate\settings.xml" />
     <Content Include="it.ico" />
+    <None Include="Resources\data.png" />
     <Content Include="Resources\database.ico" />
     <Content Include="Resources\database.png" />
     <None Include="Resources\loading.png" />
@@ -322,6 +330,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\CSharpToVBForm.resx">
       <DependentUpon>CSharpToVBForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\DataInfoForm.resx">
+      <DependentUpon>DataInfoForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\DebugForm.resx">
       <DependentUpon>DebugForm.cs</DependentUpon>

@@ -20,6 +20,14 @@ namespace CodeTool
             this.Text = table.Name;
         }
 
+        public void addSqlTextEditor()
+        {
+
+            if ((this.sqlTextEditor.Text.Trim().Length != 0) && (this.sqlTextEditor.Text[this.sqlTextEditor.Text.Length - 1] != '\n'))
+            {
+                this.sqlTextEditor.Text = this.sqlTextEditor.Text + "\n";
+            }
+        }
         private void dgView_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
         {
             if (this.dgView.Rows.Count != 0)
@@ -70,9 +78,11 @@ namespace CodeTool
                 this.dbHelper.ConnectionString = db.ConnString;
 
                 string selectedText = this.sqlTextEditor.ActiveTextAreaControl.TextArea.SelectionManager.SelectedText;
-                if (selectedText != null)
+
+                selectedText = string.IsNullOrWhiteSpace(selectedText) ? sqlTextEditor.Text : selectedText;
+                if (!string.IsNullOrWhiteSpace(selectedText))
                 {
-                    selectedText.Trim(new char[] { ' ', '\t', '\n' });
+                    selectedText = selectedText.Trim(new char[] { ' ', '\t', '\n' });
                     if (selectedText == "")
                     {
                         selectedText = this.sqlTextEditor.Text;
@@ -84,33 +94,34 @@ namespace CodeTool
                         {
                             DataSet dS = this.dbHelper.ExecuteDataset(CommandType.Text, selectedText, null);
                             this.dgView.DataSource = dS.Tables[0];
+
                             this.txtLineEffect.Text = string.Format(format, dS.Tables[0].Rows.Count);
                             this.tabInfo.SelectedIndex = 0;
                         }
-                        else if (selectedText.StartsWith("delete", StringComparison.InvariantCultureIgnoreCase))
+                         if (selectedText.StartsWith("delete", StringComparison.InvariantCultureIgnoreCase))
                         {
                             this.txtLineEffect.Text = string.Format(format, this.dbHelper.ExecuteDataset(CommandType.Text, selectedText, null).ToString());
                             this.dgView.DataSource = null;
                             this.tabInfo.SelectedIndex = 1;
                         }
-                        else if (selectedText.StartsWith("update", StringComparison.InvariantCultureIgnoreCase))
+                         if (selectedText.StartsWith("update", StringComparison.InvariantCultureIgnoreCase))
                         {
                             this.txtLineEffect.Text = string.Format(format, this.dbHelper.ExecuteDataset(CommandType.Text, selectedText, null).ToString());
                             this.dgView.DataSource = null;
                             this.tabInfo.SelectedIndex = 1;
                         }
-                        else if (selectedText.StartsWith("insert", StringComparison.InvariantCultureIgnoreCase))
+                         if (selectedText.StartsWith("insert", StringComparison.InvariantCultureIgnoreCase))
                         {
                             this.txtLineEffect.Text = string.Format(format, this.dbHelper.ExecuteDataset(CommandType.Text, selectedText, null).ToString());
                             this.dgView.DataSource = null;
                             this.tabInfo.SelectedIndex = 1;
                         }
-                        else
-                        {
-                            this.dgView.DataSource = null;
-                            this.txtLineEffect.Text = "无效的Sql语句；期待'Delete','Insert','Select','Update'";
-                            this.tabInfo.SelectedIndex = 1;
-                        }
+                        
+                        //{
+                        //    //this.dgView.DataSource = null;
+                        //    //this.txtLineEffect.Text = "无效的Sql语句；期待'Delete','Insert','Select','Update'";
+                        //    //this.tabInfo.SelectedIndex = 1;
+                        //}
                     }
                     catch (Exception exception)
                     {

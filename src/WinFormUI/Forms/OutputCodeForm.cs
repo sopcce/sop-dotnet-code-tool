@@ -38,19 +38,19 @@ namespace CodeTool
             {
                 if (table.Fields.Count == 0)
                 {
-                    ShowMessage.Alert(string.Format("表{0}不存在任何字段，无法生成！", table.Name));
+                    MessageBoxMessage.Alert(string.Format("表{0}不存在任何字段，无法生成！", table.Name));
                     return;
                 }
             }
 
-            if (false == ShowMessage.Confirm("确定要输出代码吗?"))
+            if (false == MessageBoxMessage.Confirm("确定要输出代码吗?"))
             {
                 return;
             }
 
             if (Directory.Exists(CreateFilePath))
             {
-                if (ShowMessage.Confirm("该目录已存在，是否删除?"))
+                if (MessageBoxMessage.Confirm("该目录已存在，是否删除?"))
                 {
                     try
                     {
@@ -58,7 +58,7 @@ namespace CodeTool
                     }
                     catch (Exception ex)
                     {
-                        ShowMessage.Error(ex.ToString());
+                        MessageBoxMessage.Error(ex.ToString());
                     }
                 }
             }
@@ -88,11 +88,11 @@ namespace CodeTool
             }
             catch (Exception ex)
             {
-                ShowMessage.Error(ex.Message);
+                MessageBoxMessage.Error(ex.Message);
             }
 
             progressBar1.Value = 0;
-            if (ShowMessage.Confirm("成功生成,是否打开目录?"))
+            if (MessageBoxMessage.Confirm("成功生成,是否打开目录?"))
             {
                 Process.Start(CreateFilePath);
             }

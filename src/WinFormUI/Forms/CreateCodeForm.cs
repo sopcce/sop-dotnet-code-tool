@@ -66,7 +66,7 @@ namespace CodeTool.Forms
         {
             if (tcCodes.SelectedTab == null)
             {
-                ShowMessage.Alert("请先生成代码！");
+                MessageBoxMessage.Alert("请先生成代码！");
                 return;
             }
 
@@ -86,7 +86,7 @@ namespace CodeTool.Forms
         {
             if (tcCodes.TabPages == null)
             {
-                ShowMessage.Alert("请先生成代码！");
+                MessageBoxMessage.Alert("请先生成代码！");
                 return;
             }
 

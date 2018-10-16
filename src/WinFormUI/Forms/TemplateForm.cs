@@ -139,7 +139,7 @@ namespace CodeTool
             {
                 if (string.IsNullOrEmpty(frm.Value))
                 {
-                    ShowMessage.Alert("模板名称不能为空。");
+                    MessageBoxMessage.Alert("模板名称不能为空。");
                     frm.ShowDialog();
                     return;
                 }
@@ -148,7 +148,7 @@ namespace CodeTool
                 string path = rootFolder.FullName + "\\" + frm.Value;
                 if (Directory.Exists(path))
                 {
-                    ShowMessage.Alert("模板已存在。");
+                    MessageBoxMessage.Alert("模板已存在。");
                     frm.ShowDialog();
                     return;
                 }
@@ -179,7 +179,7 @@ namespace CodeTool
             {
                 if (string.IsNullOrEmpty(frm.Value))
                 {
-                    ShowMessage.Alert("文件名称不能为空。");
+                    MessageBoxMessage.Alert("文件名称不能为空。");
                     frm.ShowDialog();
                     return;
                 }
@@ -188,7 +188,7 @@ namespace CodeTool
                 string path = string.Format("{0}\\{1}.{2}", rootFolder.FullName, frm.Value, ext);
                 if (File.Exists(path))
                 {
-                    ShowMessage.Alert("文件已存在。");
+                    MessageBoxMessage.Alert("文件已存在。");
                     frm.ShowDialog();
                     return;
                 }
@@ -210,7 +210,7 @@ namespace CodeTool
             switch (tvTemplates.SelectedNode.Level)
             {
                 case 1:
-                    if (ShowMessage.Confirm("确定要删除此模板吗？") == false)
+                    if (MessageBoxMessage.Confirm("确定要删除此模板吗？") == false)
                         return;
                     DirectoryInfo dir = obj as DirectoryInfo;
                     Directory.Delete(dir.FullName, true);
@@ -219,7 +219,7 @@ namespace CodeTool
                         TemplateChanged();
                     break;
                 case 2:
-                    if (ShowMessage.Confirm("确定要删除此文件吗？") == false)
+                    if (MessageBoxMessage.Confirm("确定要删除此文件吗？") == false)
                         return;
                     TreeNode parent = tvTemplates.SelectedNode.Parent;
                     FileInfo fi = obj as FileInfo;

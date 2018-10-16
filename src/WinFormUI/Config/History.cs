@@ -137,7 +137,7 @@ namespace CodeTool.Config
             }
             catch (Exception ex)
             {
-                ShowMessage.Error(ex.Message);
+                MessageBoxMessage.Error(ex.Message);
             }
         }
     }

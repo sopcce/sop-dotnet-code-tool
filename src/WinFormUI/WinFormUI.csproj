@@ -273,6 +273,7 @@
     <Compile Include="UserControls\SettingUserControl.Designer.cs">
       <DependentUpon>SettingUserControl.cs</DependentUpon>
     </Compile>
+    <None Include="packages.config" />
     <None Include="Resources\question.png" />
     <None Include="Resources\icon-awsquestion.png" />
     <None Include="Resources\template.png" />

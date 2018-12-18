@@ -101,7 +101,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class1.cs" />
     <Compile Include="Convert\CSharp2VB\BaseManager.cs" />
     <Compile Include="Convert\CSharp2VB\CaseManager.cs" />
     <Compile Include="Convert\CSharp2VB\CatchManager.cs" />
@@ -151,16 +150,9 @@
     <Compile Include="Model\Database.cs" />
     <Compile Include="Model\Field.cs" />
     <Compile Include="Model\Table.cs" />
-    <Compile Include="QQQ\ConfigHelper.cs" />
-    <Compile Include="QQQ\DESEncrypt.cs" />
-    <Compile Include="QQQ\TableInfo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="QQQ\ICSharpCode.NRefactory.dll" />
-    <Content Include="QQQ\ICSharpCode.SharpDevelop.Dom.dll" />
-    <Content Include="QQQ\ICSharpCode.TextEditor.dll" />
-    <Content Include="QQQ\Mono.Cecil.dll" />
     <Content Include="sybdrvado11.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>

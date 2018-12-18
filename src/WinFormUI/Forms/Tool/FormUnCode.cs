@@ -73,24 +73,9 @@ namespace CodeTool
                 MessageBox.Show("Test" + ex.Message);
             }
         }
-        private const string KEY_64 = "tayasa#@";
-        private void button1_Click(object sender, EventArgs e)
-        {
-            string text = richTextBoxBefore.Text;
-            richTextBoxAfter.Text = DESEncrypt.DeCode(text);
+    
 
-        }
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-            string text = richTextBoxBefore.Text;
-            text = DESEncrypt.EnCode(text);
-
-            text = DESEncrypt.EnCode(text);
-            richTextBoxAfter.Text = text;
-
-
-        }
+   
 
         private void btnStringBuilder_AppendFormat_Click(object sender, EventArgs e)
         {

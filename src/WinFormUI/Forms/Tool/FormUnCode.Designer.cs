@@ -102,28 +102,9 @@
             this.textBox_clernstr.Name = "textBox_clernstr";
             this.textBox_clernstr.Size = new System.Drawing.Size(254, 28);
             this.textBox_clernstr.TabIndex = 3;
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(378, 314);
-            this.button1.Margin = new System.Windows.Forms.Padding(4);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(180, 34);
-            this.button1.TabIndex = 2;
-            this.button1.Text = "数据库解密";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // button2
-            // 
-            this.button2.Location = new System.Drawing.Point(190, 357);
-            this.button2.Margin = new System.Windows.Forms.Padding(4);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(180, 34);
-            this.button2.TabIndex = 2;
-            this.button2.Text = "加密";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+        
+         
+         
             // 
             // button3
             // 

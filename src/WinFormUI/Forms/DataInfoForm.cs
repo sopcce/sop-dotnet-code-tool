@@ -18,20 +18,23 @@ namespace CodeTool.Forms
         private Database _db;
         public DataInfoForm()
         {
-            InitializeComponent(); 
+            InitializeComponent();
         }
 
         public DataInfoForm(Database db, Table table)
         {
             this._table = table;
             this._db = db;
-        }
 
-        private void DataInfoForm_Load(object sender, EventArgs e)
-        {
             MessageBoxMessage.Alert("asdasd");
         }
 
-      
+        private void DataInfoForm_Load(object sender, EventArgs e)
+        { 
+            this.Text = " 测试标题 "; 
+
+        }
+
+
     }
 }

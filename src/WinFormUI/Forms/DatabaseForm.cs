@@ -46,7 +46,7 @@ namespace CodeTool.Forms
         }
         #endregion
 
-        #region 加载节点
+        #region  V&P&T 加载节点
         /// <summary>
         /// 显示第一级节点：数据库
         /// </summary>
@@ -171,7 +171,7 @@ namespace CodeTool.Forms
         }
         #endregion
 
-        #region 右键
+        #region  CURG右键
         private void menuSelect_Click(object sender, EventArgs e)
         {
             if (CreateCode != null)
@@ -296,6 +296,11 @@ namespace CodeTool.Forms
         }
         #endregion
 
+
+
+
+
+
         /// <summary>
         /// 对选中的库进行输出代码操作
         /// </summary>
@@ -336,6 +341,8 @@ namespace CodeTool.Forms
 
         private void tvDatabase_MouseDown(object sender, MouseEventArgs e)
         {
+           
+
             Point pt = this.PointToScreen(tvDatabase.Location);
             Point p = new Point(Control.MousePosition.X - pt.X, Control.MousePosition.Y - pt.Y);
             TreeNode tn = tvDatabase.GetNodeAt(p);
@@ -351,7 +358,6 @@ namespace CodeTool.Forms
             dataInfoForm.Show(MainForm.DockPanel);
 
             if (new MainForm().FindDocument("DataInfoForm") != null)
-
             {
                 Form f = new MainForm().FindDocument("DataInfoForm") as Form;
                 f.Close();

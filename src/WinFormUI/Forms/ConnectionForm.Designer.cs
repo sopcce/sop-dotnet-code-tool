@@ -44,22 +44,22 @@ namespace CodeTool.Forms
             this.btnCancel = new System.Windows.Forms.Button();
             this.tcDatabase = new System.Windows.Forms.TabControl();
             this.tpAccess = new System.Windows.Forms.TabPage();
-            this.tpSqlServer = new System.Windows.Forms.TabPage();
-            this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.tabPage3 = new System.Windows.Forms.TabPage();
-            this.tabPage4 = new System.Windows.Forms.TabPage();
-            this.tabPage5 = new System.Windows.Forms.TabPage();
-            this.tabPage6 = new System.Windows.Forms.TabPage();
-            this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.accessConn1 = new CodeTool.DbConnections.AccessConn();
+            this.tpSqlServer = new System.Windows.Forms.TabPage();
             this.sqlConn1 = new CodeTool.Common.DbConnections.SqlConn();
+            this.tabPage1 = new System.Windows.Forms.TabPage();
             this.mySqlConn1 = new CodeTool.DbConnections.MySqlConn();
+            this.tabPage2 = new System.Windows.Forms.TabPage();
             this.oracleConn1 = new CodeTool.Common.DbConnections.OracleConn();
+            this.tabPage3 = new System.Windows.Forms.TabPage();
             this.sqLiteConn1 = new CodeTool.Common.DbConnections.SqLiteConn();
+            this.tabPage4 = new System.Windows.Forms.TabPage();
             this.aseConn1 = new CodeTool.Common.DbConnections.AseConn();
+            this.tabPage5 = new System.Windows.Forms.TabPage();
             this.dB2Conn1 = new CodeTool.Common.DbConnections.DB2Conn();
+            this.tabPage6 = new System.Windows.Forms.TabPage();
             this.postgreSqlConn1 = new CodeTool.Common.DbConnections.PostgreSqlConn();
+            this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.tcDatabase.SuspendLayout();
             this.tpAccess.SuspendLayout();
@@ -130,6 +130,16 @@ namespace CodeTool.Forms
             this.tpAccess.Text = "Access";
             this.tpAccess.UseVisualStyleBackColor = true;
             // 
+            // accessConn1
+            // 
+            this.accessConn1.ConnectionString = "Provider=Microsoft.Jet.OLEDB.4.0;Data Source=;Persist Security Info=True;";
+            this.accessConn1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.accessConn1.Location = new System.Drawing.Point(4, 5);
+            this.accessConn1.Margin = new System.Windows.Forms.Padding(6);
+            this.accessConn1.Name = "accessConn1";
+            this.accessConn1.Size = new System.Drawing.Size(689, 479);
+            this.accessConn1.TabIndex = 0;
+            // 
             // tpSqlServer
             // 
             this.tpSqlServer.Controls.Add(this.sqlConn1);
@@ -141,6 +151,17 @@ namespace CodeTool.Forms
             this.tpSqlServer.TabIndex = 1;
             this.tpSqlServer.Text = "SqlServer";
             this.tpSqlServer.UseVisualStyleBackColor = true;
+            // 
+            // sqlConn1
+            // 
+            this.sqlConn1.ConnectionString = "Data Source=.;User ID=sa;Password=;Initial Catalog=;";
+            this.sqlConn1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.sqlConn1.IsSql2005 = false;
+            this.sqlConn1.Location = new System.Drawing.Point(4, 5);
+            this.sqlConn1.Margin = new System.Windows.Forms.Padding(6);
+            this.sqlConn1.Name = "sqlConn1";
+            this.sqlConn1.Size = new System.Drawing.Size(689, 479);
+            this.sqlConn1.TabIndex = 0;
             // 
             // tabPage1
             // 
@@ -154,6 +175,16 @@ namespace CodeTool.Forms
             this.tabPage1.Text = "MySql";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
+            // mySqlConn1
+            // 
+            this.mySqlConn1.ConnectionString = "Data Source=127.0.0.1;Port=3306;User Id=root;Password=;Database=;SslMode=none;";
+            this.mySqlConn1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.mySqlConn1.Location = new System.Drawing.Point(4, 5);
+            this.mySqlConn1.Margin = new System.Windows.Forms.Padding(6);
+            this.mySqlConn1.Name = "mySqlConn1";
+            this.mySqlConn1.Size = new System.Drawing.Size(689, 479);
+            this.mySqlConn1.TabIndex = 0;
+            // 
             // tabPage2
             // 
             this.tabPage2.Controls.Add(this.oracleConn1);
@@ -165,6 +196,17 @@ namespace CodeTool.Forms
             this.tabPage2.TabIndex = 3;
             this.tabPage2.Text = "Oracle";
             this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // oracleConn1
+            // 
+            this.oracleConn1.ConnectionString = "Data Source=ORCL;Persist Security Info=True;User ID=SYSTEM;Password=;Unicode=True" +
+    "";
+            this.oracleConn1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.oracleConn1.Location = new System.Drawing.Point(4, 5);
+            this.oracleConn1.Margin = new System.Windows.Forms.Padding(6);
+            this.oracleConn1.Name = "oracleConn1";
+            this.oracleConn1.Size = new System.Drawing.Size(689, 479);
+            this.oracleConn1.TabIndex = 0;
             // 
             // tabPage3
             // 
@@ -178,6 +220,16 @@ namespace CodeTool.Forms
             this.tabPage3.Text = "SQLite";
             this.tabPage3.UseVisualStyleBackColor = true;
             // 
+            // sqLiteConn1
+            // 
+            this.sqLiteConn1.ConnectionString = "Data Source=;";
+            this.sqLiteConn1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.sqLiteConn1.Location = new System.Drawing.Point(4, 5);
+            this.sqLiteConn1.Margin = new System.Windows.Forms.Padding(6);
+            this.sqLiteConn1.Name = "sqLiteConn1";
+            this.sqLiteConn1.Size = new System.Drawing.Size(689, 479);
+            this.sqLiteConn1.TabIndex = 0;
+            // 
             // tabPage4
             // 
             this.tabPage4.Controls.Add(this.aseConn1);
@@ -189,6 +241,17 @@ namespace CodeTool.Forms
             this.tabPage4.TabIndex = 5;
             this.tabPage4.Text = "Sybase";
             this.tabPage4.UseVisualStyleBackColor = true;
+            // 
+            // aseConn1
+            // 
+            this.aseConn1.ConnectionString = "Data Source=127.0.0.1;Port=5000;User Id=sa;Password=;Database=;persist security i" +
+    "nfo=true";
+            this.aseConn1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.aseConn1.Location = new System.Drawing.Point(4, 5);
+            this.aseConn1.Margin = new System.Windows.Forms.Padding(6);
+            this.aseConn1.Name = "aseConn1";
+            this.aseConn1.Size = new System.Drawing.Size(689, 479);
+            this.aseConn1.TabIndex = 0;
             // 
             // tabPage5
             // 
@@ -202,6 +265,17 @@ namespace CodeTool.Forms
             this.tabPage5.Text = "IBM DB2";
             this.tabPage5.UseVisualStyleBackColor = true;
             // 
+            // dB2Conn1
+            // 
+            this.dB2Conn1.ConnectionString = "Database=sample;User ID=db2admin;Password=;Server=127.0.0.1;persist security info" +
+    "=true";
+            this.dB2Conn1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dB2Conn1.Location = new System.Drawing.Point(4, 5);
+            this.dB2Conn1.Margin = new System.Windows.Forms.Padding(6);
+            this.dB2Conn1.Name = "dB2Conn1";
+            this.dB2Conn1.Size = new System.Drawing.Size(689, 479);
+            this.dB2Conn1.TabIndex = 0;
+            // 
             // tabPage6
             // 
             this.tabPage6.Controls.Add(this.postgreSqlConn1);
@@ -214,86 +288,6 @@ namespace CodeTool.Forms
             this.tabPage6.Text = "PostgreSql";
             this.tabPage6.UseVisualStyleBackColor = true;
             // 
-            // backgroundWorker1
-            // 
-            this.backgroundWorker1.WorkerSupportsCancellation = true;
-            this.backgroundWorker1.DoWork += new System.ComponentModel.DoWorkEventHandler(this.backgroundWorker1_DoWork);
-            this.backgroundWorker1.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.backgroundWorker1_RunWorkerCompleted);
-            // 
-            // accessConn1
-            // 
-            this.accessConn1.ConnectionString = "Provider=Microsoft.Jet.OLEDB.4.0;Data Source=;Persist Security Info=True;";
-            this.accessConn1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.accessConn1.Location = new System.Drawing.Point(4, 5);
-            this.accessConn1.Margin = new System.Windows.Forms.Padding(6);
-            this.accessConn1.Name = "accessConn1";
-            this.accessConn1.Size = new System.Drawing.Size(689, 479);
-            this.accessConn1.TabIndex = 0;
-            // 
-            // sqlConn1
-            // 
-            this.sqlConn1.ConnectionString = "Data Source=.;User ID=sa;Password=;Initial Catalog=;";
-            this.sqlConn1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.sqlConn1.IsSql2005 = false;
-            this.sqlConn1.Location = new System.Drawing.Point(4, 5);
-            this.sqlConn1.Margin = new System.Windows.Forms.Padding(6);
-            this.sqlConn1.Name = "sqlConn1";
-            this.sqlConn1.Size = new System.Drawing.Size(689, 479);
-            this.sqlConn1.TabIndex = 0;
-            // 
-            // mySqlConn1
-            // 
-            this.mySqlConn1.ConnectionString = "Data Source=127.0.0.1;Port=3306;User Id=root;Password=;Database=;SslMode=none;";
-            this.mySqlConn1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.mySqlConn1.Location = new System.Drawing.Point(4, 5);
-            this.mySqlConn1.Margin = new System.Windows.Forms.Padding(6);
-            this.mySqlConn1.Name = "mySqlConn1";
-            this.mySqlConn1.Size = new System.Drawing.Size(689, 479);
-            this.mySqlConn1.TabIndex = 0;
-            // 
-            // oracleConn1
-            // 
-            this.oracleConn1.ConnectionString = "Data Source=ORCL;Persist Security Info=True;User ID=SYSTEM;Password=;Unicode=True" +
-    "";
-            this.oracleConn1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.oracleConn1.Location = new System.Drawing.Point(4, 5);
-            this.oracleConn1.Margin = new System.Windows.Forms.Padding(6);
-            this.oracleConn1.Name = "oracleConn1";
-            this.oracleConn1.Size = new System.Drawing.Size(689, 479);
-            this.oracleConn1.TabIndex = 0;
-            // 
-            // sqLiteConn1
-            // 
-            this.sqLiteConn1.ConnectionString = "Data Source=;";
-            this.sqLiteConn1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.sqLiteConn1.Location = new System.Drawing.Point(4, 5);
-            this.sqLiteConn1.Margin = new System.Windows.Forms.Padding(6);
-            this.sqLiteConn1.Name = "sqLiteConn1";
-            this.sqLiteConn1.Size = new System.Drawing.Size(689, 479);
-            this.sqLiteConn1.TabIndex = 0;
-            // 
-            // aseConn1
-            // 
-            this.aseConn1.ConnectionString = "Data Source=127.0.0.1;Port=5000;User Id=sa;Password=;Database=;persist security i" +
-    "nfo=true";
-            this.aseConn1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.aseConn1.Location = new System.Drawing.Point(4, 5);
-            this.aseConn1.Margin = new System.Windows.Forms.Padding(6);
-            this.aseConn1.Name = "aseConn1";
-            this.aseConn1.Size = new System.Drawing.Size(689, 479);
-            this.aseConn1.TabIndex = 0;
-            // 
-            // dB2Conn1
-            // 
-            this.dB2Conn1.ConnectionString = "Database=sample;User ID=db2admin;Password=;Server=127.0.0.1;persist security info" +
-    "=true";
-            this.dB2Conn1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dB2Conn1.Location = new System.Drawing.Point(4, 5);
-            this.dB2Conn1.Margin = new System.Windows.Forms.Padding(6);
-            this.dB2Conn1.Name = "dB2Conn1";
-            this.dB2Conn1.Size = new System.Drawing.Size(689, 479);
-            this.dB2Conn1.TabIndex = 0;
-            // 
             // postgreSqlConn1
             // 
             this.postgreSqlConn1.ConnectionString = "Server=127.0.0.1;Port=5432;User Id=postgres;Password=;Database=postgres;Encoding=" +
@@ -305,14 +299,20 @@ namespace CodeTool.Forms
             this.postgreSqlConn1.Size = new System.Drawing.Size(689, 479);
             this.postgreSqlConn1.TabIndex = 0;
             // 
+            // backgroundWorker1
+            // 
+            this.backgroundWorker1.WorkerSupportsCancellation = true;
+            this.backgroundWorker1.DoWork += new System.ComponentModel.DoWorkEventHandler(this.backgroundWorker1_DoWork);
+            this.backgroundWorker1.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.backgroundWorker1_RunWorkerCompleted);
+            // 
             // pictureBox1
             // 
             this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.pictureBox1.Image = global::CodeTool.Properties.Resources.ajax;
-            this.pictureBox1.Location = new System.Drawing.Point(0, 604);
+            this.pictureBox1.Location = new System.Drawing.Point(0, 619);
             this.pictureBox1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(744, 25);
+            this.pictureBox1.Size = new System.Drawing.Size(744, 10);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 33;
             this.pictureBox1.TabStop = false;

@@ -78,7 +78,7 @@ namespace CodeTool.Forms
             dlg.Filter = string.Format(".{0}|*.{0}", code.Ext);
             if (dlg.ShowDialog() == DialogResult.OK)
             {
-                IoHelper.WriteFile(dlg.FileName, code.Code);
+                Helper.WriteFile(dlg.FileName, code.Code);
             }
         }
 

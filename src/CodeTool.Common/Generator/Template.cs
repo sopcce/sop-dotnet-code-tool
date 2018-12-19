@@ -140,7 +140,7 @@ namespace CodeTool.Common.Generator
                 path += @"\";
 
             path = path + this.Path;
-            IoHelper.WriteFile(path, Code);
+            Helper.WriteFile(path, Code);
         }
     }
 
@@ -166,7 +166,7 @@ namespace CodeTool.Common.Generator
 
             if (this.IsFolder)
             {
-                IoHelper.CopyFolder(source, target);
+                Helper.CopyFolder(source, target);
             }
             else
             {

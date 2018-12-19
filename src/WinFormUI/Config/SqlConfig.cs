@@ -3,19 +3,31 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using CodeTool.Common.Generator;
 
 namespace CodeTool.Config
 {
-    public static class SqlConfig
+    public  class SqlConfig
     {
-        public const string HomeUrl = "http://www.sopcce.com";
-        public const string XmlUrl = "http://www.socansoft.com/downloads/socanCode/socanCode.xml";
-        public const string DownloadUrl = "http://www.socansoft.com/downloads/CodeTool/CodeTool.rar";
-       
-         
+        public static string HomeUrl = "http://www.sopcce.com";
+        public static string XmlUrl = "http://www.sopcce.com/downloads/codeTool.xml";
+        public static string DownloadUrl = "http://www.sopcce.com/downloads/CodeTool.rar";
+        public static string ChromeAppKey = @"\Software\Microsoft\Windows\CurrentVersion\App Paths\chrome.exe";
 
 
-        #region SQL 
+        public SqlConfig()
+        {
+            
+        }
+
+
+
+
+
+
+        #region SQL
+
+
         public static string GetAccessProvider { get; set; } = "Provider=Microsoft.Jet.OLEDB.4.0;";
 
         public static string GetPersistSecurityInfo { get; set; } = "Persist Security Info=True;";

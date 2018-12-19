@@ -84,7 +84,7 @@ namespace Fabrics
         {
             // 对每个表取字段属性
             DataSet dsColumns = dbHelper.ExecuteDataset(CommandType.Text,
-               string.Format("select * from COLUMNS where TABLE_SCHEMA='{0}' and TABLE_NAME='{1}'", db.Name, table.Name),
+               string.Format("select * from COLUMNS where TABLE_SCHEMA='{0}' and TABLE_NAME='{1}' ORDER BY ORDINAL_POSITION ASC ", db.Name, table.Name),
                null);
 
             foreach (DataRow rField in dsColumns.Tables[0].Rows)

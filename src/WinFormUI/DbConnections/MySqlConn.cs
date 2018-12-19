@@ -4,6 +4,7 @@ using System.Text.RegularExpressions;
 using System.Windows.Forms;
 using CodeTool.Common.DbConnections;
 using CodeTool.Common.DBUtility;
+using CodeTool.Common.Generator;
 using CodeTool.Config;
 
 namespace CodeTool.DbConnections
@@ -116,6 +117,7 @@ namespace CodeTool.DbConnections
 
             try
             {
+
                 DataSet ds = dbHelper.ExecuteDataset(CommandType.Text, "select DISTINCT SCHEMA_NAME FROM SCHEMATA", null);
 
                 foreach (DataRow r in ds.Tables[0].Rows)
@@ -123,8 +125,10 @@ namespace CodeTool.DbConnections
                     cobDatabase.Items.Add(r[0].ToString());
                 }
             }
-            catch
+            catch (Exception ex)
             {
+
+                Helper.WriteLog(ex.Message, "error");
             }
         }
     }

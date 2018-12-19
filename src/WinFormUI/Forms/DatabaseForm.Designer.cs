@@ -31,8 +31,9 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DatabaseForm));
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
-            this.btnAddDatabase = new System.Windows.Forms.ToolStripButton();
+            this.btnAddDatabase = new System.Windows.Forms.ToolStripLabel();
             this.btnRemoveDatabase = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButton2 = new System.Windows.Forms.ToolStripButton();
             this.tvDatabase = new System.Windows.Forms.TreeView();
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.cmsTable = new System.Windows.Forms.ContextMenuStrip(this.components);
@@ -45,7 +46,6 @@
             this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
             this.cmsDB = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.menuBrowseDB = new System.Windows.Forms.ToolStripMenuItem();
-            this.menuOutput = new System.Windows.Forms.ToolStripMenuItem();
             this.menuDeleteDatabase = new System.Windows.Forms.ToolStripMenuItem();
             this.刷新数据库ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.新建查询ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -56,6 +56,7 @@
             this.结构文件ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.数据文件ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.数据结构文件ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuOutput = new System.Windows.Forms.ToolStripMenuItem();
             this.cmsView = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.menuCreateCode1 = new System.Windows.Forms.ToolStripMenuItem();
             this.menuSelect1 = new System.Windows.Forms.ToolStripMenuItem();
@@ -73,21 +74,24 @@
             this.toolStrip1.ImageScalingSize = new System.Drawing.Size(24, 24);
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.btnAddDatabase,
-            this.btnRemoveDatabase});
+            this.btnRemoveDatabase,
+            this.toolStripButton2});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.Padding = new System.Windows.Forms.Padding(0, 0, 3, 0);
-            this.toolStrip1.Size = new System.Drawing.Size(370, 31);
+            this.toolStrip1.Size = new System.Drawing.Size(378, 31);
             this.toolStrip1.TabIndex = 0;
             this.toolStrip1.Text = "toolStrip1";
             // 
             // btnAddDatabase
             // 
+            this.btnAddDatabase.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             this.btnAddDatabase.Font = new System.Drawing.Font("Microsoft YaHei UI", 10F);
             this.btnAddDatabase.Image = ((System.Drawing.Image)(resources.GetObject("btnAddDatabase.Image")));
             this.btnAddDatabase.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnAddDatabase.Margin = new System.Windows.Forms.Padding(0);
             this.btnAddDatabase.Name = "btnAddDatabase";
-            this.btnAddDatabase.Size = new System.Drawing.Size(28, 28);
+            this.btnAddDatabase.Size = new System.Drawing.Size(24, 31);
             this.btnAddDatabase.ToolTipText = "添加数据库";
             this.btnAddDatabase.Click += new System.EventHandler(this.btnAddDatabase_Click);
             // 
@@ -101,6 +105,15 @@
             this.btnRemoveDatabase.ToolTipText = "移除数据库";
             this.btnRemoveDatabase.Click += new System.EventHandler(this.btnRemoveDatabase_Click);
             // 
+            // toolStripButton2
+            // 
+            this.toolStripButton2.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButton2.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton2.Image")));
+            this.toolStripButton2.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton2.Name = "toolStripButton2";
+            this.toolStripButton2.Size = new System.Drawing.Size(28, 28);
+            this.toolStripButton2.Text = "toolStripButton2";
+            // 
             // tvDatabase
             // 
             this.tvDatabase.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -110,7 +123,7 @@
             this.tvDatabase.Margin = new System.Windows.Forms.Padding(5);
             this.tvDatabase.Name = "tvDatabase";
             this.tvDatabase.SelectedImageIndex = 0;
-            this.tvDatabase.Size = new System.Drawing.Size(370, 870);
+            this.tvDatabase.Size = new System.Drawing.Size(378, 863);
             this.tvDatabase.TabIndex = 1;
             this.tvDatabase.MouseDown += new System.Windows.Forms.MouseEventHandler(this.tvDatabase_MouseDown);
             // 
@@ -226,13 +239,6 @@
             this.menuBrowseDB.Text = "浏览数据库";
             this.menuBrowseDB.Click += new System.EventHandler(this.menuBrowseDB_Click);
             // 
-            // menuOutput
-            // 
-            this.menuOutput.Name = "menuOutput";
-            this.menuOutput.Size = new System.Drawing.Size(214, 30);
-            this.menuOutput.Text = "输出代码";
-            this.menuOutput.Click += new System.EventHandler(this.menuOutput_Click);
-            // 
             // menuDeleteDatabase
             // 
             this.menuDeleteDatabase.Name = "menuDeleteDatabase";
@@ -300,6 +306,13 @@
             this.数据结构文件ToolStripMenuItem.Size = new System.Drawing.Size(200, 30);
             this.数据结构文件ToolStripMenuItem.Text = "数据结构文件";
             // 
+            // menuOutput
+            // 
+            this.menuOutput.Name = "menuOutput";
+            this.menuOutput.Size = new System.Drawing.Size(214, 30);
+            this.menuOutput.Text = "输出代码";
+            this.menuOutput.Click += new System.EventHandler(this.menuOutput_Click);
+            // 
             // cmsView
             // 
             this.cmsView.ImageScalingSize = new System.Drawing.Size(24, 24);
@@ -352,7 +365,7 @@
             this.AutoHidePortion = 0.2D;
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 24F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(370, 901);
+            this.ClientSize = new System.Drawing.Size(378, 894);
             this.Controls.Add(this.tvDatabase);
             this.Controls.Add(this.toolStrip1);
             this.Font = new System.Drawing.Font("宋体", 12F);
@@ -376,7 +389,6 @@
         #endregion
         public System.Windows.Forms.TreeView tvDatabase;
         public System.Windows.Forms.ToolStrip toolStrip1;
-        public System.Windows.Forms.ToolStripButton btnAddDatabase;
         public System.Windows.Forms.ContextMenuStrip cmsTable;
         public System.Windows.Forms.ToolStripMenuItem menuCreateCode;
         public System.Windows.Forms.ImageList imageList1;
@@ -406,5 +418,7 @@
         public System.Windows.Forms.ToolStripMenuItem 数据文件ToolStripMenuItem;
         public System.Windows.Forms.ToolStripMenuItem menuBrowseDB;
         public System.Windows.Forms.ToolStripMenuItem 数据结构文件ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripButton toolStripButton2;
+        public System.Windows.Forms.ToolStripLabel btnAddDatabase;
     }
 }

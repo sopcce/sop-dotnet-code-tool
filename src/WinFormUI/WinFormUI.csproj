@@ -281,6 +281,7 @@
     <None Include="Resources\xml.png" />
     <None Include="Resources\edit.png" />
     <None Include="Resources\open.png" />
+    <Content Include="Config\Config\codeTool.xml" />
     <Content Include="Config\Config\History.xml" />
     <Content Include="Config\Config\Language.xml" />
     <Content Include="Config\Config\NewTemplate\DbType.js" />

@@ -83,7 +83,7 @@ namespace CodeTool.UserControls
             string readmeFile = TemplateFolderPath.TrimEnd('\\', ' ') + @"\readme.txt";
             if (File.Exists(readmeFile))
             {
-                readme = IoHelper.ReadFile(readmeFile);
+                readme = Helper.ReadFile(readmeFile);
             }
 
             if (ShowReadmeOfTemplate != null)

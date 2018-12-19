@@ -153,7 +153,7 @@ namespace CodeTool
                     return;
                 }
 
-                IoHelper.CopyFolder(Application.StartupPath + "\\Config\\NewTemplate", path);
+                Helper.CopyFolder(Application.StartupPath + "\\Config\\NewTemplate", path);
                 LoadTempates();
                 if (TemplateChanged != null)
                     TemplateChanged();
@@ -193,7 +193,7 @@ namespace CodeTool
                     return;
                 }
 
-                IoHelper.WriteFile(path, "");
+                Helper.WriteFile(path, "");
                 LoadFiles(tvTemplates.SelectedNode);
             }
         }

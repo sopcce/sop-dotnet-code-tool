@@ -11,6 +11,7 @@ using System.Windows.Forms;
 using System.Xml;
 using CodeTool.Common.Model;
 using CodeTool.Config;
+using Microsoft.Win32;
 using WeifenLuo.WinFormsUI.Docking;
 
 namespace CodeTool.Forms
@@ -18,6 +19,7 @@ namespace CodeTool.Forms
     public partial class MainForm : Form
     {
 
+      
 
 
         public static WeifenLuo.WinFormsUI.Docking.DockPanel DockPanel;
@@ -114,9 +116,8 @@ namespace CodeTool.Forms
                 labNewVersion.LinkColor = Color.Red;
                 return;
             }
-            //http://www.socansoft.com/downloads/socancode/SocanCode.rar
             XmlDocument xml = e.Result as XmlDocument;
-            XmlNode display = xml.SelectSingleNode("DOCUMENT").SelectSingleNode("item").SelectSingleNode("display");
+            XmlNode display = xml.SelectSingleNode("DOCUMENT").SelectSingleNode("item");
             Version lastVersion = new Version(display.SelectSingleNode("content2").InnerText);
 
 
@@ -131,7 +132,7 @@ namespace CodeTool.Forms
             else
             {
                 labNewVersion.Text = @"当前版本已经是最新版本";
-                labNewVersion.LinkColor = Color.Green;
+                labNewVersion.LinkColor = Color.GreenYellow;
             }
         }
         #endregion
@@ -153,7 +154,7 @@ namespace CodeTool.Forms
         void frmDatabase_DataInfo(Database db, Table table)
         {
             var db1 = db;
-            DataInfoForm frm = new DataInfoForm(db,table);
+            DataInfoForm frm = new DataInfoForm(db, table);
             //frm.ShowDebug += new Action<string, string, bool>(frm_ShowDebug);
             frm.Show(MainForm.DockPanel);
         }
@@ -285,14 +286,20 @@ namespace CodeTool.Forms
             frm.ShowDialog();
         }
         #endregion
-
         private void labNewVersion_Click(object sender, EventArgs e)
         {
             var toolStripStatusLabel = sender as ToolStripStatusLabel;
             if (toolStripStatusLabel != null)
             {
-                object tag = toolStripStatusLabel.Tag;
-                Process.Start(new ProcessStartInfo("IEXPLORE.EXE", tag.ToString()));
+                string url = toolStripStatusLabel.Tag?.ToString();
+                
+                string chromeAppFileName = (string)(Registry.GetValue("HKEY_LOCAL_MACHINE" + SqlConfig.ChromeAppKey, "", null) ??
+                                Registry.GetValue("HKEY_CURRENT_USER" + SqlConfig.ChromeAppKey, "", null)); ;
+                if (string.IsNullOrEmpty(chromeAppFileName))
+                {
+                    Process.Start(new ProcessStartInfo("IEXPLORE.EXE", url));
+                }
+                Process.Start(chromeAppFileName, url);
             }
         }
 
@@ -309,7 +316,7 @@ namespace CodeTool.Forms
         /// </summary>
         /// <param name="text">传入的窗口标题</param>
         /// <returns>返回的窗口</returns>
-        public  IDockContent FindDocument(string text)
+        public IDockContent FindDocument(string text)
         {
             if (DockPanel.DocumentStyle == DocumentStyle.SystemMdi)
             {

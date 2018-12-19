@@ -24,7 +24,7 @@ namespace CodeTool
             string error = string.Format("[{0}]{1}\r\n{2}\r\n\r\n", DateTime.Now.ToString(), e.Exception.Message, e.Exception.StackTrace);
             ErrorForm frm = new ErrorForm(error);
             frm.Show();
-            IoHelper.AppendFile(Application.StartupPath + "\\error.txt", error);
+            Helper.WriteLog(error, "error");
         }
     }
 }

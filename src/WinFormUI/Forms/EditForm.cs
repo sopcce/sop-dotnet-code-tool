@@ -55,7 +55,7 @@ namespace CodeTool
         {
             if (File.Exists(FileInfo.FullName))
             {
-                IoHelper.WriteFile(FileInfo.FullName, txtCode.Text);
+                Helper.WriteFile(FileInfo.FullName, txtCode.Text);
                 FileInfo = FileInfo;
                 return true;
             }
@@ -77,7 +77,7 @@ namespace CodeTool
             dlg.Filter = string.Format("{0}|*.{0}|所有文件(*.*)|*.*", dlg.DefaultExt);
             if (dlg.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {
-                IoHelper.WriteFile(dlg.FileName, txtCode.Text);
+                Helper.WriteFile(dlg.FileName, txtCode.Text);
                 FileInfo = new FileInfo(dlg.FileName);
                 return true;
             }

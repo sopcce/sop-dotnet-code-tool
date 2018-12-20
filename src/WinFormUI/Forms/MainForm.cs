@@ -132,7 +132,7 @@ namespace CodeTool.Forms
             else
             {
                 labNewVersion.Text = @"当前版本已经是最新版本";
-                labNewVersion.LinkColor = Color.GreenYellow;
+                labNewVersion.LinkColor = Color.Black;
             }
         }
         #endregion
@@ -155,7 +155,7 @@ namespace CodeTool.Forms
         {
             var db1 = db;
             DataInfoForm frm = new DataInfoForm(db, table);
-            //frm.ShowDebug += new Action<string, string, bool>(frm_ShowDebug);
+            
             frm.Show(MainForm.DockPanel);
         }
 

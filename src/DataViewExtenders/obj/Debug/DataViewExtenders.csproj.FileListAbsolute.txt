@@ -1,0 +1,16 @@
+E:\GitHub\DataViewExtenders\Source\bin\Debug\CBComponents.DataViewExtenders.dll
+E:\GitHub\DataViewExtenders\Source\bin\Debug\CBComponents.DataViewExtenders.pdb
+E:\GitHub\DataViewExtenders\Source\obj\Debug\DataViewExtenders.csprojAssemblyReference.cache
+E:\GitHub\DataViewExtenders\Source\obj\Debug\CBComponents.Properties.Resources.resources
+E:\GitHub\DataViewExtenders\Source\obj\Debug\DataViewExtenders.csproj.GenerateResource.cache
+E:\GitHub\DataViewExtenders\Source\obj\Debug\DataViewExtenders.csproj.CoreCompileInputs.cache
+E:\GitHub\DataViewExtenders\Source\obj\Debug\CBComponents.DataViewExtenders.dll
+E:\GitHub\DataViewExtenders\Source\obj\Debug\CBComponents.DataViewExtenders.pdb
+E:\GitHub\CodeTool\src\DataViewExtenders\obj\Debug\CBComponents.Properties.Resources.resources
+E:\GitHub\CodeTool\src\DataViewExtenders\obj\Debug\DataViewExtenders.csproj.GenerateResource.cache
+E:\GitHub\CodeTool\src\DataViewExtenders\obj\Debug\DataViewExtenders.csproj.CoreCompileInputs.cache
+E:\GitHub\CodeTool\src\DataViewExtenders\obj\Debug\CBComponents.DataViewExtenders.dll
+E:\GitHub\CodeTool\src\DataViewExtenders\obj\Debug\CBComponents.DataViewExtenders.pdb
+E:\GitHub\CodeTool\src\DataViewExtenders\bin\Debug\CBComponents.DataViewExtenders.dll
+E:\GitHub\CodeTool\src\DataViewExtenders\bin\Debug\CBComponents.DataViewExtenders.pdb
+E:\GitHub\CodeTool\src\DataViewExtenders\obj\Debug\DataViewExtenders.csprojAssemblyReference.cache

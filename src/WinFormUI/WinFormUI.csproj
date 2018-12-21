@@ -164,10 +164,10 @@
     <Compile Include="Forms\CSharpToVBForm.designer.cs">
       <DependentUpon>CSharpToVBForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\DataInfoForm.cs">
+    <Compile Include="Forms\Open\DataInfoForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\DataInfoForm.Designer.cs">
+    <Compile Include="Forms\Open\DataInfoForm.Designer.cs">
       <DependentUpon>DataInfoForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\DebugForm.cs">
@@ -202,10 +202,10 @@
     <Compile Include="UserControls\MyTextBox.Designer.cs">
       <DependentUpon>MyTextBox.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\OutputCodeForm.cs">
+    <Compile Include="Forms\Open\OutputCodeForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\OutputCodeForm.Designer.cs">
+    <Compile Include="Forms\Open\OutputCodeForm.Designer.cs">
       <DependentUpon>OutputCodeForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\CodeClearForm.cs">
@@ -214,10 +214,10 @@
     <Compile Include="Forms\CodeClearForm.Designer.cs">
       <DependentUpon>CodeClearForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\SqlSeleteViewForm.cs">
+    <Compile Include="Forms\Open\SqlSeleteViewForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\SqlSeleteViewForm.designer.cs">
+    <Compile Include="Forms\Open\SqlSeleteViewForm.designer.cs">
       <DependentUpon>SqlSeleteViewForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\TemplateForm.cs">
@@ -258,7 +258,7 @@
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
     <Compile Include="Config\MessageBoxMessage.cs" />
-    <Compile Include="TextEditor.cs">
+    <Compile Include="UserControls\TextEditor.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="UserControls\SelectTemplateUserControl.cs">
@@ -333,7 +333,7 @@
     <EmbeddedResource Include="Forms\CSharpToVBForm.resx">
       <DependentUpon>CSharpToVBForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\DataInfoForm.resx">
+    <EmbeddedResource Include="Forms\Open\DataInfoForm.resx">
       <DependentUpon>DataInfoForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\DebugForm.resx">
@@ -346,14 +346,14 @@
       <SubType>Designer</SubType>
       <DependentUpon>CodeToTemplateForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\OutputCodeForm.resx">
+    <EmbeddedResource Include="Forms\Open\OutputCodeForm.resx">
       <SubType>Designer</SubType>
       <DependentUpon>OutputCodeForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\CodeClearForm.resx">
       <DependentUpon>CodeClearForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\SqlSeleteViewForm.resx">
+    <EmbeddedResource Include="Forms\Open\SqlSeleteViewForm.resx">
       <DependentUpon>SqlSeleteViewForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\TemplateForm.resx">
@@ -383,6 +383,9 @@
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\TextEditor.resx">
+      <DependentUpon>TextEditor.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UserControls\SelectTableUserControl.resx">
       <DependentUpon>SelectTableUserControl.cs</DependentUpon>
     </EmbeddedResource>
@@ -403,6 +406,10 @@
     <ProjectReference Include="..\CodeTool.Common\CodeTool.Common.csproj">
       <Project>{6e4cbeb6-8505-4087-bc32-ff40d11972c0}</Project>
       <Name>CodeTool.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DataViewExtenders\DataViewExtenders.csproj">
+      <Project>{FFE9BBB5-8B9B-40EA-9499-AA2DE0ECB1F6}</Project>
+      <Name>DataViewExtenders</Name>
     </ProjectReference>
     <ProjectReference Include="..\WebBrowser\WebBrowser.csproj">
       <Project>{410DD294-FFB5-40FD-B589-8CB576D55EC6}</Project>

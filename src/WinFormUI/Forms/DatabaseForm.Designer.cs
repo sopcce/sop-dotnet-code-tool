@@ -63,6 +63,7 @@
             this.menuUpdate1 = new System.Windows.Forms.ToolStripMenuItem();
             this.menuDelete1 = new System.Windows.Forms.ToolStripMenuItem();
             this.menuInsert1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.menu_CreateDataInfo = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStrip1.SuspendLayout();
             this.cmsTable.SuspendLayout();
             this.cmsDB.SuspendLayout();
@@ -157,9 +158,10 @@
             this.cmsTable.ImageScalingSize = new System.Drawing.Size(24, 24);
             this.cmsTable.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.menuRunSql,
-            this.menuCreateCode});
+            this.menuCreateCode,
+            this.menu_CreateDataInfo});
             this.cmsTable.Name = "contextMenuStrip1";
-            this.cmsTable.Size = new System.Drawing.Size(153, 60);
+            this.cmsTable.Size = new System.Drawing.Size(241, 121);
             // 
             // menuRunSql
             // 
@@ -169,7 +171,7 @@
             this.menuDeleteClickToolStripMenuItem,
             this.增肌记录ToolStripMenuItem});
             this.menuRunSql.Name = "menuRunSql";
-            this.menuRunSql.Size = new System.Drawing.Size(152, 28);
+            this.menuRunSql.Size = new System.Drawing.Size(240, 28);
             this.menuRunSql.Text = "执行SQL";
             this.menuRunSql.Click += new System.EventHandler(this.menuRunSql_Click);
             // 
@@ -204,7 +206,7 @@
             // menuCreateCode
             // 
             this.menuCreateCode.Name = "menuCreateCode";
-            this.menuCreateCode.Size = new System.Drawing.Size(152, 28);
+            this.menuCreateCode.Size = new System.Drawing.Size(240, 28);
             this.menuCreateCode.Text = "生成代码";
             this.menuCreateCode.Click += new System.EventHandler(this.menuCreateCode_Click);
             // 
@@ -360,6 +362,13 @@
             this.menuInsert1.Text = "增加记录";
             this.menuInsert1.Click += new System.EventHandler(this.menuInsert_Click);
             // 
+            // menu_CreateDataInfo
+            // 
+            this.menu_CreateDataInfo.Name = "menu_CreateDataInfo";
+            this.menu_CreateDataInfo.Size = new System.Drawing.Size(240, 28);
+            this.menu_CreateDataInfo.Text = "测试信息";
+            this.menu_CreateDataInfo.Click += new System.EventHandler(this.menu_CreateDataInfo_Click);
+            // 
             // DatabaseForm
             // 
             this.AutoHidePortion = 0.2D;
@@ -420,5 +429,6 @@
         public System.Windows.Forms.ToolStripMenuItem 数据结构文件ToolStripMenuItem;
         private System.Windows.Forms.ToolStripButton toolStripButton2;
         public System.Windows.Forms.ToolStripLabel btnAddDatabase;
+        private System.Windows.Forms.ToolStripMenuItem menu_CreateDataInfo;
     }
 }

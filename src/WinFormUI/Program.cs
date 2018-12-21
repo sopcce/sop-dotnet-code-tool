@@ -22,8 +22,8 @@ namespace CodeTool
         static void Application_ThreadException(object sender, System.Threading.ThreadExceptionEventArgs e)
         {
             string error = string.Format("[{0}]{1}\r\n{2}\r\n\r\n", DateTime.Now.ToString(), e.Exception.Message, e.Exception.StackTrace);
-            ErrorForm frm = new ErrorForm(error);
-            frm.Show();
+            //ErrorForm frm = new ErrorForm(error);
+            //frm.Show();
             Helper.WriteLog(error, "error");
         }
     }

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Windows.Forms;
+using CodeTool.Common;
 using CodeTool.Common.Generator;
 
 namespace CodeTool.UserControls

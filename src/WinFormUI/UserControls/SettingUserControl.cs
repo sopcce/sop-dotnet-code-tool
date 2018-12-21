@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Windows.Forms;
+using CodeTool.Common;
 using CodeTool.Common.Generator;
 
 namespace CodeTool.UserControls

@@ -9,6 +9,7 @@ using System.IO;
 using System.Reflection;
 using System.Windows.Forms;
 using System.Xml;
+using CodeTool.Common.Generator;
 using CodeTool.Common.Model;
 using CodeTool.Config;
 using Microsoft.Win32;
@@ -18,10 +19,6 @@ namespace CodeTool.Forms
 {
     public partial class MainForm : Form
     {
-
-      
-
-
         public static WeifenLuo.WinFormsUI.Docking.DockPanel DockPanel;
 
         private DatabaseForm _frmDatabase;
@@ -88,12 +85,17 @@ namespace CodeTool.Forms
             }
         }
 
-        #region 版本检测
+        #region 版本检测&更新下载
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         void bw_DoWork(object sender, DoWorkEventArgs e)
         {
             int count = 0;
             while (count < 3)
-            {
+            { 
                 try
                 {
                     XmlDocument xml = new XmlDocument();
@@ -101,8 +103,9 @@ namespace CodeTool.Forms
                     e.Result = xml;
                     return;
                 }
-                catch
+                catch (Exception ex)
                 {
+                    Helper.WriteLog(ex.Message,"error");
                     count++;
                 }
             }
@@ -135,6 +138,22 @@ namespace CodeTool.Forms
                 labNewVersion.LinkColor = Color.Black;
             }
         }
+        private void labNewVersion_Click(object sender, EventArgs e)
+        {
+            var toolStripStatusLabel = sender as ToolStripStatusLabel;
+            if (toolStripStatusLabel != null)
+            {
+                string url = toolStripStatusLabel.Tag?.ToString();
+
+                string chromeAppFileName = (string)(Registry.GetValue("HKEY_LOCAL_MACHINE" + SqlConfig.ChromeAppKey, "", null) ??
+                                                    Registry.GetValue("HKEY_CURRENT_USER" + SqlConfig.ChromeAppKey, "", null)); ;
+                if (string.IsNullOrEmpty(chromeAppFileName))
+                {
+                    Process.Start(new ProcessStartInfo("IEXPLORE.EXE", url));
+                }
+                Process.Start(chromeAppFileName, url);
+            }
+        }
         #endregion
 
         #region frmDatabase事件
@@ -153,9 +172,8 @@ namespace CodeTool.Forms
         }
         void frmDatabase_DataInfo(Database db, Table table)
         {
-            var db1 = db;
+         
             DataInfoForm frm = new DataInfoForm(db, table);
-            
             frm.Show(MainForm.DockPanel);
         }
 
@@ -286,22 +304,7 @@ namespace CodeTool.Forms
             frm.ShowDialog();
         }
         #endregion
-        private void labNewVersion_Click(object sender, EventArgs e)
-        {
-            var toolStripStatusLabel = sender as ToolStripStatusLabel;
-            if (toolStripStatusLabel != null)
-            {
-                string url = toolStripStatusLabel.Tag?.ToString();
-                
-                string chromeAppFileName = (string)(Registry.GetValue("HKEY_LOCAL_MACHINE" + SqlConfig.ChromeAppKey, "", null) ??
-                                Registry.GetValue("HKEY_CURRENT_USER" + SqlConfig.ChromeAppKey, "", null)); ;
-                if (string.IsNullOrEmpty(chromeAppFileName))
-                {
-                    Process.Start(new ProcessStartInfo("IEXPLORE.EXE", url));
-                }
-                Process.Start(chromeAppFileName, url);
-            }
-        }
+      
 
         private void dockPanel1_ContentAdded(object sender, DockContentEventArgs e)
         {

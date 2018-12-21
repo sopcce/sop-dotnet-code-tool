@@ -143,9 +143,10 @@
     <Compile Include="Fabrics\Helper\SchemaHelper.cs" />
     <Compile Include="Fabrics\SQLiteSchema.cs" />
     <Compile Include="Fabrics\SqlSchema.cs" />
-    <Compile Include="Generator\FileUtility.cs" />
-    <Compile Include="Generator\Helper.cs" />
-    <Compile Include="Generator\Setting.cs" />
+    <Compile Include="FileUtility.cs" />
+    <Compile Include="GridView\CodeDataGridView.cs" />
+    <Compile Include="Helper.cs" />
+    <Compile Include="Setting.cs" />
     <Compile Include="Generator\Template.cs" />
     <Compile Include="Model\DbHelper.cs" />
     <Compile Include="Models\PetaPoco.cs" />

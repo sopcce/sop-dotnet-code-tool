@@ -1,6 +1,8 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Windows.Forms;
 using System.Xml;
+using CodeTool.Common.Generator;
 
 namespace CodeTool.Config
 {
@@ -25,9 +27,16 @@ namespace CodeTool.Config
                     XmlDocument xml = new XmlDocument();
 
                     string path = Application.StartupPath + @"\Config\Language.xml";
-
-                    xml.Load(path);
-                    XmlNode root = xml.SelectSingleNode("Languages");
+                    try
+                    {
+                        xml.Load(path);
+                    }
+                    catch (Exception ex)
+                    {
+                        Helper.WriteLog(ex.Message, "error");
+                        return null;
+                    }
+                    XmlNode root = xml?.SelectSingleNode("Languages");
                     foreach (XmlNode child in root.ChildNodes)
                     {
                         Language language = new Language();

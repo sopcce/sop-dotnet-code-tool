@@ -3,6 +3,7 @@ using System.Drawing;
 using System.Windows.Forms;
 using CodeTool.Common.Model;
 using CodeTool.Config;
+using CodeTool.Forms.Open;
 using WeifenLuo.WinFormsUI.Docking;
 
 //using CodeTool.Forms;
@@ -12,7 +13,9 @@ namespace CodeTool.Forms
     public partial class DatabaseForm : WeifenLuo.WinFormsUI.Docking.DockContent
     {
         public event Action<Database> OutputCode;
+
         public event Action<Table> CreateCode;
+
         public event Action<string> ShowStatus;
 
         public event Action<Database, Table> DataInfo;
@@ -182,7 +185,7 @@ namespace CodeTool.Forms
                 if (table != null)
                 {
                     SqlSeleteViewForm ssv = new SqlSeleteViewForm(db, table);
-                    ssv.addSqlTextEditor();
+                    ssv.AddSqlTextEditor();
                     ssv.sqlTextEditor.Text = ssv.sqlTextEditor.Text + "select * from " + table.Name + "";
                     ssv.Show(MainForm.DockPanel);
                 }
@@ -203,7 +206,7 @@ namespace CodeTool.Forms
                 if (table != null)
                 {
                     SqlSeleteViewForm ssv = new SqlSeleteViewForm(db, table);
-                    ssv.addSqlTextEditor();
+                    ssv.AddSqlTextEditor();
                     string sql = $"update {table.Name} set ";
                     foreach (Field field in table.Fields)
                     {
@@ -233,7 +236,7 @@ namespace CodeTool.Forms
                 if (table != null)
                 {
                     SqlSeleteViewForm ssv = new SqlSeleteViewForm(db, table);
-                    ssv.addSqlTextEditor();
+                    ssv.AddSqlTextEditor();
                     ssv.sqlTextEditor.Text = ssv.sqlTextEditor.Text + @"delete from " + table.Name + "";
                     ssv.Show(MainForm.DockPanel);
                 }
@@ -269,7 +272,7 @@ namespace CodeTool.Forms
                     tempSqlValue = tempSqlValue.TrimEnd(',');
                     string sql = $"  INSERT INTO {table.Name} ({tempSql}) VALUES({tempSqlValue}) ";
 
-                    ssv.addSqlTextEditor();
+                    ssv.AddSqlTextEditor();
                     ssv.sqlTextEditor.Text = ssv.sqlTextEditor.Text + sql;
                     ssv.Show(MainForm.DockPanel);
                 }
@@ -279,24 +282,54 @@ namespace CodeTool.Forms
                 }
             }
         }
+        /// <summary>
+        /// 生成代码
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void menuCreateCode_Click(object sender, EventArgs e)
+        {
+            CreateCurrentTableCode();
+        }
+        /// <summary>
+        /// 测试信息
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void menu_CreateDataInfo_Click(object sender, EventArgs e)
+        {
+            if (CreateCode == null)
+            {
+                MessageBoxMessage.Alert("请先选中一个表或视图。");
+                return;
+            }
+            // 弹出测试信息窗体
+            string dbName = tvDatabase.SelectedNode.Parent.Parent.Text;
+            Database db = tvDatabase.SelectedNode.Parent.Parent.Tag as Database;
+            Table table = tvDatabase.SelectedNode.Tag as Table;
+            if (db != null)
+            {
+                DataInfo(db, table);
+            }
+            else
+            {
+                MessageBoxMessage.Alert("请先选中一个数据库。");
+            }
+
+        }
+        #endregion
 
         private void menuOutput_Click(object sender, EventArgs e)
         {
             OutputSelectedDatabaseCode();
         }
 
-        private void menuCreateCode_Click(object sender, EventArgs e)
-        {
-            CreateCurrentTableCode();
-        }
+
 
         private void menuDeleteDatabase_Click(object sender, EventArgs e)
         {
             tvDatabase.Nodes.Remove(tvDatabase.SelectedNode);
         }
-        #endregion
-
-
 
 
 
@@ -341,8 +374,7 @@ namespace CodeTool.Forms
 
         private void tvDatabase_MouseDown(object sender, MouseEventArgs e)
         {
-           
-
+            //得到TreeView里鼠标指向的节点,同时把该节点设置为当前选中的节点
             Point pt = this.PointToScreen(tvDatabase.Location);
             Point p = new Point(Control.MousePosition.X - pt.X, Control.MousePosition.Y - pt.Y);
             TreeNode tn = tvDatabase.GetNodeAt(p);
@@ -352,17 +384,17 @@ namespace CodeTool.Forms
             }
             //打开详细信息列表 
 
-            Database db = tvDatabase.SelectedNode.Tag as Database;
-            Table table = tvDatabase.SelectedNode.Tag as Table;
-            DataInfoForm dataInfoForm = new DataInfoForm(db, table);
-            dataInfoForm.Show(MainForm.DockPanel);
+            //Database db = tvDatabase.SelectedNode.Tag as Database;
+            //Table table = tvDatabase.SelectedNode.Tag as Table;
+            //DataInfoForm dataInfoForm = new DataInfoForm(db, table);
+            //dataInfoForm.Show(MainForm.DockPanel);
 
-            if (new MainForm().FindDocument("DataInfoForm") != null)
-            {
-                Form f = new MainForm().FindDocument("DataInfoForm") as Form;
-                f.Close();
+            //if (new MainForm().FindDocument("DataInfoForm") != null)
+            //{
+            //    Form f = new MainForm().FindDocument("DataInfoForm") as Form;
+            //    f.Close();
 
-            }
+            //}
 
         }
 
@@ -408,5 +440,7 @@ namespace CodeTool.Forms
         {
 
         }
+
+
     }
 }

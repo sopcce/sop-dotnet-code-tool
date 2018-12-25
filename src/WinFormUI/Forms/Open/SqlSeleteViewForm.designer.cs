@@ -31,7 +31,6 @@ namespace CodeTool.Forms.Open
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SqlSeleteViewForm));
             this.tabInfo = new System.Windows.Forms.TabControl();
             this.tabGrid = new System.Windows.Forms.TabPage();
@@ -76,23 +75,14 @@ namespace CodeTool.Forms.Open
             // 
             // dgView
             // 
-            this.dgView.AllowUserToAddRows = false;
             this.dgView.AllowUserToOrderColumns = true;
-            this.dgView.BackgroundColor = System.Drawing.Color.AntiqueWhite;
-            this.dgView.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgView.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
-            this.dgView.GridColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.dgView.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgView.Location = new System.Drawing.Point(4, 4);
-            this.dgView.Margin = new System.Windows.Forms.Padding(4);
             this.dgView.Name = "dgView";
-            this.dgView.ReadOnly = true;
-            dataGridViewCellStyle1.NullValue = null;
-            this.dgView.RowsDefaultCellStyle = dataGridViewCellStyle1;
-            this.dgView.RowTemplate.Height = 23;
-            this.dgView.Size = new System.Drawing.Size(700, 167);
+            this.dgView.RowTemplate.Height = 30;
+            this.dgView.Size = new System.Drawing.Size(1016, 300);
             this.dgView.TabIndex = 0;
-            this.dgView.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.dgView_DataBindingComplete);
             // 
             // tabMessage
             // 
@@ -176,13 +166,11 @@ namespace CodeTool.Forms.Open
 
         public System.Windows.Forms.TabControl tabInfo;
         public System.Windows.Forms.TabPage tabGrid;
-        public System.Windows.Forms.DataGridView dgView;
         public System.Windows.Forms.TabPage tabMessage;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button runSql;
         public TextEditor sqlTextEditor;
         public MyTextBox txtLineEffect;
-
-
+        private System.Windows.Forms.DataGridView dgView;
     }
 }

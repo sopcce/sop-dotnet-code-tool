@@ -1,6 +1,7 @@
 using System;
 using System.Data;
 using System.Windows.Forms;
+
 using CodeTool.Common.DBUtility;
 using CodeTool.Common.Model;
 using CodeTool.Common;
@@ -19,7 +20,8 @@ namespace CodeTool.Forms.Open
             sqlTextEditor.SetStyle("TSQL");
             this.db = db;
             this.table = table;
-            this.Text = table.Name+" —数据信息";
+            this.Text = table.Name + " —数据信息";
+
         }
 
         public void AddSqlTextEditor()
@@ -30,17 +32,7 @@ namespace CodeTool.Forms.Open
                 this.sqlTextEditor.Text = this.sqlTextEditor.Text + "\n";
             }
         }
-        private void dgView_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
-        {
-            if (this.dgView.Rows.Count != 0)
-            {
-                for (int i = 0; i < this.dgView.Rows.Count; )
-                {
-                    this.dgView.Rows[i].DefaultCellStyle.BackColor = System.Drawing.Color.Pink;
-                    i += 2;
-                }
-            }
-        }
+       
 
         private DbHelper dbHelper = null;
 
@@ -94,32 +86,41 @@ namespace CodeTool.Forms.Open
                     {
                         if (selectedText.StartsWith("select", StringComparison.InvariantCultureIgnoreCase))
                         {
-                            DataSet dS = this.dbHelper.ExecuteDataset(CommandType.Text, selectedText, null);
-                            this.dgView.DataSource = dS.Tables[0];
+                            DataTable dataTable = this.dbHelper.ExecuteDataset(CommandType.Text, selectedText, null)?.Tables[0];
+
+
+
+                            dgView.DataSource = dataTable;
                             dgView.CodeGrid();
 
-                            this.txtLineEffect.Text = string.Format(format, dS.Tables[0].Rows.Count);
+                          
+
+
+
+
+
+                            this.txtLineEffect.Text = string.Format(format, dataTable.Rows.Count);
                             this.tabInfo.SelectedIndex = 0;
                         }
-                         if (selectedText.StartsWith("delete", StringComparison.InvariantCultureIgnoreCase))
+                        if (selectedText.StartsWith("delete", StringComparison.InvariantCultureIgnoreCase))
                         {
                             this.txtLineEffect.Text = string.Format(format, this.dbHelper.ExecuteDataset(CommandType.Text, selectedText, null).ToString());
                             this.dgView.DataSource = null;
                             this.tabInfo.SelectedIndex = 1;
                         }
-                         if (selectedText.StartsWith("update", StringComparison.InvariantCultureIgnoreCase))
+                        if (selectedText.StartsWith("update", StringComparison.InvariantCultureIgnoreCase))
                         {
                             this.txtLineEffect.Text = string.Format(format, this.dbHelper.ExecuteDataset(CommandType.Text, selectedText, null).ToString());
                             this.dgView.DataSource = null;
                             this.tabInfo.SelectedIndex = 1;
                         }
-                         if (selectedText.StartsWith("insert", StringComparison.InvariantCultureIgnoreCase))
+                        if (selectedText.StartsWith("insert", StringComparison.InvariantCultureIgnoreCase))
                         {
                             this.txtLineEffect.Text = string.Format(format, this.dbHelper.ExecuteDataset(CommandType.Text, selectedText, null).ToString());
                             this.dgView.DataSource = null;
                             this.tabInfo.SelectedIndex = 1;
                         }
-                        
+
                         //{
                         //    //this.dgView.DataSource = null;
                         //    //this.txtLineEffect.Text = "无效的Sql语句；期待'Delete','Insert','Select','Update'";

@@ -145,6 +145,12 @@
     <Compile Include="Fabrics\SqlSchema.cs" />
     <Compile Include="FileUtility.cs" />
     <Compile Include="GridView\CodeDataGridView.cs" />
+    <Compile Include="GridView\DataPage.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GridView\DataPage.Designer.cs">
+      <DependentUpon>DataPage.cs</DependentUpon>
+    </Compile>
     <Compile Include="Helper.cs" />
     <Compile Include="Setting.cs" />
     <Compile Include="Generator\Template.cs" />
@@ -171,6 +177,11 @@
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="GridView\DataPage.resx">
+      <DependentUpon>DataPage.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\System.Data.SQLite.Core.1.0.109.1\build\net451\System.Data.SQLite.Core.targets" Condition="Exists('..\packages\System.Data.SQLite.Core.1.0.109.1\build\net451\System.Data.SQLite.Core.targets')" />

@@ -13,14 +13,7 @@ namespace CodeTool.Common.GridView
         {
             DataGridViewCellStyle cellStyle = new DataGridViewCellStyle();
             DataGridViewCellStyle headerStyle = new DataGridViewCellStyle();
-            dgv.AllowDrop = true;
-            dgv.AllowUserToAddRows = true;
-            dgv.AllowUserToDeleteRows = true;
-            dgv.AllowUserToResizeColumns = true;
-            dgv.AllowUserToResizeRows = true;
-            dgv.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            dgv.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
-            dgv.BackgroundColor = System.Drawing.Color.White;
+            //===
             cellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
             cellStyle.BackColor = System.Drawing.Color.White;
             cellStyle.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular,
@@ -29,9 +22,7 @@ namespace CodeTool.Common.GridView
             cellStyle.SelectionBackColor = System.Drawing.Color.Yellow;
             cellStyle.SelectionForeColor = System.Drawing.Color.Black;
             cellStyle.WrapMode = DataGridViewTriState.True;
-            dgv.DefaultCellStyle = cellStyle;
-            dgv.ColumnHeadersHeight = 40;
-            dgv.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            //===
             headerStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
             headerStyle.BackColor = System.Drawing.SystemColors.Window;
             headerStyle.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold,
@@ -41,13 +32,24 @@ namespace CodeTool.Common.GridView
             headerStyle.SelectionForeColor = System.Drawing.Color.Black;
             headerStyle.WrapMode = DataGridViewTriState.False;
             dgv.ColumnHeadersDefaultCellStyle = headerStyle;
-            dgv.MultiSelect = true;
+
+            dgv.DefaultCellStyle = cellStyle;
+            dgv.ColumnHeadersHeight = 40;
+            dgv.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            dgv.MultiSelect = false;
             dgv.ReadOnly = true;
             dgv.RowHeadersVisible = false;
             dgv.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dgv.TabIndex = 0;
-            dgv.TabStop = false;
-
+            dgv.TabStop = true;
+            dgv.AllowDrop = true;
+            dgv.AllowUserToAddRows = true;
+            dgv.AllowUserToDeleteRows = true;
+            dgv.AllowUserToResizeColumns = true;
+            dgv.AllowUserToResizeRows = true;
+            dgv.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dgv.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
+            dgv.BackgroundColor = System.Drawing.Color.White;
         }
 
         public static void MoveToUp(this DataGridView dgv)

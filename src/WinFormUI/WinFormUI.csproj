@@ -407,10 +407,6 @@
       <Project>{6e4cbeb6-8505-4087-bc32-ff40d11972c0}</Project>
       <Name>CodeTool.Common</Name>
     </ProjectReference>
-    <ProjectReference Include="..\DataViewExtenders\DataViewExtenders.csproj">
-      <Project>{FFE9BBB5-8B9B-40EA-9499-AA2DE0ECB1F6}</Project>
-      <Name>DataViewExtenders</Name>
-    </ProjectReference>
     <ProjectReference Include="..\WebBrowser\WebBrowser.csproj">
       <Project>{410DD294-FFB5-40FD-B589-8CB576D55EC6}</Project>
       <Name>WebBrowser</Name>

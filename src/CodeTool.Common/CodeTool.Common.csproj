@@ -61,7 +61,7 @@
       <HintPath>..\packages\RazorEngine.3.10.0\lib\net45\RazorEngine.dll</HintPath>
     </Reference>
     <Reference Include="Sybase.Data.AseClient">
-      <HintPath>..\..\SocanCode\Sybase.Data.AseClient.dll</HintPath>
+      <HintPath>..\Libs\Sybase.Data.AseClient.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel" />

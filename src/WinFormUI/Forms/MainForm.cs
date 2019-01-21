@@ -9,6 +9,7 @@ using System.IO;
 using System.Reflection;
 using System.Windows.Forms;
 using System.Xml;
+using CodeTool.Common;
 using CodeTool.Common.Generator;
 using CodeTool.Common.Model;
 using CodeTool.Config;

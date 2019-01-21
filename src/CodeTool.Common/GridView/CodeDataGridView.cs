@@ -14,9 +14,9 @@ namespace CodeTool.Common.GridView
             DataGridViewCellStyle cellStyle = new DataGridViewCellStyle();
             DataGridViewCellStyle headerStyle = new DataGridViewCellStyle();
             //===
-            cellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            cellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft;
             cellStyle.BackColor = System.Drawing.Color.White;
-            cellStyle.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular,
+            cellStyle.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular,
                 System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             cellStyle.ForeColor = System.Drawing.Color.Black;
             cellStyle.SelectionBackColor = System.Drawing.Color.Yellow;
@@ -35,8 +35,8 @@ namespace CodeTool.Common.GridView
 
             dgv.DefaultCellStyle = cellStyle;
             dgv.ColumnHeadersHeight = 40;
-            dgv.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            dgv.MultiSelect = false;
+            dgv.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
+            dgv.MultiSelect = true;
             dgv.ReadOnly = true;
             dgv.RowHeadersVisible = false;
             dgv.SelectionMode = DataGridViewSelectionMode.FullRowSelect;

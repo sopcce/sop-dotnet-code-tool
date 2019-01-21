@@ -273,6 +273,7 @@
     <Compile Include="UserControls\SettingUserControl.Designer.cs">
       <DependentUpon>SettingUserControl.cs</DependentUpon>
     </Compile>
+    <None Include="Config\Templates\Razor\Demo.cshtml" />
     <None Include="packages.config" />
     <None Include="Resources\question.png" />
     <None Include="Resources\icon-awsquestion.png" />
@@ -467,6 +468,26 @@
     <Reference Include="System.configuration" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Linq">
+      <HintPath>..\..\..\ItemDoc\src\ItemDoc.Web\bin\System.Linq.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Linq.Expressions">
+      <HintPath>..\..\..\ItemDoc\src\ItemDoc.Web\bin\System.Linq.Expressions.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Linq.Parallel" />
+    <Reference Include="System.Linq.Queryable" />
+    <Reference Include="System.Web.Razor">
+      <HintPath>..\..\..\ItemDoc\src\ItemDoc.Web\bin\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages">
+      <HintPath>..\..\..\ItemDoc\src\ItemDoc.Web\bin\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment">
+      <HintPath>..\..\..\ItemDoc\src\ItemDoc.Web\bin\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor">
+      <HintPath>..\..\..\ItemDoc\src\ItemDoc.Web\bin\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
   </ItemGroup>

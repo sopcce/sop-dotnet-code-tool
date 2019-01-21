@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
+using CodeTool.Common;
 using CodeTool.Common.Generator;
 using CodeTool.Common.Model;
 using CodeTool.Config;
@@ -21,7 +22,7 @@ namespace CodeTool.Forms
 
         private void btnViewDebug_Click(object sender, EventArgs e)
         {
-            selectTemplateUserControl1.SaveSetting();
+
 
             this._table.Database.Selects = new List<Table>() { _table };
 
@@ -33,10 +34,14 @@ namespace CodeTool.Forms
             //template.Debug();
             if (ShowDebug != null) ShowDebug(template.DatabaseJson, template.SettingJson, true);
         }
-
+        /// <summary>
+        /// 生成代码
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnGenerate_Click(object sender, EventArgs e)
         {
-            selectTemplateUserControl1.SaveSetting();
+            //selectTemplateUserControl1.SaveSetting();
 
             this._table.Database.Selects = new List<Table>() { _table };
 

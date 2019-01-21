@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -7,7 +8,7 @@ using CodeTool.Common.Generator;
 
 namespace CodeTool.Config
 {
-    public  class SqlConfig
+    public class SqlConfig
     {
         public static string HomeUrl = "http://www.sopcce.com";
         public static string XmlUrl = "http://www.sopcce.com/downloads/codeTool.xml";
@@ -15,12 +16,43 @@ namespace CodeTool.Config
         public static string ChromeAppKey = @"\Software\Microsoft\Windows\CurrentVersion\App Paths\chrome.exe";
 
 
-        public SqlConfig()
+
+        public static string TemplateFolder = "templates";
+        private static volatile SqlConfig _instance = null;
+        private static readonly object Lock = new object();
+
+
+        /// <summary>
+        /// SqlConfig
+        /// </summary>
+        /// <returns></returns>
+        public static SqlConfig Instance()
         {
-            
+            if (_instance == null)
+            {
+                lock (Lock)
+                {
+                    if (_instance == null)
+                    {
+                        _instance = new SqlConfig();
+                    }
+                }
+            }
+            return _instance;
         }
 
 
+
+        public string GetPath()
+        {
+            string path = System.Windows.Forms.Application.StartupPath + @"\" + TemplateFolder;
+            if (Directory.Exists(path))
+            {
+                Directory.CreateDirectory(path);
+            }
+            return path;
+
+        }
 
 
 
@@ -56,8 +88,8 @@ namespace CodeTool.Config
 
 
         #endregion
-        
+
     }
-    
+
 
 }

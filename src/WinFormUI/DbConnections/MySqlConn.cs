@@ -2,6 +2,7 @@ using System;
 using System.Data;
 using System.Text.RegularExpressions;
 using System.Windows.Forms;
+using CodeTool.Common;
 using CodeTool.Common.DbConnections;
 using CodeTool.Common.DBUtility;
 using CodeTool.Common.Generator;

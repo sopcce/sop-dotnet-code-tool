@@ -32,7 +32,7 @@ namespace CodeTool.Forms.Open
                 this.sqlTextEditor.Text = this.sqlTextEditor.Text + "\n";
             }
         }
-       
+
 
         private DbHelper dbHelper = null;
 
@@ -91,15 +91,10 @@ namespace CodeTool.Forms.Open
 
 
                             dgView.DataSource = dataTable;
-                            dgView.CodeGrid();
-
-                          
-
-
-
-
-
-                            this.txtLineEffect.Text = string.Format(format, dataTable.Rows.Count);
+                            var count = string.IsNullOrWhiteSpace(dataTable?.Rows?.Count.ToString())
+                                ? 0
+                                : dataTable?.Rows.Count;
+                            this.txtLineEffect.Text = string.Format(format, count);
                             this.tabInfo.SelectedIndex = 0;
                         }
                         if (selectedText.StartsWith("delete", StringComparison.InvariantCultureIgnoreCase))

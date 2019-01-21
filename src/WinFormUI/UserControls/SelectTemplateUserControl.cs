@@ -4,14 +4,16 @@ using System.IO;
 using System.Windows.Forms;
 using CodeTool.Common;
 using CodeTool.Common.Generator;
+using CodeTool.Config;
 
 namespace CodeTool.UserControls
 {
     public partial class SelectTemplateUserControl : UserControl
     {
-        static string TemplateFolder = "templates";
+
 
         public event Action<string> ShowReadmeOfTemplate;
+        public string TemplateFolderPath => Application.StartupPath + @"\" + SqlConfig.TemplateFolder + @"\" + cobTemplates.Text;
 
         public SelectTemplateUserControl()
         {
@@ -25,7 +27,7 @@ namespace CodeTool.UserControls
 
             cobTemplates.Items.Clear();
 
-            string path = Application.StartupPath + @"\" + TemplateFolder;
+            var path = SqlConfig.Instance().GetPath();
             if (Directory.Exists(path))
             {
                 foreach (string dir in Directory.GetDirectories(path))
@@ -41,18 +43,8 @@ namespace CodeTool.UserControls
                 cobTemplates.SelectedIndex = 0;
         }
 
-        public string TemplateFolderName
-        {
-            get { return cobTemplates.Text; }
-        }
 
-        public string TemplateFolderPath
-        {
-            get
-            {
-                return Application.StartupPath + @"\" + TemplateFolder + @"\" + TemplateFolderName;
-            }
-        }
+
 
         public List<Setting> Settings
         {
@@ -84,18 +76,14 @@ namespace CodeTool.UserControls
             string readmeFile = TemplateFolderPath.TrimEnd('\\', ' ') + @"\readme.txt";
             if (File.Exists(readmeFile))
             {
-                readme = Helper.ReadFile(readmeFile);
-            }
-
+                readme = FileUtility.ReadTextFile(readmeFile, 0);
+            } 
             if (ShowReadmeOfTemplate != null)
             {
                 ShowReadmeOfTemplate(readme);
             }
         }
 
-        public void SaveSetting()
-        {
-            Setting.SaveSettings(TemplateFolderPath, Settings);
-        }
+
     }
 }

@@ -64,7 +64,7 @@ namespace CodeTool
                 }
             }
 
-            selectTemplateUserControl1.SaveSetting();
+            //selectTemplateUserControl1.SaveSetting();
             db.Selects = selectTableUserControl1.SelectedTables;
 
             //在Settings中额外地增加一项设定，值为当前选中的所有表

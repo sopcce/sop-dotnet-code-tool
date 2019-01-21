@@ -1,6 +1,7 @@
 using System.Windows.Forms;
 using System.IO;
 using System.Text;
+using CodeTool.Common;
 using CodeTool.Common.Generator;
 
 namespace CodeTool

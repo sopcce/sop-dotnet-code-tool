@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Text;
 
-namespace CodeTool.Common.Generator
+namespace CodeTool.Common
 {
     public class Helper
     {
@@ -86,16 +86,7 @@ namespace CodeTool.Common.Generator
 
 
 
-        /// <summary>
-        /// 从指定路径中读取文件
-        /// </summary>
-        public static string ReadFile(string path)
-        {
-            StreamReader sr = new StreamReader(path, Encoding.UTF8);
-            string str = sr.ReadToEnd();
-            sr.Close();
-            return str;
-        }
+       
 
         /// <summary>
         /// 拷贝文件

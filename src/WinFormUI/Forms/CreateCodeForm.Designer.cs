@@ -32,7 +32,7 @@ namespace CodeTool.Forms
         {
             this.tcCodes = new System.Windows.Forms.TabControl();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
-            this.selectTemplateUserControl1 = new SelectTemplateUserControl();
+            this.selectTemplateUserControl1 = new CodeTool.UserControls.SelectTemplateUserControl();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.btnSaveAll = new System.Windows.Forms.Button();
             this.btnSaveCurrentTab = new System.Windows.Forms.Button();
@@ -49,10 +49,11 @@ namespace CodeTool.Forms
             // 
             this.tcCodes.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tcCodes.Location = new System.Drawing.Point(0, 0);
+            this.tcCodes.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tcCodes.Multiline = true;
             this.tcCodes.Name = "tcCodes";
             this.tcCodes.SelectedIndex = 0;
-            this.tcCodes.Size = new System.Drawing.Size(279, 410);
+            this.tcCodes.Size = new System.Drawing.Size(1044, 945);
             this.tcCodes.TabIndex = 3;
             // 
             // splitContainer1
@@ -60,6 +61,7 @@ namespace CodeTool.Forms
             this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.splitContainer1.FixedPanel = System.Windows.Forms.FixedPanel.Panel2;
             this.splitContainer1.Location = new System.Drawing.Point(0, 0);
+            this.splitContainer1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.splitContainer1.Name = "splitContainer1";
             // 
             // splitContainer1.Panel1
@@ -71,16 +73,18 @@ namespace CodeTool.Forms
             this.splitContainer1.Panel2.Controls.Add(this.selectTemplateUserControl1);
             this.splitContainer1.Panel2.Controls.Add(this.tableLayoutPanel1);
             this.splitContainer1.Panel2MinSize = 300;
-            this.splitContainer1.Size = new System.Drawing.Size(583, 410);
-            this.splitContainer1.SplitterDistance = 279;
+            this.splitContainer1.Size = new System.Drawing.Size(1350, 945);
+            this.splitContainer1.SplitterDistance = 1044;
+            this.splitContainer1.SplitterWidth = 6;
             this.splitContainer1.TabIndex = 5;
             // 
             // selectTemplateUserControl1
             // 
             this.selectTemplateUserControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.selectTemplateUserControl1.Location = new System.Drawing.Point(0, 73);
+            this.selectTemplateUserControl1.Location = new System.Drawing.Point(0, 110);
+            this.selectTemplateUserControl1.Margin = new System.Windows.Forms.Padding(6, 8, 6, 8);
             this.selectTemplateUserControl1.Name = "selectTemplateUserControl1";
-            this.selectTemplateUserControl1.Size = new System.Drawing.Size(300, 337);
+            this.selectTemplateUserControl1.Size = new System.Drawing.Size(300, 835);
             this.selectTemplateUserControl1.TabIndex = 2;
             // 
             // tableLayoutPanel1
@@ -94,12 +98,13 @@ namespace CodeTool.Forms
             this.tableLayoutPanel1.Controls.Add(this.btnViewDebug, 0, 0);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
+            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 2;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(300, 73);
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(300, 110);
             this.tableLayoutPanel1.TabIndex = 1;
             // 
             // btnSaveAll
@@ -107,10 +112,11 @@ namespace CodeTool.Forms
             this.btnSaveAll.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnSaveAll.Enabled = false;
             this.btnSaveAll.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnSaveAll.Location = new System.Drawing.Point(153, 39);
+            this.btnSaveAll.Location = new System.Drawing.Point(154, 59);
+            this.btnSaveAll.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnSaveAll.Name = "btnSaveAll";
-            this.btnSaveAll.Padding = new System.Windows.Forms.Padding(5);
-            this.btnSaveAll.Size = new System.Drawing.Size(144, 31);
+            this.btnSaveAll.Padding = new System.Windows.Forms.Padding(8, 8, 8, 8);
+            this.btnSaveAll.Size = new System.Drawing.Size(142, 47);
             this.btnSaveAll.TabIndex = 38;
             this.btnSaveAll.Text = "保存所有代码";
             this.btnSaveAll.UseVisualStyleBackColor = true;
@@ -121,10 +127,11 @@ namespace CodeTool.Forms
             this.btnSaveCurrentTab.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnSaveCurrentTab.Enabled = false;
             this.btnSaveCurrentTab.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnSaveCurrentTab.Location = new System.Drawing.Point(3, 39);
+            this.btnSaveCurrentTab.Location = new System.Drawing.Point(4, 59);
+            this.btnSaveCurrentTab.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnSaveCurrentTab.Name = "btnSaveCurrentTab";
-            this.btnSaveCurrentTab.Padding = new System.Windows.Forms.Padding(5);
-            this.btnSaveCurrentTab.Size = new System.Drawing.Size(144, 31);
+            this.btnSaveCurrentTab.Padding = new System.Windows.Forms.Padding(8, 8, 8, 8);
+            this.btnSaveCurrentTab.Size = new System.Drawing.Size(142, 47);
             this.btnSaveCurrentTab.TabIndex = 38;
             this.btnSaveCurrentTab.Text = "保存当前页代码";
             this.btnSaveCurrentTab.UseVisualStyleBackColor = true;
@@ -133,10 +140,11 @@ namespace CodeTool.Forms
             // btnGenerate
             // 
             this.btnGenerate.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnGenerate.Location = new System.Drawing.Point(153, 3);
+            this.btnGenerate.Location = new System.Drawing.Point(154, 4);
+            this.btnGenerate.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnGenerate.Name = "btnGenerate";
-            this.btnGenerate.Padding = new System.Windows.Forms.Padding(5);
-            this.btnGenerate.Size = new System.Drawing.Size(144, 30);
+            this.btnGenerate.Padding = new System.Windows.Forms.Padding(8, 8, 8, 8);
+            this.btnGenerate.Size = new System.Drawing.Size(142, 45);
             this.btnGenerate.TabIndex = 5;
             this.btnGenerate.Text = "生成代码";
             this.btnGenerate.UseVisualStyleBackColor = true;
@@ -145,10 +153,11 @@ namespace CodeTool.Forms
             // btnViewDebug
             // 
             this.btnViewDebug.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnViewDebug.Location = new System.Drawing.Point(3, 3);
+            this.btnViewDebug.Location = new System.Drawing.Point(4, 4);
+            this.btnViewDebug.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnViewDebug.Name = "btnViewDebug";
-            this.btnViewDebug.Padding = new System.Windows.Forms.Padding(5);
-            this.btnViewDebug.Size = new System.Drawing.Size(144, 30);
+            this.btnViewDebug.Padding = new System.Windows.Forms.Padding(8, 8, 8, 8);
+            this.btnViewDebug.Size = new System.Drawing.Size(142, 45);
             this.btnViewDebug.TabIndex = 5;
             this.btnViewDebug.Text = "查看调拭信息";
             this.btnViewDebug.UseVisualStyleBackColor = true;
@@ -156,11 +165,12 @@ namespace CodeTool.Forms
             // 
             // CreateCodeForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(583, 410);
+            this.ClientSize = new System.Drawing.Size(1350, 945);
             this.Controls.Add(this.splitContainer1);
             this.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "CreateCodeForm";
             this.Text = "CreateCodeForm";
             this.splitContainer1.Panel1.ResumeLayout(false);

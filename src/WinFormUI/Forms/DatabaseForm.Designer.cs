@@ -33,7 +33,6 @@
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.btnAddDatabase = new System.Windows.Forms.ToolStripLabel();
             this.btnRemoveDatabase = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButton2 = new System.Windows.Forms.ToolStripButton();
             this.tvDatabase = new System.Windows.Forms.TreeView();
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.cmsTable = new System.Windows.Forms.ContextMenuStrip(this.components);
@@ -43,6 +42,7 @@
             this.menuDeleteClickToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.增肌记录ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuCreateCode = new System.Windows.Forms.ToolStripMenuItem();
+            this.menu_CreateDataInfo = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
             this.cmsDB = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.menuBrowseDB = new System.Windows.Forms.ToolStripMenuItem();
@@ -63,7 +63,6 @@
             this.menuUpdate1 = new System.Windows.Forms.ToolStripMenuItem();
             this.menuDelete1 = new System.Windows.Forms.ToolStripMenuItem();
             this.menuInsert1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.menu_CreateDataInfo = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStrip1.SuspendLayout();
             this.cmsTable.SuspendLayout();
             this.cmsDB.SuspendLayout();
@@ -75,8 +74,7 @@
             this.toolStrip1.ImageScalingSize = new System.Drawing.Size(24, 24);
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.btnAddDatabase,
-            this.btnRemoveDatabase,
-            this.toolStripButton2});
+            this.btnRemoveDatabase});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.Padding = new System.Windows.Forms.Padding(0, 0, 3, 0);
@@ -105,15 +103,6 @@
             this.btnRemoveDatabase.Size = new System.Drawing.Size(28, 28);
             this.btnRemoveDatabase.ToolTipText = "移除数据库";
             this.btnRemoveDatabase.Click += new System.EventHandler(this.btnRemoveDatabase_Click);
-            // 
-            // toolStripButton2
-            // 
-            this.toolStripButton2.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButton2.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton2.Image")));
-            this.toolStripButton2.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton2.Name = "toolStripButton2";
-            this.toolStripButton2.Size = new System.Drawing.Size(28, 28);
-            this.toolStripButton2.Text = "toolStripButton2";
             // 
             // tvDatabase
             // 
@@ -161,7 +150,7 @@
             this.menuCreateCode,
             this.menu_CreateDataInfo});
             this.cmsTable.Name = "contextMenuStrip1";
-            this.cmsTable.Size = new System.Drawing.Size(241, 121);
+            this.cmsTable.Size = new System.Drawing.Size(153, 88);
             // 
             // menuRunSql
             // 
@@ -171,7 +160,7 @@
             this.menuDeleteClickToolStripMenuItem,
             this.增肌记录ToolStripMenuItem});
             this.menuRunSql.Name = "menuRunSql";
-            this.menuRunSql.Size = new System.Drawing.Size(240, 28);
+            this.menuRunSql.Size = new System.Drawing.Size(152, 28);
             this.menuRunSql.Text = "执行SQL";
             this.menuRunSql.Click += new System.EventHandler(this.menuRunSql_Click);
             // 
@@ -199,16 +188,23 @@
             // 增肌记录ToolStripMenuItem
             // 
             this.增肌记录ToolStripMenuItem.Name = "增肌记录ToolStripMenuItem";
-            this.增肌记录ToolStripMenuItem.Size = new System.Drawing.Size(164, 30);
-            this.增肌记录ToolStripMenuItem.Text = "增肌记录";
+            this.增肌记录ToolStripMenuItem.Size = new System.Drawing.Size(252, 30);
+            this.增肌记录ToolStripMenuItem.Text = "增加记录";
             this.增肌记录ToolStripMenuItem.Click += new System.EventHandler(this.menuInsert_Click);
             // 
             // menuCreateCode
             // 
             this.menuCreateCode.Name = "menuCreateCode";
-            this.menuCreateCode.Size = new System.Drawing.Size(240, 28);
+            this.menuCreateCode.Size = new System.Drawing.Size(152, 28);
             this.menuCreateCode.Text = "生成代码";
             this.menuCreateCode.Click += new System.EventHandler(this.menuCreateCode_Click);
+            // 
+            // menu_CreateDataInfo
+            // 
+            this.menu_CreateDataInfo.Name = "menu_CreateDataInfo";
+            this.menu_CreateDataInfo.Size = new System.Drawing.Size(152, 28);
+            this.menu_CreateDataInfo.Text = "测试信息";
+            this.menu_CreateDataInfo.Click += new System.EventHandler(this.menu_CreateDataInfo_Click);
             // 
             // toolStripButton1
             // 
@@ -362,13 +358,6 @@
             this.menuInsert1.Text = "增加记录";
             this.menuInsert1.Click += new System.EventHandler(this.menuInsert_Click);
             // 
-            // menu_CreateDataInfo
-            // 
-            this.menu_CreateDataInfo.Name = "menu_CreateDataInfo";
-            this.menu_CreateDataInfo.Size = new System.Drawing.Size(240, 28);
-            this.menu_CreateDataInfo.Text = "测试信息";
-            this.menu_CreateDataInfo.Click += new System.EventHandler(this.menu_CreateDataInfo_Click);
-            // 
             // DatabaseForm
             // 
             this.AutoHidePortion = 0.2D;
@@ -427,7 +416,6 @@
         public System.Windows.Forms.ToolStripMenuItem 数据文件ToolStripMenuItem;
         public System.Windows.Forms.ToolStripMenuItem menuBrowseDB;
         public System.Windows.Forms.ToolStripMenuItem 数据结构文件ToolStripMenuItem;
-        private System.Windows.Forms.ToolStripButton toolStripButton2;
         public System.Windows.Forms.ToolStripLabel btnAddDatabase;
         private System.Windows.Forms.ToolStripMenuItem menu_CreateDataInfo;
     }

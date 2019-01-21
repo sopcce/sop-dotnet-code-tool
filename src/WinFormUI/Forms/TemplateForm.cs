@@ -3,6 +3,7 @@ using System.IO;
 using System.Windows.Forms;
 using System.Drawing;
 using System.Diagnostics;
+using CodeTool.Common;
 using CodeTool.Common.Generator;
 using CodeTool.Config;
 using CodeTool.Forms;
@@ -21,7 +22,9 @@ namespace CodeTool
 
             LoadRoot();
         }
-
+        /// <summary>
+        /// 加载模板根
+        /// </summary>
         private void LoadRoot()
         {
             rootNode = new TreeNode("所有模板");
@@ -39,21 +42,25 @@ namespace CodeTool
             LoadTempates();
             rootNode.Expand();
         }
-
+        /// <summary>
+        /// 
+        /// </summary>
         private void LoadTempates()
         {
             rootNode.Nodes.Clear();
             DirectoryInfo rootFolder = rootNode.Tag as DirectoryInfo;
-            foreach (DirectoryInfo dir in rootFolder.GetDirectories())
-            {
-                TreeNode node = new TreeNode(dir.Name);
-                node.Tag = dir;
-                node.ContextMenuStrip = cms;
-                node.ImageIndex = 1;
-                node.SelectedImageIndex = 1;
-                rootNode.Nodes.Add(node);
-                LoadFiles(node);
-            }
+            var directoryInfos = rootFolder?.GetDirectories();
+            if (directoryInfos != null)
+                foreach (DirectoryInfo dir in directoryInfos)
+                {
+                    TreeNode node = new TreeNode(dir.Name);
+                    node.Tag = dir;
+                    node.ContextMenuStrip = cms;
+                    node.ImageIndex = 1;
+                    node.SelectedImageIndex = 1;
+                    rootNode.Nodes.Add(node);
+                    LoadFiles(node);
+                }
         }
 
         private void LoadFiles(TreeNode templateNode)
@@ -65,16 +72,16 @@ namespace CodeTool
                 TreeNode node = new TreeNode(fi.Name);
                 node.Tag = fi;
                 node.ContextMenuStrip = cms;
-                if (fi.Extension.ToLower().Contains("js"))
-                {
-                    node.ImageIndex = 2;
-                    node.SelectedImageIndex = 2;
-                }
-                else
-                {
-                    node.ImageIndex = 3;
-                    node.SelectedImageIndex = 3;
-                }
+                //if (fi.Extension.ToLower().Contains("js"))
+                //{
+                //    node.ImageIndex = 2;
+                //    node.SelectedImageIndex = 2;
+                //}
+                //else
+                //{
+                //    node.ImageIndex = 3;
+                //    node.SelectedImageIndex = 3;
+                //}
                 templateNode.Nodes.Add(node);
             }
         }

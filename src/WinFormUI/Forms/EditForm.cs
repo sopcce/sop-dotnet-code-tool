@@ -29,7 +29,7 @@ namespace CodeTool
         {
             if (fi.Exists)
             {
-                string text = File.ReadAllText(fi.FullName, Encoding.UTF8);
+                string text = FileUtility.ReadTextFile(fi.FullName, 0);
                 txtCode.Text = text;
             }
             this.FileInfo = fi;

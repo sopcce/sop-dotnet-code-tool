@@ -146,22 +146,22 @@
     <Compile Include="Forms\AboutForm.Designer.cs">
       <DependentUpon>AboutForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\ConnectionForm.cs">
+    <Compile Include="Forms\DB\ConnectionForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\ConnectionForm.Designer.cs">
+    <Compile Include="Forms\DB\ConnectionForm.Designer.cs">
       <DependentUpon>ConnectionForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\CreateCodeForm.cs">
+    <Compile Include="Forms\Code\CreateCodeForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\CreateCodeForm.Designer.cs">
+    <Compile Include="Forms\Code\CreateCodeForm.Designer.cs">
       <DependentUpon>CreateCodeForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\CSharpToVBForm.cs">
+    <Compile Include="Forms\Tool\CSharpToVBForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\CSharpToVBForm.designer.cs">
+    <Compile Include="Forms\Tool\CSharpToVBForm.designer.cs">
       <DependentUpon>CSharpToVBForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\Open\DataInfoForm.cs">
@@ -182,10 +182,10 @@
     <Compile Include="Forms\ErrorForm.Designer.cs">
       <DependentUpon>ErrorForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\CodeToTemplateForm.cs">
+    <Compile Include="Forms\Code\CodeToTemplateForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\CodeToTemplateForm.Designer.cs">
+    <Compile Include="Forms\Code\CodeToTemplateForm.Designer.cs">
       <DependentUpon>CodeToTemplateForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\ITemplateChanged.cs" />
@@ -208,10 +208,10 @@
     <Compile Include="Forms\Open\OutputCodeForm.Designer.cs">
       <DependentUpon>OutputCodeForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\CodeClearForm.cs">
+    <Compile Include="Forms\Tool\CodeClearForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\CodeClearForm.Designer.cs">
+    <Compile Include="Forms\Tool\CodeClearForm.Designer.cs">
       <DependentUpon>CodeClearForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\Open\SqlSeleteViewForm.cs">
@@ -232,10 +232,10 @@
     <Compile Include="Forms\EditForm.Designer.cs">
       <DependentUpon>EditForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\DatabaseForm.cs">
+    <Compile Include="Forms\DB\DatabaseForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\DatabaseForm.Designer.cs">
+    <Compile Include="Forms\DB\DatabaseForm.Designer.cs">
       <DependentUpon>DatabaseForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\MainForm.cs">
@@ -273,7 +273,6 @@
     <Compile Include="UserControls\SettingUserControl.Designer.cs">
       <DependentUpon>SettingUserControl.cs</DependentUpon>
     </Compile>
-    <None Include="Config\Templates\Razor\Demo.cshtml" />
     <None Include="packages.config" />
     <None Include="Resources\question.png" />
     <None Include="Resources\icon-awsquestion.png" />
@@ -325,13 +324,13 @@
       <SubType>Designer</SubType>
       <DependentUpon>AboutForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\ConnectionForm.resx">
+    <EmbeddedResource Include="Forms\DB\ConnectionForm.resx">
       <DependentUpon>ConnectionForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\CreateCodeForm.resx">
+    <EmbeddedResource Include="Forms\Code\CreateCodeForm.resx">
       <DependentUpon>CreateCodeForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\CSharpToVBForm.resx">
+    <EmbeddedResource Include="Forms\Tool\CSharpToVBForm.resx">
       <DependentUpon>CSharpToVBForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Open\DataInfoForm.resx">
@@ -343,7 +342,7 @@
     <EmbeddedResource Include="Forms\ErrorForm.resx">
       <DependentUpon>ErrorForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\CodeToTemplateForm.resx">
+    <EmbeddedResource Include="Forms\Code\CodeToTemplateForm.resx">
       <SubType>Designer</SubType>
       <DependentUpon>CodeToTemplateForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -351,7 +350,7 @@
       <SubType>Designer</SubType>
       <DependentUpon>OutputCodeForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\CodeClearForm.resx">
+    <EmbeddedResource Include="Forms\Tool\CodeClearForm.resx">
       <DependentUpon>CodeClearForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Open\SqlSeleteViewForm.resx">
@@ -365,7 +364,7 @@
       <SubType>Designer</SubType>
       <DependentUpon>EditForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\DatabaseForm.resx">
+    <EmbeddedResource Include="Forms\DB\DatabaseForm.resx">
       <SubType>Designer</SubType>
       <DependentUpon>DatabaseForm.cs</DependentUpon>
     </EmbeddedResource>

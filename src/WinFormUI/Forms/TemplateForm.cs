@@ -269,6 +269,8 @@ namespace CodeTool
             {
                 case 2:
                     FileInfo fi = tvTemplates.SelectedNode.Tag as FileInfo;
+
+
                     MainForm.OpenFile(fi);
                     break;
                 default:

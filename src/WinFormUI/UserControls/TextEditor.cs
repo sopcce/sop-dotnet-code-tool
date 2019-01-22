@@ -152,12 +152,12 @@ namespace CodeTool
             // 
             // textAreaPanel
             // 
-            this.textAreaPanel.Size = new System.Drawing.Size(821, 818);
+            this.textAreaPanel.Size = new System.Drawing.Size(917, 857);
             // 
             // TextEditor
             // 
             this.Name = "TextEditor";
-            this.Size = new System.Drawing.Size(821, 818);
+            this.Size = new System.Drawing.Size(917, 857);
             this.ResumeLayout(false);
 
         }

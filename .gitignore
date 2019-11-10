@@ -21,3 +21,7 @@
 /src/CodeTool.Common/bin
 /src/DataViewExtenders/obj
 /src/DataViewExtenders/bin
+/Tool/.vs/Tool/v15/Server/sqlite3/*.lock
+/Tool/.vs/Tool/v15/Server/sqlite3/*.ide
+/Tool/.vs/Tool/v15/Server/sqlite3/*.ide-shm
+/Tool/.vs/Tool/v15/Server/sqlite3/*.ide-wal
